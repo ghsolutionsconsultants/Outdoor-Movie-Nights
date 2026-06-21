@@ -141,6 +141,9 @@
     panel.style.display = 'flex';
     panel.style.flexDirection = 'column';
     panel.classList.add('visible');
+
+    const emptyPanel = document.getElementById('empty-panel');
+    if (emptyPanel) emptyPanel.style.display = 'none';
   };
 
   // Nav buttons
