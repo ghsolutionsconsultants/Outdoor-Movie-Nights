@@ -14,17 +14,29 @@
   <style>
     /* Dashboard */
     .dash-full { grid-column: 1 / -1; }
-    .countdown-row { display:flex; justify-content:center; gap:clamp(20px,5vw,60px); align-items:center; flex-wrap:wrap; }
-    .countdown-unit { text-align:center; min-width:70px; }
-    .countdown-sep { font-family:var(--font-display); font-size:2.4rem; color:var(--c-muted); line-height:1; margin-bottom:24px; }
+    .countdown-row { display:flex; justify-content:center; gap:clamp(8px,3vw,40px); align-items:center; flex-wrap:nowrap; }
+    .countdown-unit { text-align:center; min-width:52px; }
+    .countdown-sep { font-family:var(--font-display); font-size:2.4rem; color:var(--c-muted); line-height:1; margin-bottom:24px; flex-shrink:0; }
 
     /* Stat cards row */
     .stat-row { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-bottom:40px; }
-    @media(max-width:700px){ .stat-row { grid-template-columns:repeat(2,1fr); } }
+    @media(max-width:700px){ .stat-row { grid-template-columns:repeat(2,1fr); gap:10px; } }
 
     /* Legend */
-    .status-legend { display:flex; gap:24px; flex-wrap:wrap; margin-bottom:32px; align-items:center; }
+    .status-legend { display:flex; flex-direction:column; gap:12px; margin-bottom:32px; }
+    .legend-item { display:flex; align-items:center; gap:10px; font-size:0.875rem; }
     .legend-dot { width:9px; height:9px; border-radius:50%; flex-shrink:0; }
+    @media(min-width:600px){
+      .status-legend { flex-direction:row; gap:24px; align-items:center; }
+    }
+
+    /* Mobile countdown font scale */
+    @media(max-width:480px){
+      .countdown-digit { font-size:clamp(1.6rem,8vw,2.5rem) !important; }
+      .countdown-label { font-size:0.55rem !important; }
+      .countdown-sep { font-size:1.6rem; margin-bottom:18px; }
+      .countdown-unit { min-width:40px; }
+    }
 
     /* View toggle */
     .view-toggle { display:flex; gap:8px; margin-bottom:28px; }
@@ -42,7 +54,10 @@
 
     /* List view */
     .event-list-card { display:grid; grid-template-columns:auto 1fr auto; gap:20px; align-items:center; padding:24px 28px; }
-    @media(max-width:600px){ .event-list-card { grid-template-columns:1fr; gap:12px; } }
+    @media(max-width:600px){
+      .event-list-card { grid-template-columns:1fr; gap:10px; padding:20px 18px; }
+      .event-list-card .btn { width:100%; justify-content:center; }
+    }
 
     /* Past screenings */
     .past-event-row { display:flex; align-items:center; justify-content:space-between; padding:14px 0; border-bottom:1px solid var(--glass-border); gap:16px; flex-wrap:wrap; }
@@ -150,13 +165,13 @@
 
     <!-- Legend -->
     <div class="status-legend reveal">
-      <div style="display:flex;align-items:center;gap:10px;font-size:0.875rem;color:var(--c-muted)">
+      <div class="legend-item" style="color:var(--c-muted)">
         <span class="legend-dot" style="background:var(--c-amber)"></span>
-        <strong style="color:var(--c-white)">In Planning</strong> — Dates locked, venue and details to be confirmed
+        <span><strong style="color:var(--c-white)">In Planning</strong> — Dates locked, details TBC</span>
       </div>
-      <div style="display:flex;align-items:center;gap:10px;font-size:0.875rem;color:var(--c-muted)">
+      <div class="legend-item" style="color:var(--c-muted)">
         <span class="legend-dot" style="background:var(--c-green)"></span>
-        <strong style="color:var(--c-white)">Confirmed</strong> — Full details available, tickets/registration open
+        <span><strong style="color:var(--c-white)">Confirmed</strong> — Full details &amp; tickets open</span>
       </div>
     </div>
 
