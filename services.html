@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Services — Outdoor Movie Nights</title>
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/components.css">
+  <style>
+    .service-big { display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:center; margin-bottom:100px; }
+    .service-big:nth-child(even) { direction:rtl; }
+    .service-big:nth-child(even) > * { direction:ltr; }
+    .service-img { border-radius:var(--r-xl); overflow:hidden; height:400px; position:relative; }
+    .service-img img { width:100%; height:100%; object-fit:cover; }
+    .service-img::after { content:''; position:absolute; inset:0; background:linear-gradient(135deg,rgba(232,0,28,0.2),transparent 60%); }
+    @media(max-width:768px){ .service-big, .service-big:nth-child(even) { grid-template-columns:1fr; direction:ltr; } }
+
+    .equip-selector { display:flex; gap:12px; margin-bottom:32px; flex-wrap:wrap; }
+    .equip-btn { padding:10px 22px; border-radius:var(--r-full); font-size:0.875rem; font-weight:500; border:1.5px solid var(--glass-border); color:var(--c-muted); cursor:pointer; transition:all 0.25s ease; background:none; }
+    .equip-btn.active { background:var(--c-red); border-color:var(--c-red); color:#fff; box-shadow:0 4px 20px var(--c-red-glow); }
+    .equip-panel { display:none; }
+    .equip-panel.active { display:grid; grid-template-columns:1fr 1fr; gap:32px; animation:page-enter 0.4s ease; }
+    @media(max-width:600px){ .equip-panel.active { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body class="grain">
+<canvas id="starfield-canvas"></canvas>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo"><img src="assets/logo/OMN Logo.png" alt="Outdoor Movie Nights"></a>
+    <div class="nav-links">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="screenings.html" class="nav-link">Screenings</a>
+      <a href="services.html" class="nav-link">Services</a>
+      <a href="portfolio.html" class="nav-link">Portfolio</a>
+      <a href="gallery.html" class="nav-link">Gallery</a>
+      <a href="about.html" class="nav-link">About</a>
+      <a href="vendors.html" class="nav-link">Partner With Us</a>
+      <a href="contact.html" class="nav-link nav-cta">Contact Us</a>
+    </div>
+    <button class="nav-toggle"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="nav-mobile">
+  <a href="index.html" class="nav-link">Home</a>
+  <a href="screenings.html" class="nav-link">Screenings</a>
+  <a href="services.html" class="nav-link">Services</a>
+  <a href="portfolio.html" class="nav-link">Portfolio</a>
+  <a href="gallery.html" class="nav-link">Gallery</a>
+  <a href="about.html" class="nav-link">About</a>
+  <a href="vendors.html" class="nav-link">Partner With Us</a>
+  <a href="contact.html" class="nav-link nav-cta">Contact Us</a>
+</div>
+
+<section class="page-hero">
+  <div class="aurora"><div class="aurora-orb"></div><div class="aurora-orb"></div></div>
+  <div class="container page-wrapper" style="text-align:center">
+    <div class="label" style="margin-bottom:16px">What We Offer</div>
+    <h1 class="display-lg text-gradient">Premium Outdoor<br>Entertainment Services</h1>
+    <p class="body-lg" style="max-width:560px;margin:20px auto 0;color:var(--c-muted)">From community cinema nights to 5,000-person sports fan parks — we bring the screen, the sound, and the experience.</p>
+  </div>
+</section>
+
+<!-- What OMN Provides -->
+<section class="section-sm" style="position:relative;z-index:2">
+  <div class="container">
+    <div class="glass reveal" style="border-radius:var(--r-xl);padding:48px;border:1px solid var(--glass-border)">
+      <div style="text-align:center;margin-bottom:36px">
+        <div class="label" style="margin-bottom:12px">Our Turnkey Offering</div>
+        <h2 class="display-sm">Everything We Bring to Your Event</h2>
+      </div>
+      <div class="grid-4">
+        <div style="text-align:center;padding:20px">
+          <div style="margin-bottom:16px;color:var(--c-amber)"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+          <div style="font-weight:600;margin-bottom:4px">Large LED Screens</div>
+          <div style="font-size:0.8rem;color:var(--c-muted)">Up to 300" · 5000+ nits</div>
+        </div>
+        <div style="text-align:center;padding:20px">
+          <div style="margin-bottom:16px;color:var(--c-amber)"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M8 4v16M16 4v16M2 9h4M2 15h4M18 9h4M18 15h4"/></svg></div>
+          <div style="font-weight:600;margin-bottom:4px">HD Projectors</div>
+          <div style="font-size:0.8rem;color:var(--c-muted)">4K · 31,000 lumens</div>
+        </div>
+        <div style="text-align:center;padding:20px">
+          <div style="margin-bottom:16px;color:var(--c-amber)"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5L6 9H2v6h4l5 4V5z"/><path d="M19.07 4.93a10 10 0 010 14.14M15.54 8.46a5 5 0 010 7.07"/></svg></div>
+          <div style="font-weight:600;margin-bottom:4px">Pro Sound Systems</div>
+          <div style="font-size:0.8rem;color:var(--c-muted)">Line arrays · Subwoofers</div>
+        </div>
+        <div style="text-align:center;padding:20px">
+          <div style="margin-bottom:16px;color:var(--c-amber)"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg></div>
+          <div style="font-weight:600;margin-bottom:4px">Full Technical Crew</div>
+          <div style="font-size:0.8rem;color:var(--c-muted)">Setup to breakdown</div>
+        </div>
+        <div style="text-align:center;padding:20px">
+          <div style="margin-bottom:16px;color:var(--c-amber)"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="6.5" r="2.5"/><circle cx="17.5" cy="10.5" r="2.5"/><circle cx="8.5" cy="7.5" r="2.5"/><circle cx="6.5" cy="12.5" r="2.5"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 011.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/></svg></div>
+          <div style="font-weight:600;margin-bottom:4px">Creative Direction</div>
+          <div style="font-size:0.8rem;color:var(--c-muted)">Concept to execution</div>
+        </div>
+        <div style="text-align:center;padding:20px">
+          <div style="margin-bottom:16px;color:var(--c-amber)"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></div>
+          <div style="font-weight:600;margin-bottom:4px">Digital Marketing</div>
+          <div style="font-size:0.8rem;color:var(--c-muted)">71K+ community reach</div>
+        </div>
+        <div style="text-align:center;padding:20px">
+          <div style="margin-bottom:16px;color:var(--c-amber)"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 00-3 3v8a3 3 0 006 0V4a3 3 0 00-3-3z"/><path d="M19 10v2a7 7 0 01-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg></div>
+          <div style="font-weight:600;margin-bottom:4px">Entertainment Curation</div>
+          <div style="font-size:0.8rem;color:var(--c-muted)">DJs · MCs · Hosts</div>
+        </div>
+        <div style="text-align:center;padding:20px">
+          <div style="margin-bottom:16px;color:var(--c-amber)"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+          <div style="font-weight:600;margin-bottom:4px">Event Setup</div>
+          <div style="font-size:0.8rem;color:var(--c-muted)">Seating · Lighting · Décor</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Services -->
+<section class="section" style="position:relative;z-index:2">
+  <div class="container">
+    <div class="service-big reveal">
+      <div>
+        <div class="label" style="margin-bottom:12px">Service 01</div>
+        <h2 class="display-md" style="margin-bottom:20px">Outdoor Cinema Nights</h2>
+        <p class="body-md" style="color:var(--c-muted);margin-bottom:20px">Our flagship offering — curated movie nights in parks, precincts, and outdoor venues. We create an immersive cinema atmosphere with colourful bean bags, ambient lighting, professional sound, and a massive screen that fills the night sky.</p>
+        <p class="body-md" style="color:var(--c-muted);margin-bottom:32px">Perfect for community nights, lifestyle events, and brand experiences. We handle everything from movie licensing to post-event cleanup.</p>
+        <ul style="display:flex;flex-direction:column;gap:10px;margin-bottom:32px">
+          <li style="display:flex;gap:10px;font-size:0.875rem;color:var(--c-muted)"><span style="color:var(--c-green)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> Movie selection and licensing</li>
+          <li style="display:flex;gap:10px;font-size:0.875rem;color:var(--c-muted)"><span style="color:var(--c-green)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> Up to 300" inflatable or LED screen</li>
+          <li style="display:flex;gap:10px;font-size:0.875rem;color:var(--c-muted)"><span style="color:var(--c-green)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> Surround sound system</li>
+          <li style="display:flex;gap:10px;font-size:0.875rem;color:var(--c-muted)"><span style="color:var(--c-green)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> Seating, lighting, and décor</li>
+          <li style="display:flex;gap:10px;font-size:0.875rem;color:var(--c-muted)"><span style="color:var(--c-green)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> Marketing and community promotion</li>
+        </ul>
+        <a href="contact.html" class="btn btn-primary">Book a Cinema Night</a>
+      </div>
+      <div class="service-img reveal reveal-delay-2">
+        <img src="assets/events/WhatsApp Image 2026-05-21 at 19.35.00.jpeg" alt="Outdoor Cinema Night">
+      </div>
+    </div>
+
+    <div class="service-big reveal">
+      <div>
+        <div class="label" style="margin-bottom:12px">Service 02</div>
+        <h2 class="display-md" style="margin-bottom:20px">Sports Fan Parks</h2>
+        <p class="body-md" style="color:var(--c-muted);margin-bottom:20px">Transform any outdoor space into a roaring stadium fan park. We've delivered fan parks for Premier League, UEFA Champions League, and major tournament matches — with crowds of up to 1,400 people sharing every moment.</p>
+        <p class="body-md" style="color:var(--c-muted);margin-bottom:32px">Our 300" LED displays and stadium-quality PA systems deliver broadcast-quality match coverage that rivals being at the ground itself.</p>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:32px">
+          <span class="badge badge-planning" style="background:rgba(255,255,255,0.05);border-color:rgba(255,255,255,0.15);color:var(--c-white);display:inline-flex;align-items:center;gap:6px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 000 20M12 2a14.5 14.5 0 010 20M2 12h20"/></svg> Premier League</span>
+          <span class="badge badge-planning" style="background:rgba(255,255,255,0.05);border-color:rgba(255,255,255,0.15);color:var(--c-white);display:inline-flex;align-items:center;gap:6px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="8 17 4 17 4 6 20 6 20 17 16 17"/><path d="M2 6h20M12 17v4M8 21h8"/></svg> Champions League</span>
+          <span class="badge badge-planning" style="background:rgba(255,255,255,0.05);border-color:rgba(255,255,255,0.15);color:var(--c-white);display:inline-flex;align-items:center;gap:6px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg> FIFA World Cup</span>
+          <span class="badge badge-planning" style="background:rgba(255,255,255,0.05);border-color:rgba(255,255,255,0.15);color:var(--c-white);display:inline-flex;align-items:center;gap:6px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="12" rx="10" ry="6" transform="rotate(-45 12 12)"/><line x1="5.5" y1="5.5" x2="18.5" y2="18.5"/><line x1="9" y1="12" x2="12" y2="9"/><line x1="12" y1="15" x2="15" y2="12"/></svg> Rugby</span>
+        </div>
+        <a href="vendors.html" class="btn btn-primary">Host a Fan Park</a>
+      </div>
+      <div class="reveal reveal-delay-2" style="display:grid;grid-template-rows:1fr 1fr;gap:16px;height:400px">
+        <div style="border-radius:var(--r-lg);overflow:hidden;height:100%"><img src="assets/gallery/pexels-myatezhny39-2927526.jpg" alt="Sports Fan Park crowd" style="width:100%;height:100%;object-fit:cover"></div>
+        <div style="border-radius:var(--r-lg);overflow:hidden;height:100%"><img src="assets/gallery/pexels-semsibelli-26832707.jpg" alt="Sports Fan Park atmosphere" style="width:100%;height:100%;object-fit:cover"></div>
+      </div>
+    </div>
+
+    <div class="service-big reveal">
+      <div>
+        <div class="label" style="margin-bottom:12px">Service 03</div>
+        <h2 class="display-md" style="margin-bottom:20px">Corporate & Brand Activations</h2>
+        <p class="body-md" style="color:var(--c-muted);margin-bottom:20px">Take your brand into the cultural conversation. Private screenings, product launches, and brand experiences that put your name in lights — literally. We create immersive environments that embed your brand into an unforgettable moment.</p>
+        <ul style="display:flex;flex-direction:column;gap:10px;margin-bottom:32px">
+          <li style="display:flex;gap:10px;font-size:0.875rem;color:var(--c-muted)"><span style="color:var(--c-green)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> Branded event concepts and creative</li>
+          <li style="display:flex;gap:10px;font-size:0.875rem;color:var(--c-muted)"><span style="color:var(--c-green)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> Private or public activations</li>
+          <li style="display:flex;gap:10px;font-size:0.875rem;color:var(--c-muted)"><span style="color:var(--c-green)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> Influencer & content creator integration</li>
+          <li style="display:flex;gap:10px;font-size:0.875rem;color:var(--c-muted)"><span style="color:var(--c-green)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> Social media amplification (71K+ reach)</li>
+          <li style="display:flex;gap:10px;font-size:0.875rem;color:var(--c-muted)"><span style="color:var(--c-green)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> Sponsorship & naming rights available</li>
+        </ul>
+        <a href="contact.html" class="btn btn-primary">Discuss Your Event</a>
+      </div>
+      <div class="service-img reveal reveal-delay-2">
+        <img src="assets/gallery/pexels-quark-studio-1159039-2507025.jpg" alt="Corporate Event" onerror="this.src='assets/gallery/pexels-son-tung-tran-17375059-6521573.jpg'">
+      </div>
+    </div>
+
+    <div class="service-big reveal">
+      <div>
+        <div class="label" style="margin-bottom:12px">Service 04</div>
+        <h2 class="display-md" style="margin-bottom:20px">Festival & Event Partnerships</h2>
+        <p class="body-md" style="color:var(--c-muted);margin-bottom:20px">Amplify your festival with our premium large-screen experience. We've partnered with Back to the City Festival, Black Birth, and others to add immersive cinema zones that give attendees another world to step into.</p>
+        <p class="body-md" style="color:var(--c-muted);margin-bottom:32px">Our partnership-first approach means we work within your festival's vision to create seamless, additive experiences — not just a screen in a field.</p>
+        <a href="vendors.html" class="btn btn-primary">Explore Partnership Models</a>
+      </div>
+      <div class="service-img reveal reveal-delay-2">
+        <img src="assets/gallery/pexels-sonya-livshits-113472440-9828248.jpg" alt="Festival">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Equipment Selector -->
+<section class="section" style="position:relative;z-index:2;background:linear-gradient(180deg,transparent,rgba(10,15,30,0.5),transparent)">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="label">Our Equipment</div>
+      <h2 class="display-md">Choose Your Screen</h2>
+      <div class="divider"></div>
+      <p>Three professional options to match your venue size, audience, and budget.</p>
+    </div>
+
+    <div class="equip-selector reveal">
+      <button class="equip-btn active" onclick="selectEquip('led', this)" style="display:inline-flex;align-items:center;gap:8px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="9" y1="18" x2="15" y2="18"/><line x1="10" y1="22" x2="14" y2="22"/><path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0018 8 6 6 0 006 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 018.91 14"/></svg> LED Display (300")</button>
+      <button class="equip-btn" onclick="selectEquip('large', this)" style="display:inline-flex;align-items:center;gap:8px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="15" rx="2"/><polyline points="17 2 12 7 7 2"/></svg> Large Inflatable (40ft)</button>
+      <button class="equip-btn" onclick="selectEquip('small', this)" style="display:inline-flex;align-items:center;gap:8px"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg> Small Inflatable (20ft)</button>
+    </div>
+
+    <!-- LED -->
+    <div class="equip-panel active" id="equip-led">
+      <div class="glass-card" style="padding:40px">
+        <div class="screen-badge">LED Display · P3.9 / P4.8</div>
+        <h3 class="display-sm" style="margin-bottom:8px">Flagship LED Screen</h3>
+        <p style="font-size:0.875rem;color:var(--c-muted);margin-bottom:24px">The centrepiece of any fan park — stadium-quality daylight-visible display for 5,000+ viewers.</p>
+        <div style="display:flex;flex-direction:column;gap:0">
+          <div class="spec-row"><span class="spec-key">Screen Type</span><span class="spec-val">Outdoor LED Panel (P3.9/P4.8)</span></div>
+          <div class="spec-row"><span class="spec-key">Display Size</span><span class="spec-val">Up to 300" (6m × 3.5m)</span></div>
+          <div class="spec-row"><span class="spec-key">Resolution</span><span class="spec-val">Full HD 1920×1080</span></div>
+          <div class="spec-row"><span class="spec-key">Brightness</span><span class="spec-val">5,000+ nits (daylight visible)</span></div>
+          <div class="spec-row"><span class="spec-key">Audience Capacity</span><span class="spec-val">1,500 – 5,000+ viewers</span></div>
+          <div class="spec-row"><span class="spec-key">Viewing Distance</span><span class="spec-val">5m – 150m+</span></div>
+          <div class="spec-row"><span class="spec-key">Power</span><span class="spec-val">3-phase 380V / 60A</span></div>
+          <div class="spec-row"><span class="spec-key">Setup Time</span><span class="spec-val">4–6 hours (professional crew)</span></div>
+          <div class="spec-row"><span class="spec-key">Weather Rating</span><span class="spec-val">IP65 (rain & dust resistant)</span></div>
+          <div class="spec-row"><span class="spec-key">Connectivity</span><span class="spec-val">HDMI 2.0, SDI, fibre, wireless</span></div>
+        </div>
+      </div>
+      <div class="glass-card" style="padding:40px;background:linear-gradient(135deg,rgba(232,0,28,0.06),transparent)">
+        <div style="margin-bottom:20px;text-align:center;color:var(--c-amber)"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="10" rx="10" ry="4"/><path d="M2 10v4c0 2.21 4.48 4 10 4s10-1.79 10-4v-4"/><path d="M2 14v4c0 2.21 4.48 4 10 4s10-1.79 10-4v-4"/></svg></div>
+        <h4 style="font-family:var(--font-display);margin-bottom:16px">Ideal For</h4>
+        <ul style="display:flex;flex-direction:column;gap:10px;margin-bottom:28px">
+          <li style="display:flex;gap:8px;font-size:0.875rem;color:var(--c-muted)"><span style="color:var(--c-amber)">→</span> Premier League Super Sundays</li>
+          <li style="display:flex;gap:8px;font-size:0.875rem;color:var(--c-muted)"><span style="color:var(--c-amber)">→</span> Champions League Finals</li>
+          <li style="display:flex;gap:8px;font-size:0.875rem;color:var(--c-muted)"><span style="color:var(--c-amber)">→</span> FIFA World Cup Knockouts & Finals</li>
+          <li style="display:flex;gap:8px;font-size:0.875rem;color:var(--c-muted)"><span style="color:var(--c-amber)">→</span> Large corporate & festival activations</li>
+        </ul>
+        <div class="glass" style="padding:16px 20px;border-radius:var(--r-md);margin-bottom:24px;font-size:0.8rem;color:var(--c-muted)">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="9" y1="18" x2="15" y2="18"/><line x1="10" y1="22" x2="14" y2="22"/><path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0018 8 6 6 0 006 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 018.91 14"/></svg> <strong style="color:var(--c-white)">Turnkey:</strong> We supply, install, operate, and strike. You provide the venue, power, and audience.
+        </div>
+        <a href="contact.html" class="btn btn-primary" style="width:100%;justify-content:center">Get a Quote for LED</a>
+      </div>
+    </div>
+
+    <!-- Large Inflatable -->
+    <div class="equip-panel" id="equip-large">
+      <div class="glass-card" style="padding:40px">
+        <div class="screen-badge">Large Inflatable · 40ft / 12m</div>
+        <h3 class="display-sm" style="margin-bottom:8px">Flagship Inflatable Screen</h3>
+        <p style="font-size:0.875rem;color:var(--c-muted);margin-bottom:24px">Cinema-scale outdoor projection — 4K quality, rapid deploy, stunning at 12 metres wide.</p>
+        <div>
+          <div class="spec-row"><span class="spec-key">Screen Size</span><span class="spec-val">40ft / 12m wide (16:9)</span></div>
+          <div class="spec-row"><span class="spec-key">Viewable Area</span><span class="spec-val">10.5m × 5.9m (62 sqm)</span></div>
+          <div class="spec-row"><span class="spec-key">Projector</span><span class="spec-val">Panasonic PT-RZ21K / Barco UDX-4K32</span></div>
+          <div class="spec-row"><span class="spec-key">Brightness</span><span class="spec-val">20,000–31,000 lumens</span></div>
+          <div class="spec-row"><span class="spec-key">Resolution</span><span class="spec-val">WUXGA 1920×1200 / 4K</span></div>
+          <div class="spec-row"><span class="spec-key">Audience Capacity</span><span class="spec-val">1,500–3,000+ viewers</span></div>
+          <div class="spec-row"><span class="spec-key">Audio System</span><span class="spec-val">2×2000W line array + 2×18" subs</span></div>
+          <div class="spec-row"><span class="spec-key">Setup Time</span><span class="spec-val">2–3 hours (inflate, rig, calibrate)</span></div>
+          <div class="spec-row"><span class="spec-key">Wind Rating</span><span class="spec-val">Stable to 35 km/h (guyed)</span></div>
+          <div class="spec-row"><span class="spec-key">Power</span><span class="spec-val">220V / 32A (single-phase)</span></div>
+        </div>
+      </div>
+      <div class="glass-card" style="padding:40px;background:linear-gradient(135deg,rgba(245,166,35,0.06),transparent)">
+        <div style="margin:0 auto 20px;text-align:center;color:var(--c-amber)"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 21L12 3l8.5 18H3.5z"/><path d="M12 3v18M7 21l5-8 5 8"/></svg></div>
+        <h4 style="font-family:var(--font-display);margin-bottom:16px">Ideal For</h4>
+        <ul style="display:flex;flex-direction:column;gap:10px;margin-bottom:28px">
+          <li style="display:flex;gap:8px;font-size:0.875rem;color:var(--c-muted)"><span style="color:var(--c-amber)">→</span> Champions League & FIFA Finals</li>
+          <li style="display:flex;gap:8px;font-size:0.875rem;color:var(--c-muted)"><span style="color:var(--c-amber)">→</span> Open-air community screenings</li>
+          <li style="display:flex;gap:8px;font-size:0.875rem;color:var(--c-muted)"><span style="color:var(--c-amber)">→</span> Outdoor festivals and concerts</li>
+          <li style="display:flex;gap:8px;font-size:0.875rem;color:var(--c-muted)"><span style="color:var(--c-amber)">→</span> Parks, fields, and open precincts</li>
+        </ul>
+        <div class="glass" style="padding:16px 20px;border-radius:var(--r-md);margin-bottom:24px;font-size:0.8rem;color:var(--c-muted)">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="9" y1="18" x2="15" y2="18"/><line x1="10" y1="22" x2="14" y2="22"/><path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0018 8 6 6 0 006 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 018.91 14"/></svg> Inflates in 15 minutes. Rear-projection option eliminates sightline obstructions.
+        </div>
+        <a href="contact.html" class="btn btn-primary" style="width:100%;justify-content:center">Get a Quote for Large</a>
+      </div>
+    </div>
+
+    <!-- Small Inflatable -->
+    <div class="equip-panel" id="equip-small">
+      <div class="glass-card" style="padding:40px">
+        <div class="screen-badge">Small Inflatable · 20ft / 6m</div>
+        <h3 class="display-sm" style="margin-bottom:8px">Compact Rapid-Deploy Screen</h3>
+        <p style="font-size:0.875rem;color:var(--c-muted);margin-bottom:24px">Under an hour setup, standard power outlet, perfect for intimate or secondary zones.</p>
+        <div>
+          <div class="spec-row"><span class="spec-key">Screen Size</span><span class="spec-val">20ft / 6m wide (16:9)</span></div>
+          <div class="spec-row"><span class="spec-key">Viewable Area</span><span class="spec-val">5.2m × 2.9m (15 sqm)</span></div>
+          <div class="spec-row"><span class="spec-key">Projector</span><span class="spec-val">Epson EB-PU2220B / Optoma ZU920</span></div>
+          <div class="spec-row"><span class="spec-key">Brightness</span><span class="spec-val">7,000–10,000 lumens (laser)</span></div>
+          <div class="spec-row"><span class="spec-key">Resolution</span><span class="spec-val">WUXGA 1920×1200</span></div>
+          <div class="spec-row"><span class="spec-key">Audience Capacity</span><span class="spec-val">300–600 viewers</span></div>
+          <div class="spec-row"><span class="spec-key">Audio System</span><span class="spec-val">2×1000W speakers + 15" sub</span></div>
+          <div class="spec-row"><span class="spec-key">Setup Time</span><span class="spec-val">45 min – 1.5 hrs (2-person crew)</span></div>
+          <div class="spec-row"><span class="spec-key">Wind Rating</span><span class="spec-val">Stable to 25 km/h</span></div>
+          <div class="spec-row"><span class="spec-key">Power</span><span class="spec-val">220V / 15A (standard outlet)</span></div>
+        </div>
+      </div>
+      <div class="glass-card" style="padding:40px;background:linear-gradient(135deg,rgba(34,197,94,0.06),transparent)">
+        <div style="margin:0 auto 20px;text-align:center;color:var(--c-amber)"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
+        <h4 style="font-family:var(--font-display);margin-bottom:16px">Ideal For</h4>
+        <ul style="display:flex;flex-direction:column;gap:10px;margin-bottom:28px">
+          <li style="display:flex;gap:8px;font-size:0.875rem;color:var(--c-muted)"><span style="color:var(--c-amber)">→</span> VIP Viewing Lounges</li>
+          <li style="display:flex;gap:8px;font-size:0.875rem;color:var(--c-muted)"><span style="color:var(--c-amber)">→</span> Kids Zones & family areas</li>
+          <li style="display:flex;gap:8px;font-size:0.875rem;color:var(--c-muted)"><span style="color:var(--c-amber)">→</span> Secondary / overflow screens</li>
+          <li style="display:flex;gap:8px;font-size:0.875rem;color:var(--c-muted)"><span style="color:var(--c-amber)">→</span> Corporate hospitality areas</li>
+          <li style="display:flex;gap:8px;font-size:0.875rem;color:var(--c-muted)"><span style="color:var(--c-amber)">→</span> Any space with standard power</li>
+        </ul>
+        <div class="glass" style="padding:16px 20px;border-radius:var(--r-md);margin-bottom:24px;font-size:0.8rem;color:var(--c-muted)">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="9" y1="18" x2="15" y2="18"/><line x1="10" y1="22" x2="14" y2="22"/><path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0018 8 6 6 0 006 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 018.91 14"/></svg> No special power needed. 2-person crew. Deploy anywhere in a precinct instantly.
+        </div>
+        <a href="contact.html" class="btn btn-primary" style="width:100%;justify-content:center">Get a Quote for Small</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section-sm" style="position:relative;z-index:2">
+  <div class="container">
+    <div class="glass-card glass-irid reveal" style="padding:clamp(40px,7vw,80px);text-align:center">
+      <h2 class="display-md" style="margin-bottom:16px">Ready to Bring the Screen?</h2>
+      <p style="color:var(--c-muted);max-width:480px;margin:0 auto 36px">Tell us about your event, venue, and vision — we'll recommend the right setup and build a proposal for you.</p>
+      <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap">
+        <a href="contact.html" class="btn btn-primary">Get a Free Quote</a>
+        <a href="vendors.html" class="btn btn-glass">View Partnership Models</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="assets/logo/OMN Logo.png" alt="Outdoor Movie Nights" >
+        <p style="margin-top:16px">South Africa's premier outdoor cinema experience.</p>
+      </div>
+      <div class="footer-col"><h4>Navigate</h4><ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="screenings.html">Screenings</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Work With Us</h4><ul>
+        <li><a href="vendors.html">Partner Your Venue</a></li>
+        <li><a href="contact.html">Book an Event</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Contact</h4><ul>
+        <li><a href="https://wa.me/27680198329"><span class="icon icon-sm" style="vertical-align:middle;margin-right:6px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></span>WhatsApp</a></li>
+        <li><a href="mailto:info@outdoormovienights.co.za"><span class="icon icon-sm" style="vertical-align:middle;margin-right:6px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></span>Email</a></li>
+      </ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Outdoor Movie Nights.</span>
+      <span>Johannesburg, South Africa</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/starfield.js"></script>
+<script src="js/nav.js"></script>
+<script src="js/scroll.js"></script>
+<script>
+function selectEquip(type, btn) {
+  document.querySelectorAll('.equip-btn').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.equip-panel').forEach(p => p.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('equip-' + type).classList.add('active');
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About — Outdoor Movie Nights</title>
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/components.css">
+  <style>
+    .founder-layout { display:grid; grid-template-columns:340px 1fr; gap:60px; align-items:start; }
+    @media(max-width:900px){ .founder-layout { grid-template-columns:1fr; } }
+    .founder-photo-wrap { position:sticky; top:100px; }
+    .founder-photo { width:100%; aspect-ratio:3/4; object-fit:cover; object-position:top; border-radius:var(--r-xl); border:1px solid var(--glass-border); }
+    .founder-quote { position:relative; padding:28px 32px; margin:32px 0; }
+    .founder-quote::before { content:'"'; font-family:var(--font-display); font-size:6rem; line-height:0.6; color:var(--c-amber); opacity:0.4; position:absolute; top:24px; left:20px; }
+    .founder-quote blockquote { font-family:var(--font-display); font-size:1.15rem; line-height:1.7; color:var(--c-white); padding-left:32px; font-style:italic; margin:0; }
+    .expertise-pill { display:inline-flex; align-items:center; gap:8px; padding:8px 16px; background:rgba(255,255,255,0.04); border:1px solid var(--glass-border); border-radius:var(--r-full); font-size:0.8rem; color:var(--c-muted); margin:4px; }
+    .expertise-pill svg { width:14px; height:14px; stroke:var(--c-amber); fill:none; stroke-width:1.5; stroke-linecap:round; stroke-linejoin:round; }
+  </style>
+</head>
+<body class="grain">
+<canvas id="starfield-canvas"></canvas>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo"><img src="assets/logo/OMN Logo.png" alt="Outdoor Movie Nights"></a>
+    <div class="nav-links">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="screenings.html" class="nav-link">Screenings</a>
+      <a href="services.html" class="nav-link">Services</a>
+      <a href="portfolio.html" class="nav-link">Portfolio</a>
+      <a href="gallery.html" class="nav-link">Gallery</a>
+      <a href="about.html" class="nav-link">About</a>
+      <a href="vendors.html" class="nav-link">Partner With Us</a>
+      <a href="contact.html" class="nav-link nav-cta">Contact Us</a>
+    </div>
+    <button class="nav-toggle"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="nav-mobile">
+  <a href="index.html" class="nav-link">Home</a>
+  <a href="screenings.html" class="nav-link">Screenings</a>
+  <a href="services.html" class="nav-link">Services</a>
+  <a href="portfolio.html" class="nav-link">Portfolio</a>
+  <a href="gallery.html" class="nav-link">Gallery</a>
+  <a href="about.html" class="nav-link">About</a>
+  <a href="vendors.html" class="nav-link">Partner With Us</a>
+  <a href="contact.html" class="nav-link nav-cta">Contact Us</a>
+</div>
+
+<!-- Hero -->
+<section class="page-hero" style="padding-bottom:120px">
+  <div class="aurora"><div class="aurora-orb"></div><div class="aurora-orb"></div><div class="aurora-orb"></div></div>
+  <div class="container page-wrapper" style="max-width:800px;margin:0 auto;text-align:center">
+    <div class="label" style="margin-bottom:16px">Our Story</div>
+    <h1 class="display-lg text-gradient" style="margin-bottom:28px">Born Under Open Skies</h1>
+    <p class="body-lg" style="color:var(--c-muted);max-width:620px;margin:0 auto">
+      Outdoor Movie Nights began with a simple but powerful idea — that cinema is best experienced together, under the open sky, with your community around you. What started as a local dream has grown into Johannesburg's most exciting outdoor entertainment brand.
+    </p>
+  </div>
+</section>
+
+<!-- Mission -->
+<section class="section" style="position:relative;z-index:2">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center">
+      <div class="reveal">
+        <div class="label" style="margin-bottom:16px">What We Stand For</div>
+        <h2 class="display-md" style="margin-bottom:24px">Transforming Spaces Into Experiences</h2>
+        <p class="body-md" style="color:var(--c-muted);margin-bottom:20px">We believe entertainment is more powerful when it's communal. A movie becomes a memory when you share it with 500 strangers who become a crowd, then a community.</p>
+        <p class="body-md" style="color:var(--c-muted);margin-bottom:32px">Every event we run is designed with one goal in mind: make people feel something. Whether it's the roar of 1,400 fans watching a goal, or the quiet wonder of a night sky cinema, we create moments people talk about for years.</p>
+        <div style="display:flex;gap:16px;flex-wrap:wrap">
+          <a href="screenings.html" class="btn btn-primary">See Our Screenings</a>
+          <a href="contact.html" class="btn btn-glass">Get in Touch</a>
+        </div>
+      </div>
+      <div class="reveal reveal-delay-2">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+          <div class="glass-card" style="padding:28px;text-align:center">
+            <div style="font-family:var(--font-display);font-size:2.2rem;font-weight:700;color:var(--c-white);margin-bottom:8px" data-target="50" data-suffix="+">50+</div>
+            <div class="label" style="color:var(--c-muted)">Events</div>
+          </div>
+          <div class="glass-card" style="padding:28px;text-align:center">
+            <div style="font-family:var(--font-display);font-size:2.2rem;font-weight:700;color:var(--c-amber);margin-bottom:8px" data-target="10000" data-suffix="+">10K+</div>
+            <div class="label" style="color:var(--c-muted)">Audience</div>
+          </div>
+          <div class="glass-card" style="padding:28px;text-align:center">
+            <div style="font-family:var(--font-display);font-size:2.2rem;font-weight:700;color:var(--c-red);margin-bottom:8px">300"</div>
+            <div class="label" style="color:var(--c-muted)">Max Screen</div>
+          </div>
+          <div class="glass-card" style="padding:28px;text-align:center">
+            <div style="font-family:var(--font-display);font-size:2.2rem;font-weight:700;color:var(--c-green);margin-bottom:8px" data-target="1400" data-suffix="">1,400</div>
+            <div class="label" style="color:var(--c-muted)">Peak Crowd</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Founder -->
+<section class="section" style="position:relative;z-index:2;background:linear-gradient(180deg,transparent,rgba(10,15,30,0.5),transparent)">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="label">The Visionary Behind the Screen</div>
+      <h2 class="display-md">Meet the Founder</h2>
+      <div class="divider"></div>
+    </div>
+
+    <div class="founder-layout reveal">
+      <!-- Photo column -->
+      <div class="founder-photo-wrap">
+        <img src="assets/founder/founder.jpeg" alt="Keoagile Mokate — Founder, Outdoor Movie Nights" class="founder-photo">
+        <div class="glass" style="margin-top:20px;padding:20px 24px;border-radius:var(--r-xl);border:1px solid var(--glass-border)">
+          <div class="label" style="margin-bottom:6px;color:var(--c-amber)">Founder & Technical Lead</div>
+          <div style="font-family:var(--font-display);font-size:1.15rem;font-weight:600;margin-bottom:4px">Keoagile Mokate</div>
+          <div style="font-size:0.8rem;color:var(--c-muted)">@outdoormovienights</div>
+        </div>
+        <div style="margin-top:16px;display:flex;flex-wrap:wrap">
+          <span class="expertise-pill">
+            <svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M8 4v16M16 4v16M2 9h4M2 15h4M18 9h4M18 15h4"/></svg>
+            AV Expert
+          </span>
+          <span class="expertise-pill">
+            <svg viewBox="0 0 24 24"><path d="M11 5L6 9H2v6h4l5 4V5z"/><path d="M19.07 4.93a10 10 0 010 14.14M15.54 8.46a5 5 0 010 7.07"/></svg>
+            Sound Engineering
+          </span>
+          <span class="expertise-pill">
+            <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+            LED Installation
+          </span>
+          <span class="expertise-pill">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+            Live Production
+          </span>
+          <span class="expertise-pill">
+            <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+            Event Management
+          </span>
+          <span class="expertise-pill">
+            <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            Site Operations
+          </span>
+        </div>
+      </div>
+
+      <!-- Bio column -->
+      <div style="padding-top:8px">
+        <p class="body-lg" style="color:var(--c-white);margin-bottom:24px;line-height:1.8">
+          Keoagile Mokate is the founder and technical operations lead of Outdoor Movie Nights — a man who built Johannesburg's most exciting outdoor entertainment brand from the ground up, one screen at a time.
+        </p>
+
+        <p class="body-md" style="color:var(--c-muted);margin-bottom:24px;line-height:1.8">
+          Growing up with a deep love for cinema and community, Keoagile saw a gap in Johannesburg's entertainment landscape — large-scale outdoor cinematic experiences that brought people together rather than separating them behind expensive tickets and exclusive venues. In 2023, he turned that vision into reality with the first Outdoor Movie Night, drawing 300 people to a shared screen under the open sky. The response was immediate, electric, and irreversible.
+        </p>
+
+        <div class="glass founder-quote">
+          <blockquote>Cinema was never meant to be watched alone. It was meant to be felt together — the laughter, the gasps, the silence. That's what we bring to every screen we put up.</blockquote>
+        </div>
+
+        <p class="body-md" style="color:var(--c-muted);margin-bottom:24px;line-height:1.8">
+          What sets Keoagile apart is his rare combination of creative vision and deep technical mastery. He personally handles the full AV lifecycle — from site assessment and logistics planning to large LED screen installation, HD projector rigging, and professional line array sound engineering. When you attend an OMN event, every pixel and every decibel has been precision-configured by a founder who refuses to compromise on the experience.
+        </p>
+
+        <p class="body-md" style="color:var(--c-muted);margin-bottom:24px;line-height:1.8">
+          His technical repertoire covers P3.9/P4.8 LED modular wall systems, Panasonic and Barco 4K projector deployment, 40ft inflatable screen rigging, Yamaha digital mixing consoles, and multi-zone line array configurations capable of filling 5,000-seat outdoor spaces with crystal-clear audio. He's the crew chief, the systems engineer, and the creative director — all in one.
+        </p>
+
+        <p class="body-md" style="color:var(--c-muted);margin-bottom:24px;line-height:1.8">
+          Beyond the technical, Keoagile is a builder of experiences and partnerships. His approach to venue relationships is based on mutual value creation — he brings world-class production infrastructure, and together with venue partners, creates events that generate revenue, audience, and lasting brand equity. This philosophy has driven partnerships with the Back to the City Festival, 012 Central Precinct, and a growing network of Johannesburg's most dynamic spaces.
+        </p>
+
+        <p class="body-md" style="color:var(--c-muted);margin-bottom:32px;line-height:1.8">
+          With over 50 events delivered, 10,000+ audience members moved, and a social following that crossed 70,000 on Facebook alone, Keoagile's Outdoor Movie Nights has become a genuine cultural institution in Johannesburg's outdoor entertainment scene. He's now planning the next chapter — fan parks for Premier League Super Sundays, UEFA Champions League Finals, and the FIFA World Cup 2026, and he's doing it with the same hands-on precision that built the brand from day one.
+        </p>
+
+        <div style="display:flex;gap:16px;flex-wrap:wrap">
+          <a href="contact.html" class="btn btn-primary">Work With Keoagile</a>
+          <a href="portfolio.html" class="btn btn-glass">See Past Events</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Values -->
+<section class="section" style="position:relative;z-index:2">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="label">What Drives Us</div>
+      <h2 class="display-md">Our Values</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="grid-4">
+      <div class="glass-card glass-irid reveal reveal-delay-1" style="padding:32px;text-align:center">
+        <div class="icon icon-lg" style="margin:0 auto 20px;color:var(--c-amber)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+        </div>
+        <h3 style="font-family:var(--font-display);font-size:1rem;margin-bottom:10px">Partnership First</h3>
+        <p style="font-size:0.875rem;color:var(--c-muted)">We validate with low-friction pilots then scale. Every partnership is built on trust and mutual benefit.</p>
+      </div>
+      <div class="glass-card glass-irid reveal reveal-delay-2" style="padding:32px;text-align:center">
+        <div class="icon icon-lg" style="margin:0 auto 20px;color:var(--c-amber)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5L6 9H2v6h4l5 4V5z"/><path d="M19.07 4.93a10 10 0 010 14.14M15.54 8.46a5 5 0 010 7.07"/></svg>
+        </div>
+        <h3 style="font-family:var(--font-display);font-size:1rem;margin-bottom:10px">Technical Excellence</h3>
+        <p style="font-size:0.875rem;color:var(--c-muted)">Crystal-clear visuals and stadium-quality audio — we never compromise on the experience.</p>
+      </div>
+      <div class="glass-card glass-irid reveal reveal-delay-3" style="padding:32px;text-align:center">
+        <div class="icon icon-lg" style="margin:0 auto 20px;color:var(--c-amber)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
+        <h3 style="font-family:var(--font-display);font-size:1rem;margin-bottom:10px">Community Driven</h3>
+        <p style="font-size:0.875rem;color:var(--c-muted)">We celebrate modern African urban culture — events that bring people together and build belonging.</p>
+      </div>
+      <div class="glass-card glass-irid reveal reveal-delay-4" style="padding:32px;text-align:center">
+        <div class="icon icon-lg" style="margin:0 auto 20px;color:var(--c-amber)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+        </div>
+        <h3 style="font-family:var(--font-display);font-size:1rem;margin-bottom:10px">Disciplined Growth</h3>
+        <p style="font-size:0.875rem;color:var(--c-muted)">Prove the concept, then scale. We build sustainable entertainment ventures on solid financial foundations.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Timeline -->
+<section class="section" style="position:relative;z-index:2">
+  <div class="container" style="max-width:700px;margin:0 auto">
+    <div class="section-header reveal">
+      <div class="label">Our Journey</div>
+      <h2 class="display-md">How We Got Here</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="timeline reveal">
+      <div class="timeline-item">
+        <div class="timeline-year">2023 — The Beginning</div>
+        <h3 style="font-family:var(--font-display);margin-bottom:8px;font-size:1rem">First Outdoor Screening</h3>
+        <p style="font-size:0.875rem;color:var(--c-muted)">Outdoor Movie Nights launches its first community screening in Johannesburg with 300 attendees. The response is electric.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">2024 — Building Momentum</div>
+        <h3 style="font-family:var(--font-display);margin-bottom:8px;font-size:1rem">Community Series Expands</h3>
+        <p style="font-size:0.875rem;color:var(--c-muted)">A series of neighbourhood screenings across Soweto, Maboneng, and Sandton. Social following grows past 50K.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">2025 — Breakthrough</div>
+        <h3 style="font-family:var(--font-display);margin-bottom:8px;font-size:1rem">Fan Park at Back to the City</h3>
+        <p style="font-size:0.875rem;color:var(--c-muted)">Partnership with Back to the City Festival unlocks our biggest events — 1,400 attendees at peak. Fan park concept proven.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">2026 — Enterprise Scale</div>
+        <h3 style="font-family:var(--font-display);margin-bottom:8px;font-size:1rem">70K+ Following, New Partnerships</h3>
+        <p style="font-size:0.875rem;color:var(--c-muted)">Over 71,000 Facebook followers. Planning the next chapter: Fan parks for Premier League, UCL Final, and FIFA World Cup 2026.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Social Proof -->
+<section class="section-sm" style="position:relative;z-index:2">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="label">Our Reach</div>
+      <h2 class="display-md">Online Community</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="grid-3">
+      <div class="glass-card glass-irid reveal reveal-delay-1" style="padding:36px;text-align:center">
+        <div class="icon icon-lg" style="margin:0 auto 16px;color:var(--c-amber)">
+          <img src="assets/Facebook_Logo_2023.png" alt="Facebook" style="width:48px;height:48px;object-fit:contain;border-radius:8px">
+        </div>
+        <div style="font-family:var(--font-display);font-size:2.5rem;font-weight:700;margin-bottom:4px;color:var(--c-white)" data-target="71000" data-suffix="+">71,000+</div>
+        <div style="font-size:0.875rem;color:var(--c-muted);margin-bottom:8px">Facebook Followers</div>
+        <div style="font-size:0.8rem;color:var(--c-amber)">@OutdoorMovieNightsZA</div>
+        <div style="margin-top:12px;font-size:0.8rem;color:var(--c-muted)">500K views · 24.5K likes</div>
+      </div>
+      <div class="glass-card glass-irid reveal reveal-delay-2" style="padding:36px;text-align:center">
+        <div class="icon icon-lg" style="margin:0 auto 16px;color:var(--c-amber)">
+          <img src="assets/Instagram_icon.png" alt="Instagram" style="width:48px;height:48px;object-fit:contain">
+        </div>
+        <div style="font-family:var(--font-display);font-size:2.5rem;font-weight:700;margin-bottom:4px;color:var(--c-white)" data-target="21800" data-suffix="+">21,800+</div>
+        <div style="font-size:0.875rem;color:var(--c-muted);margin-bottom:8px">Instagram Followers</div>
+        <div style="font-size:0.8rem;color:var(--c-amber)">@OutdoorMovieNights_</div>
+        <div style="margin-top:12px;font-size:0.8rem;color:var(--c-muted)">200K monthly views</div>
+      </div>
+      <div class="glass-card glass-irid reveal reveal-delay-3" style="padding:36px;text-align:center">
+        <div class="icon icon-lg" style="margin:0 auto 16px;color:var(--c-amber)">
+          <img src="assets/tiktok-icon-free-png.webp" alt="TikTok" style="width:48px;height:48px;object-fit:contain">
+        </div>
+        <div style="font-family:var(--font-display);font-size:2.5rem;font-weight:700;margin-bottom:4px;color:var(--c-white)" data-target="10700" data-suffix="+">10,700+</div>
+        <div style="font-size:0.875rem;color:var(--c-muted);margin-bottom:8px">TikTok Followers</div>
+        <div style="font-size:0.8rem;color:var(--c-amber)">@OutdoorMovieNights</div>
+        <div style="margin-top:12px;font-size:0.8rem;color:var(--c-muted)">500K total views</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="assets/logo/OMN Logo.png" alt="Outdoor Movie Nights">
+        <p style="margin-top:16px">South Africa's premier outdoor cinema experience.</p>
+      </div>
+      <div class="footer-col"><h4>Navigate</h4><ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="screenings.html">Screenings</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Work With Us</h4><ul>
+        <li><a href="vendors.html">Partner Your Venue</a></li>
+        <li><a href="contact.html">Book an Event</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Contact</h4><ul>
+        <li><a href="https://wa.me/27680198329">
+          <span class="icon icon-sm" style="vertical-align:middle;margin-right:6px;color:var(--c-muted)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></span>WhatsApp
+        </a></li>
+        <li><a href="mailto:info@outdoormovienights.co.za">
+          <span class="icon icon-sm" style="vertical-align:middle;margin-right:6px;color:var(--c-muted)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></span>Email
+        </a></li>
+      </ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Outdoor Movie Nights.</span>
+      <span>Johannesburg, South Africa</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/starfield.js"></script>
+<script src="js/nav.js"></script>
+<script src="js/scroll.js"></script>
+</body>
+</html>

@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gallery — Outdoor Movie Nights</title>
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/components.css">
+  <style>
+    .gallery-filter-bar { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:36px; }
+    .filter-btn { padding:8px 20px; border-radius:var(--r-full); font-size:0.825rem; font-weight:500; border:1px solid var(--glass-border); color:var(--c-muted); cursor:pointer; background:none; transition:all 0.2s ease; }
+    .filter-btn.active { background:var(--c-red); border-color:var(--c-red); color:#fff; }
+    .filter-btn:hover:not(.active) { border-color:rgba(255,255,255,0.3); color:var(--c-white); }
+  </style>
+</head>
+<body class="grain">
+<canvas id="starfield-canvas"></canvas>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo"><img src="assets/logo/OMN Logo.png" alt="Outdoor Movie Nights"></a>
+    <div class="nav-links">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="screenings.html" class="nav-link">Screenings</a>
+      <a href="services.html" class="nav-link">Services</a>
+      <a href="portfolio.html" class="nav-link">Portfolio</a>
+      <a href="gallery.html" class="nav-link">Gallery</a>
+      <a href="about.html" class="nav-link">About</a>
+      <a href="vendors.html" class="nav-link">Partner With Us</a>
+      <a href="contact.html" class="nav-link nav-cta">Contact Us</a>
+    </div>
+    <button class="nav-toggle"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="nav-mobile">
+  <a href="index.html" class="nav-link">Home</a>
+  <a href="screenings.html" class="nav-link">Screenings</a>
+  <a href="services.html" class="nav-link">Services</a>
+  <a href="portfolio.html" class="nav-link">Portfolio</a>
+  <a href="gallery.html" class="nav-link">Gallery</a>
+  <a href="about.html" class="nav-link">About</a>
+  <a href="vendors.html" class="nav-link">Partner With Us</a>
+  <a href="contact.html" class="nav-link nav-cta">Contact Us</a>
+</div>
+
+<section class="page-hero">
+  <div class="aurora"><div class="aurora-orb"></div><div class="aurora-orb"></div></div>
+  <div class="container page-wrapper" style="text-align:center">
+    <div class="label" style="margin-bottom:16px">Moments Captured</div>
+    <h1 class="display-lg text-gradient">The Gallery</h1>
+    <p class="body-lg" style="max-width:500px;margin:20px auto 0;color:var(--c-muted)">Real nights. Real people. Real magic under the open sky.</p>
+  </div>
+</section>
+
+<section class="section" style="position:relative;z-index:2">
+  <div class="container-wide">
+    <div class="gallery-filter-bar reveal">
+      <button class="filter-btn active" onclick="filterGallery('all', this)">All Photos</button>
+      <button class="filter-btn" onclick="filterGallery('events', this)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M8 4v16M16 4v16M2 9h4M2 15h4M18 9h4M18 15h4"/></svg> Events</button>
+      <button class="filter-btn" onclick="filterGallery('fanpark', this)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 000 20M12 2a14.5 14.5 0 010 20M2 12h20"/></svg> Fan Parks</button>
+      <button class="filter-btn" onclick="filterGallery('atmosphere', this)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg> Atmosphere</button>
+    </div>
+
+    <div class="gallery-grid reveal" id="gallery-grid">
+
+      <!-- Events (real OMN event photos) -->
+      <div class="gallery-item" data-cat="events" data-lightbox="assets/events/WhatsApp Image 2026-05-21 at 19.35.00.jpeg">
+        <img src="assets/events/WhatsApp Image 2026-05-21 at 19.35.00.jpeg" alt="Outdoor cinema with bean bags and big screen at night" loading="lazy">
+        <div class="gallery-item-overlay"><div>
+          <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-bottom:2px">Cinema Night</div>
+          <div style="font-size:0.85rem;font-weight:500">Bean Bag Outdoor Cinema</div>
+        </div></div>
+      </div>
+
+      <div class="gallery-item" data-cat="events" data-lightbox="assets/events/WhatsApp Image 2026-05-21 at 19.38.12.jpeg">
+        <img src="assets/events/WhatsApp Image 2026-05-21 at 19.38.12.jpeg" alt="Back to the City Festival" loading="lazy">
+        <div class="gallery-item-overlay"><div>
+          <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-bottom:2px">Events</div>
+          <div style="font-size:0.85rem;font-weight:500">Back to the City Festival</div>
+        </div></div>
+      </div>
+
+      <!-- Fan Parks (pexels) -->
+      <div class="gallery-item" data-cat="fanpark" data-lightbox="assets/gallery/pexels-myatezhny39-2927526.jpg">
+        <img src="assets/gallery/pexels-myatezhny39-2927526.jpg" alt="Sports fan park crowd" loading="lazy">
+        <div class="gallery-item-overlay"><div>
+          <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-bottom:2px">Fan Park</div>
+          <div style="font-size:0.85rem;font-weight:500">Match Day Energy</div>
+        </div></div>
+      </div>
+
+      <!-- Atmosphere -->
+      <div class="gallery-item" data-cat="atmosphere" data-lightbox="assets/gallery/pexels-aosiya-14401486.jpg">
+        <img src="assets/gallery/pexels-aosiya-14401486.jpg" alt="Cinema projector" loading="lazy">
+        <div class="gallery-item-overlay"><div>
+          <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-bottom:2px">Equipment</div>
+          <div style="font-size:0.85rem;font-weight:500">The Magic Machine</div>
+        </div></div>
+      </div>
+
+      <div class="gallery-item" data-cat="events" data-lightbox="assets/events/WhatsApp Image 2026-05-21 at 19.38.13.jpeg">
+        <img src="assets/events/WhatsApp Image 2026-05-21 at 19.38.13.jpeg" alt="Crowd at dusk" loading="lazy">
+        <div class="gallery-item-overlay"><div>
+          <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-bottom:2px">Events</div>
+          <div style="font-size:0.85rem;font-weight:500">Dusk Gathering</div>
+        </div></div>
+      </div>
+
+      <div class="gallery-item" data-cat="atmosphere" data-lightbox="assets/gallery/pexels-tima-miroshnichenko-7991378.jpg">
+        <img src="assets/gallery/pexels-tima-miroshnichenko-7991378.jpg" alt="Popcorn and 3D glasses" loading="lazy">
+        <div class="gallery-item-overlay"><div>
+          <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-bottom:2px">Vibes</div>
+          <div style="font-size:0.85rem;font-weight:500">Cinema Essentials</div>
+        </div></div>
+      </div>
+
+      <div class="gallery-item" data-cat="events" data-lightbox="assets/events/WhatsApp Image 2026-05-21 at 19.38.15.jpeg">
+        <img src="assets/events/WhatsApp Image 2026-05-21 at 19.38.15.jpeg" alt="Night event" loading="lazy">
+        <div class="gallery-item-overlay"><div>
+          <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-bottom:2px">Events</div>
+          <div style="font-size:0.85rem;font-weight:500">Under the Stars</div>
+        </div></div>
+      </div>
+
+      <!-- Fan Park 2 -->
+      <div class="gallery-item" data-cat="fanpark" data-lightbox="assets/gallery/pexels-semsibelli-26832707.jpg">
+        <img src="assets/gallery/pexels-semsibelli-26832707.jpg" alt="Fan park atmosphere" loading="lazy">
+        <div class="gallery-item-overlay"><div>
+          <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-bottom:2px">Fan Park</div>
+          <div style="font-size:0.85rem;font-weight:500">Stadium Atmosphere</div>
+        </div></div>
+      </div>
+
+      <div class="gallery-item" data-cat="atmosphere" data-lightbox="assets/gallery/pexels-wendywei-17493039.jpg">
+        <img src="assets/gallery/pexels-wendywei-17493039.jpg" alt="Outdoor cinema setup with string lights" loading="lazy">
+        <div class="gallery-item-overlay"><div>
+          <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-bottom:2px">Setup</div>
+          <div style="font-size:0.85rem;font-weight:500">String Light Cinema</div>
+        </div></div>
+      </div>
+
+      <div class="gallery-item" data-cat="events" data-lightbox="assets/events/WhatsApp Image 2026-05-21 at 19.38.19.jpeg">
+        <img src="assets/events/WhatsApp Image 2026-05-21 at 19.38.19.jpeg" alt="Crowd watching screen" loading="lazy">
+        <div class="gallery-item-overlay"><div>
+          <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-bottom:2px">Events</div>
+          <div style="font-size:0.85rem;font-weight:500">The Crowd</div>
+        </div></div>
+      </div>
+
+      <div class="gallery-item" data-cat="atmosphere" data-lightbox="assets/gallery/pexels-zafiro-media-48865706-7603983.jpg">
+        <img src="assets/gallery/pexels-zafiro-media-48865706-7603983.jpg" alt="Popcorn at night event" loading="lazy">
+        <div class="gallery-item-overlay"><div>
+          <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-bottom:2px">Vibes</div>
+          <div style="font-size:0.85rem;font-weight:500">Popcorn Time</div>
+        </div></div>
+      </div>
+
+      <div class="gallery-item" data-cat="events" data-lightbox="assets/events/WhatsApp Image 2026-05-21 at 19.38.22.jpeg">
+        <img src="assets/events/WhatsApp Image 2026-05-21 at 19.38.22.jpeg" alt="Large crowd at night" loading="lazy">
+        <div class="gallery-item-overlay"><div>
+          <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-bottom:2px">Events</div>
+          <div style="font-size:0.85rem;font-weight:500">Big Night Energy</div>
+        </div></div>
+      </div>
+
+      <div class="gallery-item" data-cat="events" data-lightbox="assets/gallery/pexels-son-tung-tran-17375059-6521573.jpg">
+        <img src="assets/gallery/pexels-son-tung-tran-17375059-6521573.jpg" alt="Outdoor cinema crowd at dusk" loading="lazy">
+        <div class="gallery-item-overlay"><div>
+          <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-bottom:2px">Cinema</div>
+          <div style="font-size:0.85rem;font-weight:500">Dusk Cinema</div>
+        </div></div>
+      </div>
+
+      <div class="gallery-item" data-cat="events" data-lightbox="assets/events/WhatsApp Image 2026-05-21 at 19.38.23.jpeg">
+        <img src="assets/events/WhatsApp Image 2026-05-21 at 19.38.23.jpeg" alt="Night screening" loading="lazy">
+        <div class="gallery-item-overlay"><div>
+          <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-bottom:2px">Events</div>
+          <div style="font-size:0.85rem;font-weight:500">Into the Night</div>
+        </div></div>
+      </div>
+
+      <div class="gallery-item" data-cat="atmosphere" data-lightbox="assets/gallery/pexels-sonya-livshits-113472440-9828248.jpg">
+        <img src="assets/gallery/pexels-sonya-livshits-113472440-9828248.jpg" alt="Sunset setup" loading="lazy">
+        <div class="gallery-item-overlay"><div>
+          <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-bottom:2px">Setup</div>
+          <div style="font-size:0.85rem;font-weight:500">Golden Hour Ready</div>
+        </div></div>
+      </div>
+
+      <div class="gallery-item" data-cat="events" data-lightbox="assets/events/WhatsApp Image 2026-05-21 at 19.38.19 (1).jpeg">
+        <img src="assets/events/WhatsApp Image 2026-05-21 at 19.38.19 (1).jpeg" alt="Community night event" loading="lazy">
+        <div class="gallery-item-overlay"><div>
+          <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-bottom:2px">Events</div>
+          <div style="font-size:0.85rem;font-weight:500">Community Night</div>
+        </div></div>
+      </div>
+
+      <div class="gallery-item" data-cat="atmosphere" data-lightbox="assets/gallery/pexels-rukiyeoagaoglu-50613294-17434304.jpg">
+        <img src="assets/gallery/pexels-rukiyeoagaoglu-50613294-17434304.jpg" alt="Outdoor cinema experience" loading="lazy">
+        <div class="gallery-item-overlay"><div>
+          <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-bottom:2px">Experience</div>
+          <div style="font-size:0.85rem;font-weight:500">Shared Moments</div>
+        </div></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Lightbox -->
+<div class="lightbox-overlay" id="lightbox">
+  <button class="lightbox-close" aria-label="Close">×</button>
+  <img class="lightbox-img" src="" alt="Event photo">
+</div>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="assets/logo/OMN Logo.png" alt="Outdoor Movie Nights" >
+        <p style="margin-top:16px">South Africa's premier outdoor cinema experience.</p>
+      </div>
+      <div class="footer-col"><h4>Navigate</h4><ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="screenings.html">Screenings</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Work With Us</h4><ul>
+        <li><a href="vendors.html">Partner Your Venue</a></li>
+        <li><a href="contact.html">Book an Event</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Contact</h4><ul>
+        <li><a href="https://wa.me/27680198329"><span class="icon icon-sm" style="vertical-align:middle;margin-right:6px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></span>WhatsApp</a></li>
+        <li><a href="mailto:info@outdoormovienights.co.za"><span class="icon icon-sm" style="vertical-align:middle;margin-right:6px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></span>Email</a></li>
+      </ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Outdoor Movie Nights.</span>
+      <span>Johannesburg, South Africa</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/starfield.js"></script>
+<script src="js/nav.js"></script>
+<script src="js/scroll.js"></script>
+<script>
+function filterGallery(cat, btn) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.gallery-item').forEach(item => {
+    if (cat === 'all' || item.dataset.cat === cat) {
+      item.style.display = 'block';
+    } else {
+      item.style.display = 'none';
+    }
+  });
+}
+</script>
+</body>
+</html>

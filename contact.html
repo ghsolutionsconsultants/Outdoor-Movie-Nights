@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us — Outdoor Movie Nights</title>
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/components.css">
+  <style>
+    .contact-layout { display:grid; grid-template-columns:1fr 1.4fr; gap:48px; align-items:start; }
+    @media(max-width:900px){ .contact-layout { grid-template-columns:1fr; } }
+    .contact-info-item { display:flex; align-items:flex-start; gap:16px; padding:20px 0; border-bottom:1px solid var(--glass-border); }
+    .contact-info-item:last-child { border-bottom:none; }
+    .contact-icon { width:44px; height:44px; border-radius:var(--r-md); background:rgba(232,0,28,0.1); border:1px solid rgba(232,0,28,0.2); display:flex; align-items:center; justify-content:center; font-size:1.2rem; flex-shrink:0; }
+  </style>
+</head>
+<body class="grain">
+<canvas id="starfield-canvas"></canvas>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo"><img src="assets/logo/OMN Logo.png" alt="Outdoor Movie Nights"></a>
+    <div class="nav-links">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="screenings.html" class="nav-link">Screenings</a>
+      <a href="services.html" class="nav-link">Services</a>
+      <a href="portfolio.html" class="nav-link">Portfolio</a>
+      <a href="gallery.html" class="nav-link">Gallery</a>
+      <a href="about.html" class="nav-link">About</a>
+      <a href="vendors.html" class="nav-link">Partner With Us</a>
+      <a href="contact.html" class="nav-link nav-cta">Contact Us</a>
+    </div>
+    <button class="nav-toggle"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="nav-mobile">
+  <a href="index.html" class="nav-link">Home</a>
+  <a href="screenings.html" class="nav-link">Screenings</a>
+  <a href="services.html" class="nav-link">Services</a>
+  <a href="portfolio.html" class="nav-link">Portfolio</a>
+  <a href="gallery.html" class="nav-link">Gallery</a>
+  <a href="about.html" class="nav-link">About</a>
+  <a href="vendors.html" class="nav-link">Partner With Us</a>
+  <a href="contact.html" class="nav-link nav-cta">Contact Us</a>
+</div>
+
+<!-- Hero -->
+<section class="page-hero" style="padding-bottom:80px">
+  <div class="aurora"><div class="aurora-orb"></div><div class="aurora-orb"></div><div class="aurora-orb"></div></div>
+  <div class="container page-wrapper" style="text-align:center">
+    <div class="label" style="margin-bottom:16px">Get in Touch</div>
+    <h1 class="display-lg text-gradient" style="margin-bottom:20px">Let's Make Something<br>Unforgettable</h1>
+    <p class="body-lg" style="max-width:520px;margin:0 auto 40px;color:var(--c-muted)">Whether you want to attend, host, sponsor, or partner — we want to hear from you.</p>
+    <a href="https://wa.me/27680198329" class="whatsapp-btn" target="_blank">
+      <img src="assets/whatsapp-icon.svg" alt="WhatsApp" style="width:22px;height:22px;object-fit:contain">
+      WhatsApp Us Directly
+    </a>
+  </div>
+</section>
+
+<!-- Contact Section -->
+<section class="section" style="position:relative;z-index:2">
+  <div class="container">
+    <div class="contact-layout">
+
+      <!-- Left: Info -->
+      <div>
+        <div class="glass-card reveal" style="padding:40px;margin-bottom:24px">
+          <h2 class="display-sm" style="margin-bottom:8px">Reach Us</h2>
+          <p style="font-size:0.875rem;color:var(--c-muted);margin-bottom:32px">We're a team of real people — reach out on any channel and we'll get back to you fast.</p>
+
+          <div class="contact-info-item">
+            <div class="contact-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></div>
+            <div>
+              <div style="font-weight:600;margin-bottom:2px">WhatsApp</div>
+              <a href="https://wa.me/27680198329" style="color:var(--c-amber);font-size:0.875rem">068 019 8329</a>
+              <p style="font-size:0.8rem;color:var(--c-muted);margin-top:2px">Fastest response — available daily</p>
+            </div>
+          </div>
+
+          <div class="contact-info-item">
+            <div class="contact-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+            <div>
+              <div style="font-weight:600;margin-bottom:2px">Email</div>
+              <a href="mailto:info@outdoormovienights.co.za" style="color:var(--c-amber);font-size:0.875rem">info@outdoormovienights.co.za</a>
+              <p style="font-size:0.8rem;color:var(--c-muted);margin-top:2px">For detailed enquiries and proposals</p>
+            </div>
+          </div>
+
+          <div class="contact-info-item">
+            <div class="contact-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+            <div>
+              <div style="font-weight:600;margin-bottom:2px">Location</div>
+              <div style="font-size:0.875rem;color:var(--c-white)">Johannesburg, South Africa</div>
+              <p style="font-size:0.8rem;color:var(--c-muted);margin-top:2px">We operate across Gauteng and beyond</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Social Links -->
+        <div class="glass-card reveal reveal-delay-1" style="padding:36px">
+          <h3 style="font-family:var(--font-display);font-size:1rem;margin-bottom:20px">Follow Us</h3>
+          <div style="display:flex;flex-direction:column;gap:12px">
+            <a href="https://www.facebook.com/OutdoorMovieNightza/" class="social-pill" target="_blank" style="justify-content:space-between;border-radius:var(--r-md);padding:14px 18px">
+              <div style="display:flex;align-items:center;gap:10px">
+                <span><img src="assets/Facebook_Logo_2023.png" alt="Facebook" style="width:20px;height:20px;object-fit:contain;border-radius:4px"></span>
+                <span>@OutdoorMovieNightsZA</span>
+              </div>
+              <span style="font-size:0.75rem;color:var(--c-amber)">71K followers</span>
+            </a>
+            <a href="https://www.instagram.com/outdoormovienights_/" class="social-pill" target="_blank" style="justify-content:space-between;border-radius:var(--r-md);padding:14px 18px">
+              <div style="display:flex;align-items:center;gap:10px">
+                <span><img src="assets/Instagram_icon.png" alt="Instagram" style="width:20px;height:20px;object-fit:contain"></span>
+                <span>@OutdoorMovieNights_</span>
+              </div>
+              <span style="font-size:0.75rem;color:var(--c-amber)">21.8K followers</span>
+            </a>
+            <a href="https://www.tiktok.com/@outdoormovienights" class="social-pill" target="_blank" style="justify-content:space-between;border-radius:var(--r-md);padding:14px 18px">
+              <div style="display:flex;align-items:center;gap:10px">
+                <span><img src="assets/tiktok-icon-free-png.webp" alt="TikTok" style="width:20px;height:20px;object-fit:contain"></span>
+                <span>@OutdoorMovieNights</span>
+              </div>
+              <span style="font-size:0.75rem;color:var(--c-amber)">10.7K followers</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Form -->
+      <div class="glass-card reveal reveal-delay-1" style="padding:48px">
+        <h2 class="display-sm" style="margin-bottom:8px">Send Us a Message</h2>
+        <p style="font-size:0.875rem;color:var(--c-muted);margin-bottom:36px">Tell us what you're looking for and we'll come back with ideas and a proposal.</p>
+
+        <form action="https://formspree.io/f/xpqgajvn" method="POST">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+            <div class="form-group">
+              <label>First Name *</label>
+              <input type="text" class="form-control" name="first_name" placeholder="Your first name" required>
+            </div>
+            <div class="form-group">
+              <label>Last Name</label>
+              <input type="text" class="form-control" name="last_name" placeholder="Your last name">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Email Address *</label>
+            <input type="email" class="form-control" name="email" placeholder="your@email.com" required>
+          </div>
+
+          <div class="form-group">
+            <label>WhatsApp / Phone</label>
+            <input type="tel" class="form-control" name="phone" placeholder="+27 ...">
+          </div>
+
+          <div class="form-group">
+            <label>What are you looking for? *</label>
+            <select class="form-control" name="enquiry_type" required>
+              <option value="">Select enquiry type</option>
+              <option>Attend a Screening — notify me of events</option>
+              <option>Book OMN for my event / venue</option>
+              <option>Sports Fan Park partnership</option>
+              <option>Corporate or brand activation</option>
+              <option>Become a vendor at OMN events</option>
+              <option>Sponsorship opportunity</option>
+              <option>Festival or large-scale partnership</option>
+              <option>Media or press enquiry</option>
+              <option>Other</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Estimated Event Date / Timing</label>
+            <input type="text" class="form-control" name="timing" placeholder="e.g. December 2026, ASAP, flexible...">
+          </div>
+
+          <div class="form-group">
+            <label>Your Message *</label>
+            <textarea class="form-control" name="message" rows="5" placeholder="Tell us about your event, venue, audience size, vision — the more detail the better." required></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;padding:16px;font-size:1rem">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg> Send Message
+          </button>
+
+          <p style="font-size:0.75rem;color:var(--c-muted);text-align:center;margin-top:16px">
+            Or WhatsApp us directly at <a href="https://wa.me/27680198329" style="color:var(--c-amber)">068 019 8329</a> for the fastest response
+          </p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section-sm" style="position:relative;z-index:2">
+  <div class="container" style="max-width:760px;margin:0 auto">
+    <div class="section-header reveal">
+      <div class="label">FAQ</div>
+      <h2 class="display-md">Common Questions</h2>
+      <div class="divider"></div>
+    </div>
+
+    <div class="glass reveal" style="border-radius:var(--r-xl);padding:32px 40px;border:1px solid var(--glass-border)">
+      <div class="accordion-group">
+        <div class="accordion-item">
+          <button class="accordion-trigger">
+            <span>What areas do you operate in?</span>
+            <span class="accordion-icon">+</span>
+          </button>
+          <div class="accordion-content">
+            <p style="padding:0 0 20px;font-size:0.875rem;color:var(--c-muted);line-height:1.7">We are based in Johannesburg and primarily operate across Gauteng. For large-scale events and festival partnerships, we can travel to other provinces. Contact us to discuss your specific location.</p>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-trigger">
+            <span>How much does it cost to hire OMN for an event?</span>
+            <span class="accordion-icon">+</span>
+          </button>
+          <div class="accordion-content">
+            <p style="padding:0 0 20px;font-size:0.875rem;color:var(--c-muted);line-height:1.7">Costs depend on the screen type, event duration, audience size, and partnership model chosen. We offer three partnership models (Venue-Led, Equal Partnership, Production Fee) and always aim to find a structure that works for both parties. Send us your details and we'll build a tailored proposal.</p>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-trigger">
+            <span>How far in advance should I book?</span>
+            <span class="accordion-icon">+</span>
+          </button>
+          <div class="accordion-content">
+            <p style="padding:0 0 20px;font-size:0.875rem;color:var(--c-muted);line-height:1.7">We recommend at least 4–6 weeks for smaller events, and 8–12 weeks for large fan parks or festival integrations. For FIFA World Cup and Champions League Final events, earlier is better as dates are fixed and demand is high.</p>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-trigger">
+            <span>Do you bring your own power supply?</span>
+            <span class="accordion-icon">+</span>
+          </button>
+          <div class="accordion-content">
+            <p style="padding:0 0 20px;font-size:0.875rem;color:var(--c-muted);line-height:1.7">Our small inflatable screen runs on a standard 220V/15A outlet — no special power needed. The large inflatable requires 220V/32A and our LED display requires 3-phase 380V/60A. We can arrange generator hire if your venue doesn't have the required supply — this is included in our event planning service.</p>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-trigger">
+            <span>What's the minimum venue size you work with?</span>
+            <span class="accordion-icon">+</span>
+          </button>
+          <div class="accordion-content">
+            <p style="padding:0 0 20px;font-size:0.875rem;color:var(--c-muted);line-height:1.7">Our small inflatable screen is perfect for intimate venues with 100–600 people. The large inflatable suits 500–3,000 and the LED display scales to 5,000+. We work with rooftops, parks, precincts, restaurants with outdoor areas, and large open fields alike.</p>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-trigger">
+            <span>Can I attend an OMN event as a regular guest?</span>
+            <span class="accordion-icon">+</span>
+          </button>
+          <div class="accordion-content">
+            <p style="padding:0 0 20px;font-size:0.875rem;color:var(--c-muted);line-height:1.7">Absolutely! Follow us on Instagram (@OutdoorMovieNights_), Facebook (@OutdoorMovieNightsZA), or TikTok (@OutdoorMovieNights) to stay updated on upcoming public screenings. You can also register your interest on our <a href="screenings.html" style="color:var(--c-amber)">Screenings page</a> to be notified when new events are announced.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="assets/logo/OMN Logo.png" alt="Outdoor Movie Nights" >
+        <p style="margin-top:16px">South Africa's premier outdoor cinema experience. Creating unforgettable nights under the open sky.</p>
+        <div class="footer-social" style="margin-top:24px;flex-direction:row;gap:10px">
+          <a href="https://www.facebook.com/OutdoorMovieNightza/" class="social-pill" target="_blank" aria-label="Facebook" style="padding:10px;justify-content:center"><img src="assets/Facebook_Logo_2023.png" alt="Facebook" style="width:24px;height:24px;object-fit:contain;border-radius:4px"></a>
+          <a href="https://www.instagram.com/outdoormovienights_/" class="social-pill" target="_blank" aria-label="Instagram" style="padding:10px;justify-content:center"><img src="assets/Instagram_icon.png" alt="Instagram" style="width:24px;height:24px;object-fit:contain"></a>
+          <a href="https://www.tiktok.com/@outdoormovienights" class="social-pill" target="_blank" aria-label="TikTok" style="padding:10px;justify-content:center"><img src="assets/tiktok-icon-free-png.webp" alt="TikTok" style="width:24px;height:24px;object-fit:contain"></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Navigate</h4>
+        <ul>
+          <li><a href="screenings.html">Screenings</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="about.html">About Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Work With Us</h4>
+        <ul>
+          <li><a href="vendors.html">Partner Your Venue</a></li>
+          <li><a href="vendors.html#vendors">Become a Vendor</a></li>
+          <li><a href="contact.html">Book an Event</a></li>
+          <li><a href="contact.html">Sponsorships</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="https://wa.me/27680198329"><span class="icon icon-sm" style="vertical-align:middle;margin-right:6px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></span>WhatsApp Us</a></li>
+          <li><a href="mailto:info@outdoormovienights.co.za"><span class="icon icon-sm" style="vertical-align:middle;margin-right:6px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></span>Email Us</a></li>
+          <li><a href="#"><span class="icon icon-sm" style="vertical-align:middle;margin-right:6px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></span>Johannesburg, SA</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Outdoor Movie Nights. All rights reserved.</span>
+      <span>Made in Johannesburg</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/starfield.js"></script>
+<script src="js/nav.js"></script>
+<script src="js/scroll.js"></script>
+<script>
+  // Pre-fill event from URL param
+  const params = new URLSearchParams(window.location.search);
+  const event = params.get('event');
+  if (event) {
+    const sel = document.querySelector('select[name="enquiry_type"]');
+    if (sel) sel.value = 'Attend a Screening — notify me of events';
+    const msg = document.querySelector('textarea[name="message"]');
+    if (msg) msg.value = `I'd like to be notified about the upcoming screening on ${event === 'Oct17' ? '17 October 2026' : event === 'Dec19' ? '19 December 2026' : '14 February 2027'}.`;
+  }
+</script>
+</body>
+</html>

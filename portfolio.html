@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio — Outdoor Movie Nights</title>
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/components.css">
+  <style>
+    .portfolio-case { display:grid; grid-template-columns:1.2fr 1fr; gap:48px; align-items:stretch; margin-bottom:48px; }
+    .portfolio-case:nth-child(even) { direction:rtl; }
+    .portfolio-case:nth-child(even) > * { direction:ltr; }
+    .case-img-wrap { border-radius:var(--r-xl); overflow:hidden; position:relative; min-height:320px; }
+    .case-img-wrap img { width:100%; height:100%; object-fit:cover; transition:transform 0.6s ease; }
+    .case-img-wrap:hover img { transform:scale(1.05); }
+    .attendance-badge { position:absolute; top:20px; right:20px; background:rgba(2,4,8,0.7); backdrop-filter:blur(20px); border:1px solid rgba(255,255,255,0.15); border-radius:var(--r-md); padding:12px 18px; text-align:center; }
+    .case-info { display:flex; flex-direction:column; justify-content:center; padding:40px; }
+    @media(max-width:768px){ .portfolio-case, .portfolio-case:nth-child(even) { grid-template-columns:1fr; direction:ltr; } .case-info { padding:24px 0; } }
+
+    .screen-flip-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+    @media(max-width:900px){ .screen-flip-grid { grid-template-columns:1fr; } }
+    .screen-flip { height:580px; }
+    .flip-front, .flip-back { display:flex; flex-direction:column; padding:36px; }
+    .flip-back { background:linear-gradient(135deg,rgba(232,0,28,0.1),rgba(245,166,35,0.06)); }
+    .screen-icon { font-size:3.5rem; margin-bottom:20px; }
+  </style>
+</head>
+<body class="grain">
+<canvas id="starfield-canvas"></canvas>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo"><img src="assets/logo/OMN Logo.png" alt="Outdoor Movie Nights"></a>
+    <div class="nav-links">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="screenings.html" class="nav-link">Screenings</a>
+      <a href="services.html" class="nav-link">Services</a>
+      <a href="portfolio.html" class="nav-link">Portfolio</a>
+      <a href="gallery.html" class="nav-link">Gallery</a>
+      <a href="about.html" class="nav-link">About</a>
+      <a href="vendors.html" class="nav-link">Partner With Us</a>
+      <a href="contact.html" class="nav-link nav-cta">Contact Us</a>
+    </div>
+    <button class="nav-toggle"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="nav-mobile">
+  <a href="index.html" class="nav-link">Home</a>
+  <a href="screenings.html" class="nav-link">Screenings</a>
+  <a href="services.html" class="nav-link">Services</a>
+  <a href="portfolio.html" class="nav-link">Portfolio</a>
+  <a href="gallery.html" class="nav-link">Gallery</a>
+  <a href="about.html" class="nav-link">About</a>
+  <a href="vendors.html" class="nav-link">Partner With Us</a>
+  <a href="contact.html" class="nav-link nav-cta">Contact Us</a>
+</div>
+
+<section class="page-hero">
+  <div class="aurora"><div class="aurora-orb"></div><div class="aurora-orb"></div></div>
+  <div class="container page-wrapper" style="text-align:center">
+    <div class="label" style="margin-bottom:16px">Our Work</div>
+    <h1 class="display-lg text-gradient">Portfolio</h1>
+    <p class="body-lg" style="max-width:540px;margin:20px auto 0;color:var(--c-muted)">Landmark events, landmark screens. Here's what we've built — and the crowds we've moved.</p>
+  </div>
+</section>
+
+<!-- Total stats -->
+<section class="section-sm" style="position:relative;z-index:2">
+  <div class="container">
+    <div class="stats-strip reveal">
+      <div class="stat-item">
+        <div class="stat-value"><span data-target="50" data-suffix="+">50+</span></div>
+        <div class="stat-label">Total Events</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value"><span data-target="10000" data-suffix="+">10K+</span></div>
+        <div class="stat-label">Audience Reached</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value"><span data-target="1400">1,400</span></div>
+        <div class="stat-label">Peak Attendance</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value">3+</div>
+        <div class="stat-label">Major Partners</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value">300"</div>
+        <div class="stat-label">Biggest Screen</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value"><span data-target="5000" data-suffix="+">5K+</span></div>
+        <div class="stat-label">Nit Brightness</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Case Studies -->
+<section class="section" style="position:relative;z-index:2">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="label">Past Events</div>
+      <h2 class="display-md">Landmark Nights</h2>
+      <div class="divider"></div>
+    </div>
+
+    <!-- Back to the City -->
+    <div class="portfolio-case reveal">
+      <div class="case-img-wrap">
+        <img src="assets/events/WhatsApp Image 2026-05-21 at 19.38.22.jpeg" alt="Back to the City Festival">
+        <div class="attendance-badge">
+          <div style="font-family:var(--font-display);font-size:1.8rem;font-weight:700;color:var(--c-white)">1,400</div>
+          <div style="font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--c-muted)">Attendees</div>
+        </div>
+      </div>
+      <div class="glass-card case-info">
+        <div class="label" style="margin-bottom:8px">Outdoor Cinema · 2025</div>
+        <h3 class="display-sm" style="margin-bottom:4px">Back to the City Festival</h3>
+        <p style="font-size:0.8rem;color:var(--c-amber);margin-bottom:20px">in partnership with Black Birth</p>
+        <p style="font-size:0.875rem;color:var(--c-muted);margin-bottom:20px;line-height:1.7">Our biggest event to date. OMN delivered a turnkey large-screen outdoor cinema experience at the iconic Back to the City Festival — a landmark urban culture event in Johannesburg. Three sessions across the event weekend pulled in 800–1,400 attendees per sitting.</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:24px">
+          <div class="glass" style="padding:14px;border-radius:var(--r-md);text-align:center">
+            <div style="font-family:var(--font-display);font-size:1.4rem;font-weight:700">1,400</div>
+            <div style="font-size:0.7rem;color:var(--c-muted);margin-top:2px">Peak crowd</div>
+          </div>
+          <div class="glass" style="padding:14px;border-radius:var(--r-md);text-align:center">
+            <div style="font-family:var(--font-display);font-size:1.4rem;font-weight:700">3</div>
+            <div style="font-size:0.7rem;color:var(--c-muted);margin-top:2px">Sessions</div>
+          </div>
+        </div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <span class="badge badge-planning" style="background:rgba(255,255,255,0.05);border-color:rgba(255,255,255,0.15);color:var(--c-muted)">Outdoor Cinema</span>
+          <span class="badge badge-planning" style="background:rgba(255,255,255,0.05);border-color:rgba(255,255,255,0.15);color:var(--c-muted)">Festival Partnership</span>
+          <span class="badge badge-planning" style="background:rgba(255,255,255,0.05);border-color:rgba(255,255,255,0.15);color:var(--c-muted)">Urban Culture</span>
+        </div>
+      </div>
+    </div>
+    <!-- Community Cinema -->
+    <div class="portfolio-case reveal">
+      <div class="case-img-wrap">
+        <img src="assets/events/WhatsApp Image 2026-05-21 at 19.35.00.jpeg" alt="Community Cinema Night">
+        <div class="attendance-badge">
+          <div style="font-family:var(--font-display);font-size:1.8rem;font-weight:700;color:var(--c-green)">350</div>
+          <div style="font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--c-muted)">Per session</div>
+        </div>
+      </div>
+      <div class="glass-card case-info">
+        <div class="label" style="margin-bottom:8px">Cinema Series · Recurring</div>
+        <h3 class="display-sm" style="margin-bottom:4px">Community Cinema Nights</h3>
+        <p style="font-size:0.8rem;color:var(--c-amber);margin-bottom:20px">Neighbourhood Screenings</p>
+        <p style="font-size:0.875rem;color:var(--c-muted);margin-bottom:20px;line-height:1.7">Our flagship community cinema format — colourful bean bags, a giant inflatable screen, and a curated film experience in local parks and open spaces. These intimate nights (300–500 attendees) are the heart of the OMN brand: cinematic, communal, and joyful.</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:24px">
+          <div class="glass" style="padding:14px;border-radius:var(--r-md);text-align:center">
+            <div style="font-family:var(--font-display);font-size:1.4rem;font-weight:700">50+</div>
+            <div style="font-size:0.7rem;color:var(--c-muted);margin-top:2px">Events run</div>
+          </div>
+          <div class="glass" style="padding:14px;border-radius:var(--r-md);text-align:center">
+            <div style="font-family:var(--font-display);font-size:1.4rem;font-weight:700">10K+</div>
+            <div style="font-size:0.7rem;color:var(--c-muted);margin-top:2px">Total audience</div>
+          </div>
+        </div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <span class="badge badge-planning" style="background:rgba(255,255,255,0.05);border-color:rgba(255,255,255,0.15);color:var(--c-muted)">Cinema</span>
+          <span class="badge badge-planning" style="background:rgba(255,255,255,0.05);border-color:rgba(255,255,255,0.15);color:var(--c-muted)">Community</span>
+          <span class="badge badge-planning" style="background:rgba(255,255,255,0.05);border-color:rgba(255,255,255,0.15);color:var(--c-muted)">Inflatable Screen</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Screen Arsenal -->
+<section class="section" style="position:relative;z-index:2;background:linear-gradient(180deg,transparent,rgba(10,15,30,0.5),transparent)">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="label">Our Equipment</div>
+      <h2 class="display-md">The Screen Arsenal</h2>
+      <div class="divider"></div>
+      <p>Hover each card to reveal full technical specifications. Three screens. Every audience size covered.</p>
+    </div>
+
+    <div class="screen-flip-grid">
+      <!-- LED -->
+      <div class="flip-card screen-flip reveal reveal-delay-1">
+        <div class="flip-card-inner">
+          <div class="flip-card-front glass-card">
+            <div class="flip-front">
+              <div class="screen-badge">Screen 1</div>
+              <div class="screen-icon"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+              <h3 class="display-sm" style="margin-bottom:8px">LED Display</h3>
+              <p style="font-size:0.875rem;color:var(--c-muted);flex:1">Professional outdoor LED panel — the centrepiece of any large-scale outdoor cinema or activation.</p>
+              <div style="margin-top:24px">
+                <div style="font-family:var(--font-display);font-size:2.2rem;font-weight:700">300"</div>
+                <div style="font-size:0.75rem;color:var(--c-muted)">Max display size</div>
+              </div>
+              <div style="margin-top:16px;font-size:0.75rem;color:var(--c-amber);text-align:center">Hover for specs →</div>
+            </div>
+          </div>
+          <div class="flip-card-back glass-card">
+            <div class="flip-back">
+              <div class="screen-badge">LED · P3.9 / P4.8</div>
+              <h4 style="font-family:var(--font-display);margin-bottom:16px;font-size:0.95rem">Technical Specs</h4>
+              <div style="display:flex;flex-direction:column;gap:0;flex:1">
+                <div class="spec-row"><span class="spec-key">Size</span><span class="spec-val">6m × 3.5m (300")</span></div>
+                <div class="spec-row"><span class="spec-key">Resolution</span><span class="spec-val">1920×1080 Full HD</span></div>
+                <div class="spec-row"><span class="spec-key">Brightness</span><span class="spec-val">5,000+ nits</span></div>
+                <div class="spec-row"><span class="spec-key">Audience</span><span class="spec-val">1,500–5,000+</span></div>
+                <div class="spec-row"><span class="spec-key">Weather</span><span class="spec-val">IP65 rated</span></div>
+                <div class="spec-row"><span class="spec-key">Power</span><span class="spec-val">3-phase 380V/60A</span></div>
+                <div class="spec-row"><span class="spec-key">Setup</span><span class="spec-val">4–6 hours</span></div>
+              </div>
+              <a href="contact.html" class="btn btn-primary" style="margin-top:20px;justify-content:center;width:100%;font-size:0.8rem;padding:12px">Book LED Screen</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Large Inflatable -->
+      <div class="flip-card screen-flip reveal reveal-delay-2">
+        <div class="flip-card-inner">
+          <div class="flip-card-front glass-card">
+            <div class="flip-front">
+              <div class="screen-badge">Screen 2</div>
+              <div class="screen-icon"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="15" rx="2"/><polyline points="17 2 12 7 7 2"/></svg></div>
+              <h3 class="display-sm" style="margin-bottom:8px">Large Inflatable</h3>
+              <p style="font-size:0.875rem;color:var(--c-muted);flex:1">40ft sealed-air cinematic screen. Inflates in 15 minutes. Stadium-quality 4K projection.</p>
+              <div style="margin-top:24px">
+                <div style="font-family:var(--font-display);font-size:2.2rem;font-weight:700">40ft</div>
+                <div style="font-size:0.75rem;color:var(--c-muted)">12m wide screen</div>
+              </div>
+              <div style="margin-top:16px;font-size:0.75rem;color:var(--c-amber);text-align:center">Hover for specs →</div>
+            </div>
+          </div>
+          <div class="flip-card-back glass-card">
+            <div class="flip-back">
+              <div class="screen-badge">40ft / 12m · Sealed Air</div>
+              <h4 style="font-family:var(--font-display);margin-bottom:16px;font-size:0.95rem">Technical Specs</h4>
+              <div style="display:flex;flex-direction:column;gap:0;flex:1">
+                <div class="spec-row"><span class="spec-key">Projector</span><span class="spec-val">Panasonic PT-RZ21K</span></div>
+                <div class="spec-row"><span class="spec-key">Brightness</span><span class="spec-val">20,000–31,000 lm</span></div>
+                <div class="spec-row"><span class="spec-key">Resolution</span><span class="spec-val">4K / WUXGA</span></div>
+                <div class="spec-row"><span class="spec-key">Audience</span><span class="spec-val">1,500–3,000+</span></div>
+                <div class="spec-row"><span class="spec-key">Audio</span><span class="spec-val">2×2000W + 2×18" subs</span></div>
+                <div class="spec-row"><span class="spec-key">Wind</span><span class="spec-val">Stable to 35 km/h</span></div>
+                <div class="spec-row"><span class="spec-key">Setup</span><span class="spec-val">2–3 hours</span></div>
+              </div>
+              <a href="contact.html" class="btn btn-primary" style="margin-top:20px;justify-content:center;width:100%;font-size:0.8rem;padding:12px">Book Large Screen</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Small Inflatable -->
+      <div class="flip-card screen-flip reveal reveal-delay-3">
+        <div class="flip-card-inner">
+          <div class="flip-card-front glass-card">
+            <div class="flip-front">
+              <div class="screen-badge">Screen 3</div>
+              <div class="screen-icon" style="color:var(--c-amber)"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
+              <h3 class="display-sm" style="margin-bottom:8px">Small Inflatable</h3>
+              <p style="font-size:0.875rem;color:var(--c-muted);flex:1">Compact 20ft rapid-deploy screen. Under 1 hour setup. Standard 15A outlet. Goes anywhere.</p>
+              <div style="margin-top:24px">
+                <div style="font-family:var(--font-display);font-size:2.2rem;font-weight:700">20ft</div>
+                <div style="font-size:0.75rem;color:var(--c-muted)">600 capacity</div>
+              </div>
+              <div style="margin-top:16px;font-size:0.75rem;color:var(--c-amber);text-align:center">Hover for specs →</div>
+            </div>
+          </div>
+          <div class="flip-card-back glass-card">
+            <div class="flip-back">
+              <div class="screen-badge">20ft / 6m · Blower</div>
+              <h4 style="font-family:var(--font-display);margin-bottom:16px;font-size:0.95rem">Technical Specs</h4>
+              <div style="display:flex;flex-direction:column;gap:0;flex:1">
+                <div class="spec-row"><span class="spec-key">Projector</span><span class="spec-val">Epson EB-PU2220B</span></div>
+                <div class="spec-row"><span class="spec-key">Brightness</span><span class="spec-val">7,000–10,000 lm</span></div>
+                <div class="spec-row"><span class="spec-key">Resolution</span><span class="spec-val">WUXGA 1920×1200</span></div>
+                <div class="spec-row"><span class="spec-key">Audience</span><span class="spec-val">300–600 viewers</span></div>
+                <div class="spec-row"><span class="spec-key">Audio</span><span class="spec-val">2×1000W + 15" sub</span></div>
+                <div class="spec-row"><span class="spec-key">Power</span><span class="spec-val">220V / 15A standard</span></div>
+                <div class="spec-row"><span class="spec-key">Setup</span><span class="spec-val">45 min – 1.5 hrs</span></div>
+              </div>
+              <a href="contact.html" class="btn btn-primary" style="margin-top:20px;justify-content:center;width:100%;font-size:0.8rem;padding:12px">Book Small Screen</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section-sm" style="position:relative;z-index:2">
+  <div class="container">
+    <div class="glass-card glass-irid reveal" style="padding:clamp(40px,7vw,80px);text-align:center">
+      <h2 class="display-md" style="margin-bottom:16px">Want to Be on This Page?</h2>
+      <p style="color:var(--c-muted);max-width:480px;margin:0 auto 36px">Partner with OMN and we'll add your event to our portfolio. Bring the venue — we bring the magic.</p>
+      <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap">
+        <a href="vendors.html" class="btn btn-primary">Explore Partnerships</a>
+        <a href="contact.html" class="btn btn-glass">Talk to Us</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="assets/logo/OMN Logo.png" alt="Outdoor Movie Nights" >
+        <p style="margin-top:16px">South Africa's premier outdoor cinema experience.</p>
+      </div>
+      <div class="footer-col"><h4>Navigate</h4><ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="screenings.html">Screenings</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Work With Us</h4><ul>
+        <li><a href="vendors.html">Partner Your Venue</a></li>
+        <li><a href="contact.html">Book an Event</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Contact</h4><ul>
+        <li><a href="https://wa.me/27680198329"><span class="icon icon-sm" style="vertical-align:middle;margin-right:6px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></span>WhatsApp</a></li>
+        <li><a href="mailto:info@outdoormovienights.co.za"><span class="icon icon-sm" style="vertical-align:middle;margin-right:6px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></span>Email</a></li>
+      </ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Outdoor Movie Nights.</span>
+      <span>Johannesburg, South Africa</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/starfield.js"></script>
+<script src="js/nav.js"></script>
+<script src="js/scroll.js"></script>
+</body>
+</html>

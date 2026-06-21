@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Outdoor Movie Nights — Where the Night Comes Alive</title>
+  <meta name="description" content="South Africa's premier outdoor cinema and fan park experience. Premium large-screen events in Johannesburg.">
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/components.css">
+</head>
+<body class="grain">
+
+<canvas id="starfield-canvas"></canvas>
+
+<!-- Navigation -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="assets/logo/OMN Logo.png" alt="Outdoor Movie Nights">
+    </a>
+    <div class="nav-links">
+      <a href="index.html"       class="nav-link">Home</a>
+      <a href="screenings.html"  class="nav-link">Screenings</a>
+      <a href="services.html"    class="nav-link">Services</a>
+      <a href="portfolio.html"   class="nav-link">Portfolio</a>
+      <a href="gallery.html"     class="nav-link">Gallery</a>
+      <a href="about.html"       class="nav-link">About</a>
+      <a href="vendors.html"     class="nav-link">Partner With Us</a>
+      <a href="contact.html"     class="nav-link nav-cta">Contact Us</a>
+    </div>
+    <button class="nav-toggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile nav -->
+<div class="nav-mobile">
+  <a href="index.html"       class="nav-link">Home</a>
+  <a href="screenings.html"  class="nav-link">Screenings</a>
+  <a href="services.html"    class="nav-link">Services</a>
+  <a href="portfolio.html"   class="nav-link">Portfolio</a>
+  <a href="gallery.html"     class="nav-link">Gallery</a>
+  <a href="about.html"       class="nav-link">About</a>
+  <a href="vendors.html"     class="nav-link">Partner With Us</a>
+  <a href="contact.html"     class="nav-link nav-cta">Contact Us</a>
+</div>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="aurora">
+    <div class="aurora-orb"></div>
+    <div class="aurora-orb"></div>
+    <div class="aurora-orb"></div>
+  </div>
+  <div class="projector-beam" data-parallax="0.15"></div>
+
+  <div class="hero-content page-wrapper">
+    <div class="hero-subtitle">Johannesburg's Outdoor Cinema Experience</div>
+
+    <h1 class="display-xl">
+      <span class="hero-line">Where the</span>
+      <span class="hero-line text-gradient">Night Comes</span>
+      <span class="hero-line">Alive</span>
+    </h1>
+
+    <p class="body-lg" style="margin:32px auto;max-width:580px;color:var(--c-muted);animation:hero-line-in 1s var(--ease-smooth) 0.8s both">
+      Premium outdoor cinema events, epic fan park experiences, and community-driven activations under the open sky.
+    </p>
+
+    <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;animation:hero-line-in 1s var(--ease-smooth) 1s both">
+      <a href="screenings.html" class="btn btn-primary" style="display:inline-flex;align-items:center;gap:10px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M8 4v16M16 4v16M2 9h4M2 15h4M18 9h4M18 15h4"/></svg> View Screenings</a>
+      <a href="vendors.html"    class="btn btn-glass">Partner With Us →</a>
+    </div>
+
+    <div class="scroll-indicator" style="margin-top:64px;opacity:0.5">
+      <span style="font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--c-muted)">Scroll</span>
+      <svg width="16" height="24" viewBox="0 0 16 24" fill="none">
+        <rect x="6" y="2" width="4" height="8" rx="2" fill="currentColor" opacity="0.5"/>
+        <path d="M8 16L4 20M8 16L12 20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- Stats Strip -->
+<section class="section-sm" style="position:relative;z-index:2">
+  <div class="container">
+    <div class="stats-strip reveal">
+      <div class="stat-item">
+        <div class="stat-value"><span data-target="50" data-suffix="+">50+</span></div>
+        <div class="stat-label">Events Hosted</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value"><span data-target="10000" data-suffix="+">10K+</span></div>
+        <div class="stat-label">Total Audience</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value"><span data-target="71000" data-suffix="+">71K+</span></div>
+        <div class="stat-label">Facebook Followers</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value"><span data-target="21800" data-suffix="+">21.8K+</span></div>
+        <div class="stat-label">Instagram Followers</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value"><span data-target="10700" data-suffix="+">10.7K+</span></div>
+        <div class="stat-label">TikTok Followers</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value">300"</div>
+        <div class="stat-label">Max Screen Size</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Upcoming Screenings Teaser -->
+<section class="section" style="position:relative;z-index:2">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="label">Upcoming Screenings</div>
+      <h2 class="display-md">Nights to Look Forward To</h2>
+      <div class="divider"></div>
+      <p>We're planning some unforgettable evenings. Be the first to know when details drop.</p>
+    </div>
+
+    <!-- Countdown to next event -->
+    <div class="reveal" style="text-align:center;margin-bottom:48px">
+      <div style="font-size:0.72rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--c-muted);margin-bottom:12px">Next event in</div>
+      <div style="display:inline-flex;gap:12px;align-items:flex-end" id="event-countdown">
+        <div class="glass" style="padding:14px 18px;min-width:72px;text-align:center;border-radius:var(--r-md)">
+          <div style="font-family:var(--font-display);font-size:2rem;font-weight:700;color:var(--c-white);line-height:1" id="cd-days">—</div>
+          <div style="font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--c-muted);margin-top:4px">Days</div>
+        </div>
+        <div class="glass" style="padding:14px 18px;min-width:72px;text-align:center;border-radius:var(--r-md)">
+          <div style="font-family:var(--font-display);font-size:2rem;font-weight:700;color:var(--c-white);line-height:1" id="cd-hours">—</div>
+          <div style="font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--c-muted);margin-top:4px">Hours</div>
+        </div>
+        <div class="glass" style="padding:14px 18px;min-width:72px;text-align:center;border-radius:var(--r-md)">
+          <div style="font-family:var(--font-display);font-size:2rem;font-weight:700;color:var(--c-white);line-height:1" id="cd-mins">—</div>
+          <div style="font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--c-muted);margin-top:4px">Mins</div>
+        </div>
+        <div class="glass" style="padding:14px 18px;min-width:72px;text-align:center;border-radius:var(--r-md)">
+          <div style="font-family:var(--font-display);font-size:2rem;font-weight:700;color:var(--c-red);line-height:1" id="cd-secs">—</div>
+          <div style="font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--c-muted);margin-top:4px">Secs</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Event poster cards -->
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px">
+
+      <!-- Oct 2026 -->
+      <a href="screenings.html" class="screening-poster reveal reveal-delay-1" style="--poster-color:#E8001C;--poster-glow:rgba(232,0,28,0.3)">
+        <div class="poster-month">OCT 2026</div>
+        <div class="poster-day">17</div>
+        <div class="poster-body">
+          <div class="poster-badge">
+            <span class="pulse-dot" style="background:var(--c-amber)"></span> In Planning
+          </div>
+          <h3 class="poster-title">Outdoor Movie Night</h3>
+          <p class="poster-loc"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg> Johannesburg</p>
+        </div>
+        <div class="poster-cta">
+          <span>Notify Me</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9M13.73 21a2 2 0 01-3.46 0"/></svg>
+        </div>
+      </a>
+
+      <!-- Dec 2026 -->
+      <a href="screenings.html" class="screening-poster reveal reveal-delay-2" style="--poster-color:#F5A623;--poster-glow:rgba(245,166,35,0.3)">
+        <div class="poster-month">DEC 2026</div>
+        <div class="poster-day">19</div>
+        <div class="poster-body">
+          <div class="poster-badge">
+            <span class="pulse-dot" style="background:var(--c-amber)"></span> In Planning
+          </div>
+          <h3 class="poster-title">Year End Screening</h3>
+          <p class="poster-loc"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg> Johannesburg</p>
+        </div>
+        <div class="poster-cta">
+          <span>Notify Me</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9M13.73 21a2 2 0 01-3.46 0"/></svg>
+        </div>
+      </a>
+
+      <!-- Feb 2027 -->
+      <a href="screenings.html" class="screening-poster reveal reveal-delay-3" style="--poster-color:#c084fc;--poster-glow:rgba(192,132,252,0.3)">
+        <div class="poster-month">FEB 2027</div>
+        <div class="poster-day">14</div>
+        <div class="poster-body">
+          <div class="poster-badge">
+            <span class="pulse-dot" style="background:var(--c-amber)"></span> In Planning
+          </div>
+          <h3 class="poster-title">Valentine's Night Under the Stars</h3>
+          <p class="poster-loc"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg> Johannesburg</p>
+        </div>
+        <div class="poster-cta">
+          <span>Notify Me</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9M13.73 21a2 2 0 01-3.46 0"/></svg>
+        </div>
+      </a>
+    </div>
+
+    <div style="text-align:center;margin-top:48px" class="reveal">
+      <a href="screenings.html" class="btn btn-outline" style="display:inline-flex;align-items:center;gap:10px">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        View Full Calendar
+      </a>
+    </div>
+  </div>
+
+  <script>
+  (function(){
+    const target = new Date('2026-10-17T19:00:00+02:00');
+    function tick(){
+      const diff = target - Date.now();
+      if(diff <= 0) return;
+      const d = Math.floor(diff/864e5);
+      const h = Math.floor((diff%864e5)/36e5);
+      const m = Math.floor((diff%36e5)/6e4);
+      const s = Math.floor((diff%6e4)/1e3);
+      document.getElementById('cd-days').textContent  = String(d).padStart(2,'0');
+      document.getElementById('cd-hours').textContent = String(h).padStart(2,'0');
+      document.getElementById('cd-mins').textContent  = String(m).padStart(2,'0');
+      document.getElementById('cd-secs').textContent  = String(s).padStart(2,'0');
+    }
+    tick(); setInterval(tick, 1000);
+  })();
+  </script>
+</section>
+
+<!-- Services -->
+<section class="section" style="position:relative;z-index:2;background:linear-gradient(180deg,transparent 0%,rgba(10,15,30,0.5) 100%)">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="label">What We Do</div>
+      <h2 class="display-md">Premium Outdoor Experiences</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="grid-4">
+      <div class="glass-card glass-irid service-card reveal reveal-delay-1">
+        <div class="service-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M8 4v16M16 4v16M2 9h4M2 15h4M18 9h4M18 15h4"/></svg></div>
+        <h3>Outdoor Cinema</h3>
+        <p>Curated movie nights under the stars with premium sound, bean bags, and a real cinema atmosphere.</p>
+        <a href="services.html" class="arrow-link">Learn more →</a>
+      </div>
+      <div class="glass-card glass-irid service-card reveal reveal-delay-2">
+        <div class="service-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 000 20M12 2a14.5 14.5 0 010 20M2 12h20"/></svg></div>
+        <h3>Sports Fan Parks</h3>
+        <p>Watch Premier League, UCL, and FIFA World Cup matches with 1,500+ fans on a 300" LED screen.</p>
+        <a href="services.html" class="arrow-link">Learn more →</a>
+      </div>
+      <div class="glass-card glass-irid service-card reveal reveal-delay-3">
+        <div class="service-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+        <h3>Corporate Events</h3>
+        <p>Brand activations, private screenings, and product launches with turnkey AV and production.</p>
+        <a href="services.html" class="arrow-link">Learn more →</a>
+      </div>
+      <div class="glass-card glass-irid service-card reveal reveal-delay-4">
+        <div class="service-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+        <h3>Festival Partnerships</h3>
+        <p>We bring the screens, sound, and expertise to amplify your festival's entertainment offering.</p>
+        <a href="services.html" class="arrow-link">Learn more →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Photo Marquee -->
+<section class="section-sm" style="position:relative;z-index:2;overflow:hidden">
+  <div class="section-header container reveal">
+    <div class="label">Past Events</div>
+    <h2 class="display-md">Moments We've Created</h2>
+    <div class="divider"></div>
+  </div>
+  <div class="marquee-wrapper" style="margin-top:40px">
+    <div class="marquee-track">
+      <img src="assets/events/WhatsApp Image 2026-05-21 at 19.35.00.jpeg" alt="Event" style="height:280px;width:auto;border-radius:16px;object-fit:cover;flex-shrink:0">
+      <img src="assets/events/WhatsApp Image 2026-05-21 at 19.38.12.jpeg" alt="Event" style="height:280px;width:auto;border-radius:16px;object-fit:cover;flex-shrink:0">
+      <img src="assets/events/WhatsApp Image 2026-05-21 at 19.38.13.jpeg" alt="Event" style="height:280px;width:auto;border-radius:16px;object-fit:cover;flex-shrink:0">
+      <img src="assets/events/WhatsApp Image 2026-05-21 at 19.38.15.jpeg" alt="Event" style="height:280px;width:auto;border-radius:16px;object-fit:cover;flex-shrink:0">
+      <img src="assets/events/WhatsApp Image 2026-05-21 at 19.38.19.jpeg" alt="Event" style="height:280px;width:auto;border-radius:16px;object-fit:cover;flex-shrink:0">
+      <img src="assets/gallery/pexels-aosiya-14401486.jpg" alt="Cinema" style="height:280px;width:auto;border-radius:16px;object-fit:cover;flex-shrink:0">
+      <img src="assets/gallery/pexels-wendywei-17493039.jpg" alt="Outdoor" style="height:280px;width:auto;border-radius:16px;object-fit:cover;flex-shrink:0">
+      <img src="assets/gallery/pexels-tima-miroshnichenko-7991378.jpg" alt="Cinema" style="height:280px;width:auto;border-radius:16px;object-fit:cover;flex-shrink:0">
+      <!-- Duplicate for seamless loop -->
+      <img src="assets/events/WhatsApp Image 2026-05-21 at 19.35.00.jpeg" alt="Event" style="height:280px;width:auto;border-radius:16px;object-fit:cover;flex-shrink:0">
+      <img src="assets/events/WhatsApp Image 2026-05-21 at 19.38.12.jpeg" alt="Event" style="height:280px;width:auto;border-radius:16px;object-fit:cover;flex-shrink:0">
+      <img src="assets/events/WhatsApp Image 2026-05-21 at 19.38.13.jpeg" alt="Event" style="height:280px;width:auto;border-radius:16px;object-fit:cover;flex-shrink:0">
+      <img src="assets/events/WhatsApp Image 2026-05-21 at 19.38.15.jpeg" alt="Event" style="height:280px;width:auto;border-radius:16px;object-fit:cover;flex-shrink:0">
+      <img src="assets/events/WhatsApp Image 2026-05-21 at 19.38.19.jpeg" alt="Event" style="height:280px;width:auto;border-radius:16px;object-fit:cover;flex-shrink:0">
+      <img src="assets/gallery/pexels-aosiya-14401486.jpg" alt="Cinema" style="height:280px;width:auto;border-radius:16px;object-fit:cover;flex-shrink:0">
+      <img src="assets/gallery/pexels-wendywei-17493039.jpg" alt="Outdoor" style="height:280px;width:auto;border-radius:16px;object-fit:cover;flex-shrink:0">
+      <img src="assets/gallery/pexels-tima-miroshnichenko-7991378.jpg" alt="Cinema" style="height:280px;width:auto;border-radius:16px;object-fit:cover;flex-shrink:0">
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials -->
+<section class="section" style="position:relative;z-index:2">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="label">Testimonials</div>
+      <h2 class="display-md">What People Say</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="grid-3">
+      <div class="glass-card testimonial-card reveal reveal-delay-1">
+        <div class="testimonial-stars"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+        <p class="testimonial-text">"An absolutely magical evening. The screen was massive, sound was incredible, and the vibe was unlike anything I've experienced in Joburg."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">NM</div>
+          <div>
+            <div class="author-name">Nomsa M.</div>
+            <div class="author-title">Event Attendee</div>
+          </div>
+        </div>
+      </div>
+      <div class="glass-card testimonial-card reveal reveal-delay-2">
+        <div class="testimonial-stars"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+        <p class="testimonial-text">"We partnered with OMN for our festival and they delivered beyond expectations. Turnkey setup, professional crew, and the crowd absolutely loved it."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">TK</div>
+          <div>
+            <div class="author-name">Themba K.</div>
+            <div class="author-title">Festival Organiser</div>
+          </div>
+        </div>
+      </div>
+      <div class="glass-card testimonial-card reveal reveal-delay-3">
+        <div class="testimonial-stars"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+        <p class="testimonial-text">"Watching the Champions League Final on a 300" screen with 800 people is the only way to experience football. OMN makes it happen."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">SB</div>
+          <div>
+            <div class="author-name">Sipho B.</div>
+            <div class="author-title">Sports Fan</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Banner -->
+<section class="section-sm" style="position:relative;z-index:2">
+  <div class="container">
+    <div class="glass-card glass-irid reveal" style="padding:clamp(48px,8vw,80px);text-align:center;background:linear-gradient(135deg,rgba(232,0,28,0.08) 0%,rgba(245,166,35,0.04) 100%)">
+      <div class="aurora" style="border-radius:inherit">
+        <div class="aurora-orb" style="opacity:0.1"></div>
+      </div>
+      <div class="label" style="margin-bottom:20px">Ready to Experience It?</div>
+      <h2 class="display-md" style="max-width:600px;margin:0 auto 20px">Bring the Cinema to Your Space</h2>
+      <p style="color:var(--c-muted);max-width:500px;margin:0 auto 40px">Whether you have a venue, hosting an event, or want to attend — we'd love to hear from you.</p>
+      <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap">
+        <a href="vendors.html" class="btn btn-primary">Partner With Us</a>
+        <a href="contact.html" class="btn btn-glass">Get in Touch</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="assets/logo/OMN Logo.png" alt="Outdoor Movie Nights" >
+        <p style="margin-top:16px">South Africa's premier outdoor cinema experience. Creating unforgettable nights under the open sky.</p>
+        <div class="footer-social" style="margin-top:24px;flex-direction:row;gap:10px">
+          <a href="https://www.facebook.com/OutdoorMovieNightza/" class="social-pill" target="_blank" aria-label="Facebook" style="padding:10px;justify-content:center">
+            <img src="assets/Facebook_Logo_2023.png" alt="Facebook" style="width:24px;height:24px;object-fit:contain;border-radius:4px">
+          </a>
+          <a href="https://www.instagram.com/outdoormovienights_/" class="social-pill" target="_blank" aria-label="Instagram" style="padding:10px;justify-content:center">
+            <img src="assets/Instagram_icon.png" alt="Instagram" style="width:24px;height:24px;object-fit:contain">
+          </a>
+          <a href="https://www.tiktok.com/@outdoormovienights" class="social-pill" target="_blank" aria-label="TikTok" style="padding:10px;justify-content:center">
+            <img src="assets/tiktok-icon-free-png.webp" alt="TikTok" style="width:24px;height:24px;object-fit:contain">
+          </a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Navigate</h4>
+        <ul>
+          <li><a href="screenings.html">Screenings</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="about.html">About Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Work With Us</h4>
+        <ul>
+          <li><a href="vendors.html">Partner Your Venue</a></li>
+          <li><a href="vendors.html#vendors">Become a Vendor</a></li>
+          <li><a href="contact.html">Book an Event</a></li>
+          <li><a href="contact.html">Sponsorships</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="https://wa.me/27680198329" style="display:flex;align-items:center;gap:8px"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg> WhatsApp Us</a></li>
+          <li><a href="mailto:info@outdoormovienights.co.za" style="display:flex;align-items:center;gap:8px"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg> Email Us</a></li>
+          <li><a href="#" style="display:flex;align-items:center;gap:8px"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg> Johannesburg, SA</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Outdoor Movie Nights. All rights reserved.</span>
+      <span>Made in Johannesburg</span>
+    </div>
+  </div>
+</footer>
+
+<!-- Lightbox -->
+<div class="lightbox-overlay" id="lightbox">
+  <button class="lightbox-close" aria-label="Close">×</button>
+  <img class="lightbox-img" src="" alt="Event photo">
+</div>
+
+<script src="js/starfield.js"></script>
+<script src="js/nav.js"></script>
+<script src="js/scroll.js"></script>
+</body>
+</html>

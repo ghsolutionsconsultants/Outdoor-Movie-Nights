@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Partner With Us — Outdoor Movie Nights</title>
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/components.css">
+  <style>
+    .track-tabs { display:flex; gap:0; background:var(--glass-bg); border:1px solid var(--glass-border); border-radius:var(--r-full); padding:4px; width:fit-content; margin:0 auto 60px; }
+    .track-tab { padding:12px 32px; border-radius:var(--r-full); font-size:0.9rem; font-weight:600; cursor:pointer; transition:all 0.3s ease; border:none; background:none; color:var(--c-muted); }
+    .track-tab.active { background:var(--c-red); color:#fff; box-shadow:0 4px 20px var(--c-red-glow); }
+    .track-panel { display:none; animation:page-enter 0.4s ease; }
+    .track-panel.active { display:block; }
+
+    .model-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-bottom:48px; }
+    @media(max-width:900px){ .model-grid { grid-template-columns:1fr; } }
+
+    .what-split { display:grid; grid-template-columns:1fr 1fr; gap:32px; margin-bottom:48px; }
+    @media(max-width:768px){ .what-split { grid-template-columns:1fr; } }
+
+    .what-col { padding:36px; }
+    .what-col h4 { font-family:var(--font-display); margin-bottom:20px; font-size:1rem; }
+    .what-col ul { display:flex; flex-direction:column; gap:10px; }
+    .what-col li { display:flex; gap:10px; font-size:0.875rem; color:var(--c-muted); }
+
+    /* Multi-step form */
+    .form-card { max-width:680px; margin:0 auto; padding:48px; }
+    @media(max-width:600px){ .form-card { padding:28px 20px; } }
+  </style>
+</head>
+<body class="grain">
+<canvas id="starfield-canvas"></canvas>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo"><img src="assets/logo/OMN Logo.png" alt="Outdoor Movie Nights"></a>
+    <div class="nav-links">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="screenings.html" class="nav-link">Screenings</a>
+      <a href="services.html" class="nav-link">Services</a>
+      <a href="portfolio.html" class="nav-link">Portfolio</a>
+      <a href="gallery.html" class="nav-link">Gallery</a>
+      <a href="about.html" class="nav-link">About</a>
+      <a href="vendors.html" class="nav-link">Partner With Us</a>
+      <a href="contact.html" class="nav-link nav-cta">Contact Us</a>
+    </div>
+    <button class="nav-toggle"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="nav-mobile">
+  <a href="index.html" class="nav-link">Home</a>
+  <a href="screenings.html" class="nav-link">Screenings</a>
+  <a href="services.html" class="nav-link">Services</a>
+  <a href="portfolio.html" class="nav-link">Portfolio</a>
+  <a href="gallery.html" class="nav-link">Gallery</a>
+  <a href="about.html" class="nav-link">About</a>
+  <a href="vendors.html" class="nav-link">Partner With Us</a>
+  <a href="contact.html" class="nav-link nav-cta">Contact Us</a>
+</div>
+
+<!-- Hero -->
+<section class="page-hero" style="padding-bottom:100px">
+  <div class="aurora"><div class="aurora-orb"></div><div class="aurora-orb"></div><div class="aurora-orb"></div></div>
+  <div class="container page-wrapper" style="text-align:center">
+    <div class="label" style="margin-bottom:16px">Join the OMN Ecosystem</div>
+    <h1 class="display-lg text-gradient" style="margin-bottom:24px">Let's Build<br>Something Together</h1>
+    <p class="body-lg" style="max-width:600px;margin:0 auto 40px;color:var(--c-muted)">Whether you have a venue, a food business, a brand, or a talent — there's a place for you in the Outdoor Movie Nights world.</p>
+
+    <!-- Track selector -->
+    <div class="track-tabs">
+      <button class="track-tab active" onclick="showTrack('venue', this)" style="display:inline-flex;align-items:center;gap:8px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="10" rx="10" ry="4"/><path d="M2 10v4c0 2.21 4.48 4 10 4s10-1.79 10-4v-4"/><path d="M2 14v4c0 2.21 4.48 4 10 4s10-1.79 10-4v-4"/></svg> I Have a Venue</button>
+      <button class="track-tab" onclick="showTrack('vendor', this)"><span style="display:inline-flex;align-items:center;gap:8px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 010 8h-1"/><path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg> I'm a Vendor / Sponsor</span></button>
+    </div>
+  </div>
+</section>
+
+<!-- TRACK A: Venue Partners -->
+<div class="track-panel active" id="track-venue">
+
+  <!-- What each side brings -->
+  <section class="section-sm" style="position:relative;z-index:2">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="label">The Model</div>
+        <h2 class="display-md">We Bring the Screen.<br>You Bring the Space.</h2>
+        <div class="divider"></div>
+        <p>OMN provides the complete entertainment infrastructure. Your venue provides the stage. Together we create events that fill your space and delight your audience.</p>
+      </div>
+
+      <div class="what-split">
+        <div class="glass-card what-col reveal" style="background:linear-gradient(135deg,rgba(232,0,28,0.06),transparent)">
+          <h4><span style="display:inline-flex;align-items:center;gap:8px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M8 4v16M16 4v16M2 9h4M2 15h4M18 9h4M18 15h4"/></svg> Outdoor Movie Nights Provides</span></h4>
+          <ul>
+            <li><span style="color:var(--c-red)">→</span> Large LED screens (up to 300") or inflatable screens</li>
+            <li><span style="color:var(--c-red)">→</span> HD projectors and full AV rigging</li>
+            <li><span style="color:var(--c-red)">→</span> Professional surround sound systems</li>
+            <li><span style="color:var(--c-red)">→</span> Full technical crew (setup, live ops, breakdown)</li>
+            <li><span style="color:var(--c-red)">→</span> Event concept and creative direction</li>
+            <li><span style="color:var(--c-red)">→</span> Digital marketing and community promotion</li>
+            <li><span style="color:var(--c-red)">→</span> 71,000+ social following for event promotion</li>
+            <li><span style="color:var(--c-red)">→</span> DJs, MCs, and entertainment curation</li>
+            <li><span style="color:var(--c-red)">→</span> Backup power and event infrastructure</li>
+          </ul>
+        </div>
+        <div class="glass-card what-col reveal reveal-delay-1" style="background:linear-gradient(135deg,rgba(245,166,35,0.06),transparent)">
+          <h4><span style="display:inline-flex;align-items:center;gap:8px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="10" rx="10" ry="4"/><path d="M2 10v4c0 2.21 4.48 4 10 4s10-1.79 10-4v-4"/><path d="M2 14v4c0 2.21 4.48 4 10 4s10-1.79 10-4v-4"/></svg> Your Venue Provides</span></h4>
+          <ul>
+            <li><span style="color:var(--c-amber)">→</span> Outdoor space with sufficient capacity</li>
+            <li><span style="color:var(--c-amber)">→</span> Venue staff and operational environment</li>
+            <li><span style="color:var(--c-amber)">→</span> Food & beverage infrastructure</li>
+            <li><span style="color:var(--c-amber)">→</span> Parking and access management</li>
+            <li><span style="color:var(--c-amber)">→</span> Existing foot traffic and audience base</li>
+            <li><span style="color:var(--c-amber)">→</span> Power supply (or generator access)</li>
+          </ul>
+          <div class="glass" style="padding:16px;border-radius:var(--r-md);margin-top:24px;font-size:0.825rem;color:var(--c-muted)">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="9" y1="18" x2="15" y2="18"/><line x1="10" y1="22" x2="14" y2="22"/><path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0018 8 6 6 0 006 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 018.91 14"/></svg> <strong style="color:var(--c-white)">Partnership first:</strong> We validate with low-friction pilots before scaling. You take on no infrastructure costs for the first events.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Revenue Streams -->
+  <section class="section-sm" style="position:relative;z-index:2">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="label">Revenue & Costs</div>
+        <h2 class="display-md">How the Money Works</h2>
+        <div class="divider"></div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:48px">
+        <div class="glass-card reveal" style="padding:32px">
+          <h4 style="font-family:var(--font-display);font-size:1rem;margin-bottom:20px;color:var(--c-green);display:flex;align-items:center;gap:8px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg> Revenue Streams</h4>
+          <ul style="display:flex;flex-direction:column;gap:10px">
+            <li style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.04);font-size:0.875rem"><span style="color:var(--c-muted)">Ticket Sales</span><span style="font-weight:500">Door + pre-sold</span></li>
+            <li style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.04);font-size:0.875rem"><span style="color:var(--c-muted)">Bar Revenue</span><span style="font-weight:500">All beverage sales</span></li>
+            <li style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.04);font-size:0.875rem"><span style="color:var(--c-muted)">Food Revenue</span><span style="font-weight:500">Kitchen & traders</span></li>
+            <li style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.04);font-size:0.875rem"><span style="color:var(--c-muted)">Sponsorship</span><span style="font-weight:500">Brand partnerships</span></li>
+            <li style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.04);font-size:0.875rem"><span style="color:var(--c-muted)">Brand Activations</span><span style="font-weight:500">On-site promos</span></li>
+            <li style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.04);font-size:0.875rem"><span style="color:var(--c-muted)">VIP / Lounge</span><span style="font-weight:500">Premium packages</span></li>
+            <li style="display:flex;justify-content:space-between;padding:8px 0;font-size:0.875rem"><span style="color:var(--c-muted)">Merchandise</span><span style="font-weight:500">Branded items</span></li>
+          </ul>
+        </div>
+        <div class="glass-card reveal reveal-delay-1" style="padding:32px">
+          <h4 style="font-family:var(--font-display);font-size:1rem;margin-bottom:20px;color:var(--c-red);display:flex;align-items:center;gap:8px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg> Operational Costs</h4>
+          <ul style="display:flex;flex-direction:column;gap:10px">
+            <li style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.04);font-size:0.875rem"><span style="color:var(--c-muted)">DJs & Entertainment</span><span style="font-weight:500">Pre/half/post</span></li>
+            <li style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.04);font-size:0.875rem"><span style="color:var(--c-muted)">Security</span><span style="font-weight:500">Crowd management</span></li>
+            <li style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.04);font-size:0.875rem"><span style="color:var(--c-muted)">Hospitality Staff</span><span style="font-weight:500">Waiters, bar, help</span></li>
+            <li style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.04);font-size:0.875rem"><span style="color:var(--c-muted)">Technical Crew</span><span style="font-weight:500">Screen + sound</span></li>
+            <li style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.04);font-size:0.875rem"><span style="color:var(--c-muted)">Marketing Spend</span><span style="font-weight:500">Digital + print</span></li>
+            <li style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.04);font-size:0.875rem"><span style="color:var(--c-muted)">Furniture & Setup</span><span style="font-weight:500">Chairs, décor</span></li>
+            <li style="display:flex;justify-content:space-between;padding:8px 0;font-size:0.875rem"><span style="color:var(--c-muted)">Backup Power</span><span style="font-weight:500">Generator hire</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Partnership Models -->
+  <section class="section-sm" style="position:relative;z-index:2">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="label">Choose Your Model</div>
+        <h2 class="display-md">Three Partnership Options</h2>
+        <div class="divider"></div>
+        <p>We recommend starting with Option 1 for pilot events, then scaling to Option 2 for larger activations.</p>
+      </div>
+
+      <div class="model-grid">
+        <!-- Option 1 -->
+        <div class="glass-card model-card reveal reveal-delay-1">
+          <div style="margin-bottom:20px">
+            <div class="label" style="margin-bottom:8px;color:var(--c-muted)">Option 1</div>
+            <h3 class="display-sm" style="margin-bottom:8px">Venue-Led Model</h3>
+            <span class="model-risk risk-low">LOW RISK</span>
+          </div>
+          <p style="font-size:0.825rem;color:var(--c-muted);margin-bottom:20px">Best for pilot events and proof-of-concept. Low risk for both parties. Clear separation of responsibilities.</p>
+          <div style="margin-bottom:20px">
+            <div style="font-size:0.75rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--c-amber);margin-bottom:10px">Revenue Split</div>
+            <div class="model-split-item">Bar & Kitchen: Venue retains 80–90%</div>
+            <div class="model-split-item">Tickets: OMN retains 70–80%</div>
+            <div class="model-split-item">Sponsorship: Shared 50/50</div>
+            <div class="model-split-item">VIP/Lounge: 60/40 (venue-led)</div>
+          </div>
+          <div style="margin-bottom:20px">
+            <div style="font-size:0.75rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--c-amber);margin-bottom:10px">Cost Sharing</div>
+            <div class="model-split-item">Technical setup & screens: OMN</div>
+            <div class="model-split-item">Hospitality & cleaning: Venue</div>
+            <div class="model-split-item">Security: Shared equally</div>
+            <div class="model-split-item">Marketing spend: Shared 50/50</div>
+          </div>
+          <div class="glass" style="padding:12px 16px;border-radius:var(--r-md);font-size:0.8rem;color:var(--c-muted)">
+            <span style="display:inline-flex;align-items:center;gap:8px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg> Best for: First 2–3 pilot events — low-risk entry point</span>
+          </div>
+        </div>
+
+        <!-- Option 2 (featured) -->
+        <div class="glass-card model-card featured reveal reveal-delay-2">
+          <div class="featured-badge">RECOMMENDED</div>
+          <div style="margin-bottom:20px">
+            <div class="label" style="margin-bottom:8px;color:var(--c-muted)">Option 2</div>
+            <h3 class="display-sm" style="margin-bottom:8px">Equal Partnership</h3>
+            <span class="model-risk risk-mid">MODERATE RISK</span>
+          </div>
+          <p style="font-size:0.825rem;color:var(--c-muted);margin-bottom:20px">Joint ownership of the event format. All revenue pooled, net profit split 50/50. Maximum alignment of incentives.</p>
+          <div style="margin-bottom:20px">
+            <div style="font-size:0.75rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--c-amber);margin-bottom:10px">Revenue Split</div>
+            <div class="model-split-item">All revenue streams pooled</div>
+            <div class="model-split-item">Net profit split 50/50 after costs</div>
+            <div class="model-split-item">Joint sponsorship acquisition</div>
+            <div class="model-split-item">Equal say in pricing & ticketing</div>
+          </div>
+          <div style="margin-bottom:20px">
+            <div style="font-size:0.75rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--c-amber);margin-bottom:10px">Cost Sharing</div>
+            <div class="model-split-item">All costs shared 50/50</div>
+            <div class="model-split-item">Technical setup: OMN (in-kind)</div>
+            <div class="model-split-item">Venue provision: Partner (in-kind)</div>
+            <div class="model-split-item">Security, DJs, MCs: Joint budget</div>
+          </div>
+          <div class="glass" style="padding:12px 16px;border-radius:var(--r-md);font-size:0.8rem;color:var(--c-amber)">
+            <span style="display:inline-flex;align-items:center;gap:8px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="8 17 4 17 4 6 20 6 20 17 16 17"/><path d="M2 6h20M12 17v4M8 21h8"/></svg> Best for: Marquee events &amp; large-scale activations · HIGH scalability</span>
+          </div>
+        </div>
+
+        <!-- Option 3 -->
+        <div class="glass-card model-card reveal reveal-delay-3">
+          <div style="margin-bottom:20px">
+            <div class="label" style="margin-bottom:8px;color:var(--c-muted)">Option 3</div>
+            <h3 class="display-sm" style="margin-bottom:8px">Production Partner</h3>
+            <span class="model-risk risk-low">LOW RISK for OMN</span>
+          </div>
+          <p style="font-size:0.825rem;color:var(--c-muted);margin-bottom:20px">Venue pays OMN a fixed production fee. OMN delivers the technical experience. Venue retains all revenue.</p>
+          <div style="margin-bottom:20px">
+            <div style="font-size:0.75rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--c-amber);margin-bottom:10px">Revenue Split</div>
+            <div class="model-split-item">Venue retains all revenue (bar, kitchen, tickets)</div>
+            <div class="model-split-item">Venue retains all sponsorship & brand deals</div>
+            <div class="model-split-item">OMN receives fixed production fee only</div>
+            <div class="model-split-item">No revenue share — clean, simple arrangement</div>
+          </div>
+          <div style="margin-bottom:20px">
+            <div style="font-size:0.75rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--c-amber);margin-bottom:10px">Cost Sharing</div>
+            <div class="model-split-item">Production fee covers all OMN costs</div>
+            <div class="model-split-item">Venue covers ops, staff, cleaning</div>
+            <div class="model-split-item">Marketing: Venue-led + OMN support</div>
+          </div>
+          <div class="glass" style="padding:12px 16px;border-radius:var(--r-md);font-size:0.8rem;color:var(--c-muted)">
+            <span style="display:inline-flex;align-items:center;gap:8px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg> Best for: Venues wanting full operational control</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Venue Application Form -->
+  <section class="section-sm" id="venue-form" style="position:relative;z-index:2">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="label">Apply Now</div>
+        <h2 class="display-md">Partner Your Venue</h2>
+        <div class="divider"></div>
+      </div>
+
+      <div class="glass-card form-card reveal">
+        <form action="https://formspree.io/f/xpqgajvn" method="POST">
+          <!-- Step indicator -->
+          <div class="step-indicator" style="margin-bottom:40px" id="venue-steps">
+            <div class="step-dot active" id="vs1">1</div>
+            <div class="step-line" id="vl1"></div>
+            <div class="step-dot" id="vs2">2</div>
+            <div class="step-line" id="vl2"></div>
+            <div class="step-dot" id="vs3">3</div>
+          </div>
+
+          <!-- Step 1 -->
+          <div class="form-step active" id="venue-step-1">
+            <h3 style="font-family:var(--font-display);margin-bottom:24px;font-size:1.1rem">Tell us about your venue</h3>
+            <div class="form-group">
+              <label>Venue / Business Name *</label>
+              <input type="text" class="form-control" name="venue_name" placeholder="e.g. Maboneng Precinct" required>
+            </div>
+            <div class="form-group">
+              <label>Location (Suburb, City) *</label>
+              <input type="text" class="form-control" name="location" placeholder="e.g. Maboneng, Johannesburg">
+            </div>
+            <div class="form-group">
+              <label>Estimated Outdoor Capacity *</label>
+              <select class="form-control" name="capacity">
+                <option value="">Select capacity range</option>
+                <option>Under 200 people</option>
+                <option>200 – 500 people</option>
+                <option>500 – 1,000 people</option>
+                <option>1,000 – 2,000 people</option>
+                <option>2,000+ people</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Venue Description</label>
+              <textarea class="form-control" name="venue_desc" placeholder="Describe your space — is it a park, rooftop, precinct, festival ground? Any special features?" rows="3"></textarea>
+            </div>
+            <div style="display:flex;justify-content:flex-end">
+              <button type="button" class="btn btn-primary" onclick="venueStep(2)">Next: Partnership Model →</button>
+            </div>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="form-step" id="venue-step-2">
+            <h3 style="font-family:var(--font-display);margin-bottom:24px;font-size:1.1rem">Choose your partnership model</h3>
+            <div class="form-group">
+              <div class="radio-group">
+                <label class="radio-option">
+                  <input type="radio" name="model" value="Option 1: Venue-Led">
+                  <div>
+                    <div class="radio-label">Option 1 — Venue-Led (Low Risk)</div>
+                    <div class="radio-desc">Best for pilots. Each party retains their core revenue. Quick to implement.</div>
+                  </div>
+                </label>
+                <label class="radio-option">
+                  <input type="radio" name="model" value="Option 2: Equal Partnership">
+                  <div>
+                    <div class="radio-label">Option 2 — Equal Partnership (Recommended)</div>
+                    <div class="radio-desc">All revenue pooled, 50/50 split. Best for marquee events and long-term growth.</div>
+                  </div>
+                </label>
+                <label class="radio-option">
+                  <input type="radio" name="model" value="Option 3: Production Partner">
+                  <div>
+                    <div class="radio-label">Option 3 — Production Partner (Fixed Fee)</div>
+                    <div class="radio-desc">You pay OMN a production fee and retain operational revenue. Full control.</div>
+                  </div>
+                </label>
+                <label class="radio-option">
+                  <input type="radio" name="model" value="Not sure yet">
+                  <div>
+                    <div class="radio-label">I'm not sure yet — let's discuss</div>
+                    <div class="radio-desc">We'll recommend the best option based on your venue and goals.</div>
+                  </div>
+                </label>
+              </div>
+            </div>
+            <div class="form-group" style="margin-top:24px">
+              <label>What type of events interest you most?</label>
+              <select class="form-control" name="event_type">
+                <option>Outdoor Cinema Nights</option>
+                <option>Sports Fan Parks (Premier League / UCL / FIFA)</option>
+                <option>Both Cinema and Sports</option>
+                <option>Corporate / Brand Activations</option>
+                <option>Other — I'll explain</option>
+              </select>
+            </div>
+            <div style="display:flex;justify-content:space-between">
+              <button type="button" class="btn btn-glass" onclick="venueStep(1)">← Back</button>
+              <button type="button" class="btn btn-primary" onclick="venueStep(3)">Next: Your Details →</button>
+            </div>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="form-step" id="venue-step-3">
+            <h3 style="font-family:var(--font-display);margin-bottom:24px;font-size:1.1rem">Your contact details</h3>
+            <div class="form-group">
+              <label>Your Name *</label>
+              <input type="text" class="form-control" name="contact_name" placeholder="Full name" required>
+            </div>
+            <div class="form-group">
+              <label>Email Address *</label>
+              <input type="email" class="form-control" name="email" placeholder="your@email.com" required>
+            </div>
+            <div class="form-group">
+              <label>WhatsApp / Phone Number</label>
+              <input type="tel" class="form-control" name="phone" placeholder="+27 ...">
+            </div>
+            <div class="form-group">
+              <label>Available Dates (if any in mind)</label>
+              <input type="text" class="form-control" name="dates" placeholder="e.g. December 2026, or flexible">
+            </div>
+            <div class="form-group">
+              <label>Anything else you'd like to tell us?</label>
+              <textarea class="form-control" name="message" rows="3" placeholder="Budget, specific requirements, questions..."></textarea>
+            </div>
+            <div style="display:flex;justify-content:space-between;gap:12px">
+              <button type="button" class="btn btn-glass" onclick="venueStep(2)">← Back</button>
+              <button type="submit" class="btn btn-primary" style="flex:1;justify-content:center;display:inline-flex;align-items:center;gap:8px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg> Submit Application</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- TRACK B: Vendors -->
+<div class="track-panel" id="track-vendor">
+  <section class="section-sm" style="position:relative;z-index:2">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="label">Join Our Events</div>
+        <h2 class="display-md">Become a Vendor<br>or Sponsor</h2>
+        <div class="divider"></div>
+        <p>OMN events attract thousands of engaged, lifestyle-forward attendees. If you have a food business, brand, or talent — this is your platform.</p>
+      </div>
+
+      <!-- Vendor categories -->
+      <div class="grid-4" style="margin-bottom:60px">
+        <div class="glass-card glass-irid reveal reveal-delay-1" style="padding:28px;text-align:center">
+          <div style="margin-bottom:16px;color:var(--c-amber)"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 010 8h-1"/><path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg></div>
+          <h4 style="font-family:var(--font-display);font-size:0.95rem;margin-bottom:8px">Food & Beverage</h4>
+          <p style="font-size:0.8rem;color:var(--c-muted)">Food trucks, pop-up restaurants, beverage brands, snack vendors.</p>
+        </div>
+        <div class="glass-card glass-irid reveal reveal-delay-2" style="padding:28px;text-align:center">
+          <div style="margin-bottom:16px;color:var(--c-amber)"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+          <h4 style="font-family:var(--font-display);font-size:0.95rem;margin-bottom:8px">Brand Sponsors</h4>
+          <p style="font-size:0.8rem;color:var(--c-muted)">On-site activations, naming rights, product sampling, digital presence.</p>
+        </div>
+        <div class="glass-card glass-irid reveal reveal-delay-3" style="padding:28px;text-align:center">
+          <div style="margin-bottom:16px;color:var(--c-amber)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></div>
+          <h4 style="font-family:var(--font-display);font-size:0.95rem;margin-bottom:8px">Entertainment</h4>
+          <p style="font-size:0.8rem;color:var(--c-muted)">DJs, live performers, MCs, event hosts, interactive acts.</p>
+        </div>
+        <div class="glass-card glass-irid reveal reveal-delay-4" style="padding:28px;text-align:center">
+          <div style="margin-bottom:16px;color:var(--c-amber)"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg></div>
+          <h4 style="font-family:var(--font-display);font-size:0.95rem;margin-bottom:8px">Content Creators</h4>
+          <p style="font-size:0.8rem;color:var(--c-muted)">Influencers, photographers, videographers, social media creators.</p>
+        </div>
+      </div>
+
+      <!-- Vendor form -->
+      <div class="section-header reveal">
+        <h2 class="display-md">Apply as a Vendor</h2>
+        <div class="divider"></div>
+      </div>
+
+      <div class="glass-card form-card reveal">
+        <form action="https://formspree.io/f/xpqgajvn" method="POST">
+          <div class="step-indicator" style="margin-bottom:40px" id="vendor-steps">
+            <div class="step-dot active" id="dvs1">1</div>
+            <div class="step-line" id="dvl1"></div>
+            <div class="step-dot" id="dvs2">2</div>
+            <div class="step-line" id="dvl2"></div>
+            <div class="step-dot" id="dvs3">3</div>
+          </div>
+
+          <!-- Step 1 -->
+          <div class="form-step active" id="vendor-step-1">
+            <h3 style="font-family:var(--font-display);margin-bottom:24px;font-size:1.1rem">Who are you?</h3>
+            <div class="form-group">
+              <label>Your Name *</label>
+              <input type="text" class="form-control" name="name" placeholder="Full name" required>
+            </div>
+            <div class="form-group">
+              <label>Business / Brand Name</label>
+              <input type="text" class="form-control" name="business" placeholder="Your business name (if applicable)">
+            </div>
+            <div class="form-group">
+              <label>Category *</label>
+              <div class="radio-group">
+                <label class="radio-option">
+                  <input type="radio" name="category" value="Food & Beverage">
+                  <div><div class="radio-label" style="display:flex;align-items:center;gap:8px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 010 8h-1"/><path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg> Food & Beverage</div></div>
+                </label>
+                <label class="radio-option">
+                  <input type="radio" name="category" value="Brand / Sponsor">
+                  <div><div class="radio-label" style="display:flex;align-items:center;gap:8px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg> Brand / Sponsor</div></div>
+                </label>
+                <label class="radio-option">
+                  <input type="radio" name="category" value="Entertainment / Performer">
+                  <div><div class="radio-label" style="display:flex;align-items:center;gap:8px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg> Entertainment / Performer</div></div>
+                </label>
+                <label class="radio-option">
+                  <input type="radio" name="category" value="Content Creator / Influencer">
+                  <div><div class="radio-label" style="display:flex;align-items:center;gap:8px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg> Content Creator / Influencer</div></div>
+                </label>
+              </div>
+            </div>
+            <div style="display:flex;justify-content:flex-end">
+              <button type="button" class="btn btn-primary" onclick="vendorStep(2)">Next: What You Offer →</button>
+            </div>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="form-step" id="vendor-step-2">
+            <h3 style="font-family:var(--font-display);margin-bottom:24px;font-size:1.1rem">What do you offer?</h3>
+            <div class="form-group">
+              <label>Describe what you offer *</label>
+              <textarea class="form-control" name="offering" rows="4" placeholder="Tell us about your product, service, act, or content — what would you bring to an OMN event?" required></textarea>
+            </div>
+            <div class="form-group">
+              <label>Which events interest you?</label>
+              <select class="form-control" name="event_interest">
+                <option>Any / All Events</option>
+                <option>Outdoor Cinema Nights</option>
+                <option>Sports Fan Parks</option>
+                <option>Festivals & Large Events</option>
+                <option>Corporate Activations</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Social media / portfolio link (optional)</label>
+              <input type="url" class="form-control" name="social" placeholder="Instagram, website, portfolio...">
+            </div>
+            <div style="display:flex;justify-content:space-between">
+              <button type="button" class="btn btn-glass" onclick="vendorStep(1)">← Back</button>
+              <button type="button" class="btn btn-primary" onclick="vendorStep(3)">Next: Contact →</button>
+            </div>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="form-step" id="vendor-step-3">
+            <h3 style="font-family:var(--font-display);margin-bottom:24px;font-size:1.1rem">How do we reach you?</h3>
+            <div class="form-group">
+              <label>Email Address *</label>
+              <input type="email" class="form-control" name="email" placeholder="your@email.com" required>
+            </div>
+            <div class="form-group">
+              <label>WhatsApp / Phone</label>
+              <input type="tel" class="form-control" name="phone" placeholder="+27 ...">
+            </div>
+            <div class="form-group">
+              <label>Anything else?</label>
+              <textarea class="form-control" name="message" rows="2" placeholder="Questions, special requirements, or anything you'd like us to know"></textarea>
+            </div>
+            <div style="display:flex;justify-content:space-between;gap:12px">
+              <button type="button" class="btn btn-glass" onclick="vendorStep(2)">← Back</button>
+              <button type="submit" class="btn btn-primary" style="flex:1;justify-content:center;display:inline-flex;align-items:center;gap:8px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg> Submit Application</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+</div>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="assets/logo/OMN Logo.png" alt="Outdoor Movie Nights" >
+        <p style="margin-top:16px">South Africa's premier outdoor cinema experience.</p>
+      </div>
+      <div class="footer-col"><h4>Navigate</h4><ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="screenings.html">Screenings</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Work With Us</h4><ul>
+        <li><a href="vendors.html">Partner Your Venue</a></li>
+        <li><a href="contact.html">Book an Event</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Contact</h4><ul>
+        <li><a href="https://wa.me/27680198329"><span class="icon icon-sm" style="vertical-align:middle;margin-right:6px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></span>WhatsApp</a></li>
+        <li><a href="mailto:info@outdoormovienights.co.za"><span class="icon icon-sm" style="vertical-align:middle;margin-right:6px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></span>Email</a></li>
+      </ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Outdoor Movie Nights.</span>
+      <span>Johannesburg, South Africa</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/starfield.js"></script>
+<script src="js/nav.js"></script>
+<script src="js/scroll.js"></script>
+<script>
+function showTrack(track, btn) {
+  document.querySelectorAll('.track-tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.track-panel').forEach(p => p.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('track-' + track).classList.add('active');
+  window.scrollTo({ top: document.querySelector('.page-hero').offsetHeight + 60, behavior: 'smooth' });
+}
+
+function venueStep(n) {
+  for (let i = 1; i <= 3; i++) {
+    document.getElementById('venue-step-' + i)?.classList.remove('active');
+    const dot = document.getElementById('vs' + i);
+    if (dot) { dot.classList.remove('active', 'done'); if (i < n) dot.classList.add('done'); }
+    const line = document.getElementById('vl' + i);
+    if (line) { line.classList.remove('done'); if (i < n) line.classList.add('done'); }
+  }
+  document.getElementById('venue-step-' + n)?.classList.add('active');
+  document.getElementById('vs' + n)?.classList.add('active');
+}
+
+function vendorStep(n) {
+  for (let i = 1; i <= 3; i++) {
+    document.getElementById('vendor-step-' + i)?.classList.remove('active');
+    const dot = document.getElementById('dvs' + i);
+    if (dot) { dot.classList.remove('active', 'done'); if (i < n) dot.classList.add('done'); }
+    const line = document.getElementById('dvl' + i);
+    if (line) { line.classList.remove('done'); if (i < n) line.classList.add('done'); }
+  }
+  document.getElementById('vendor-step-' + n)?.classList.add('active');
+  document.getElementById('dvs' + n)?.classList.add('active');
+}
+
+// Check URL hash
+if (window.location.hash === '#vendors') {
+  showTrack('vendor', document.querySelectorAll('.track-tab')[1]);
+}
+</script>
+</body>
+</html>
