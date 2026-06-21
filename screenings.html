@@ -432,12 +432,6 @@
 <script src="js/scroll.js" defer></script>
 <script src="js/calendar.js" defer></script>
 <script>
-  const origShowEventDetail = window.showEventDetail;
-  window.showEventDetail = function(dateStr) {
-    document.getElementById('empty-panel').style.display = 'none';
-    origShowEventDetail(dateStr);
-  };
-
   document.getElementById('view-calendar').addEventListener('click', function() {
     document.getElementById('calendar-view').style.display = 'block';
     document.getElementById('list-view').style.display = 'none';
