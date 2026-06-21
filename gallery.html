@@ -16,6 +16,7 @@
     .filter-btn { padding:8px 20px; border-radius:var(--r-full); font-size:0.825rem; font-weight:500; border:1px solid var(--glass-border); color:var(--c-muted); cursor:pointer; background:none; transition:all 0.2s ease; }
     .filter-btn.active { background:var(--c-red); border-color:var(--c-red); color:#fff; }
     .filter-btn:hover:not(.active) { border-color:rgba(255,255,255,0.3); color:var(--c-white); }
+    .gallery-item.gallery-hidden { display:none !important; }
     @media (max-width: 768px) {
       .gallery-grid { column-count:2 !important; columns:2 !important; column-gap:8px !important; }
       .gallery-item { margin-bottom:8px !important; border-radius:12px !important; display:inline-block !important; width:100% !important; }
@@ -261,9 +262,9 @@ function filterGallery(cat, btn) {
   btn.classList.add('active');
   document.querySelectorAll('.gallery-item').forEach(item => {
     if (cat === 'all' || item.dataset.cat === cat) {
-      item.style.display = 'block';
+      item.classList.remove('gallery-hidden');
     } else {
-      item.style.display = 'none';
+      item.classList.add('gallery-hidden');
     }
   });
 }
