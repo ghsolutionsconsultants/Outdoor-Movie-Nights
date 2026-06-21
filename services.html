@@ -18,14 +18,52 @@
     .service-img { border-radius:var(--r-xl); overflow:hidden; height:400px; position:relative; }
     .service-img img { width:100%; height:100%; object-fit:cover; }
     .service-img::after { content:''; position:absolute; inset:0; background:linear-gradient(135deg,rgba(232,0,28,0.2),transparent 60%); }
-    @media(max-width:768px){ .service-big, .service-big:nth-child(even) { grid-template-columns:1fr; direction:ltr; } }
 
     .equip-selector { display:flex; gap:12px; margin-bottom:32px; flex-wrap:wrap; }
     .equip-btn { padding:10px 22px; border-radius:var(--r-full); font-size:0.875rem; font-weight:500; border:1.5px solid var(--glass-border); color:var(--c-muted); cursor:pointer; transition:all 0.25s ease; background:none; }
     .equip-btn.active { background:var(--c-red); border-color:var(--c-red); color:#fff; box-shadow:0 4px 20px var(--c-red-glow); }
     .equip-panel { display:none; }
     .equip-panel.active { display:grid; grid-template-columns:1fr 1fr; gap:32px; animation:page-enter 0.4s ease; }
-    @media(max-width:600px){ .equip-panel.active { grid-template-columns:1fr; } }
+
+    @media(max-width:768px){
+      /* Service sections — single column, image below text */
+      .service-big, .service-big:nth-child(even) { grid-template-columns:1fr; direction:ltr; gap:24px; margin-bottom:56px; }
+      .service-img { height:220px; border-radius:var(--r-lg); }
+
+      /* Sports fan park dual-image: side by side instead of stacked */
+      .service-big .reveal[style*="grid-template-rows"] {
+        grid-template-rows:none !important;
+        grid-template-columns:1fr 1fr !important;
+        height:160px !important;
+        gap:8px !important;
+      }
+
+      /* Turnkey grid — 2 columns instead of 1 */
+      .grid-4 { grid-template-columns:repeat(2,1fr) !important; gap:0 !important; }
+      .grid-4 > div { padding:14px 10px !important; border-bottom:1px solid rgba(255,255,255,0.05); }
+
+      /* Turnkey glass panel padding */
+      .glass[style*="padding:48px"] { padding:24px 18px !important; }
+
+      /* Equipment selector — scrollable row */
+      .equip-selector { flex-wrap:nowrap; overflow-x:auto; padding-bottom:8px; -webkit-overflow-scrolling:touch; scrollbar-width:none; gap:8px; }
+      .equip-selector::-webkit-scrollbar { display:none; }
+      .equip-btn { flex-shrink:0; padding:9px 16px; font-size:0.8rem; }
+
+      /* Equipment panels — single column */
+      .equip-panel.active { grid-template-columns:1fr; gap:16px; }
+
+      /* Equipment card padding */
+      .equip-panel .glass-card { padding:22px 18px !important; }
+
+      /* Spec rows — stack key/value vertically on very narrow screens */
+      .spec-row { flex-direction:column; align-items:flex-start; gap:2px; padding:10px 0; }
+      .spec-val { text-align:left; color:var(--c-white); font-size:0.82rem; }
+      .spec-key { font-size:0.72rem; }
+
+      /* CTA section padding */
+      .glass-card.glass-irid { padding:32px 20px !important; }
+    }
   </style>
 </head>
 <body class="grain">
