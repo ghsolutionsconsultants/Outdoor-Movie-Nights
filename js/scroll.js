@@ -125,6 +125,66 @@
   }
 })();
 
+/* ── Photo Carousel ── */
+(function() {
+  var wrapper = document.getElementById('marquee-wrapper');
+  var prevBtn = document.getElementById('marquee-prev');
+  var nextBtn = document.getElementById('marquee-next');
+  if (!wrapper || !prevBtn || !nextBtn) return;
+
+  var isMobile = window.innerWidth < 768;
+  var stepSize = isMobile ? 220 : 340;
+  var autoDelay = 2600;
+  var timer;
+
+  function getHalf() {
+    return wrapper.scrollWidth / 2;
+  }
+
+  function scrollNext() {
+    if (wrapper.scrollLeft >= getHalf() - 10) {
+      wrapper.scrollLeft = 0;
+    }
+    wrapper.scrollBy({ left: stepSize, behavior: 'smooth' });
+  }
+
+  function scrollPrev() {
+    if (wrapper.scrollLeft <= 0) {
+      wrapper.scrollLeft = getHalf();
+    }
+    wrapper.scrollBy({ left: -stepSize, behavior: 'smooth' });
+  }
+
+  function startAuto() {
+    clearInterval(timer);
+    timer = setInterval(scrollNext, autoDelay);
+  }
+
+  function stopAuto() {
+    clearInterval(timer);
+  }
+
+  nextBtn.addEventListener('click', function() {
+    stopAuto();
+    scrollNext();
+    startAuto();
+  });
+
+  prevBtn.addEventListener('click', function() {
+    stopAuto();
+    scrollPrev();
+    startAuto();
+  });
+
+  wrapper.addEventListener('mouseenter', stopAuto);
+  wrapper.addEventListener('mouseleave', startAuto);
+  wrapper.addEventListener('touchstart', stopAuto, { passive: true });
+  wrapper.addEventListener('touchend', startAuto, { passive: true });
+
+  // Kick off auto-scroll after a short delay so images load first
+  setTimeout(startAuto, 800);
+})();
+
 // Hero lines: animate only after fonts are ready
 (function() {
   function animateHero() {

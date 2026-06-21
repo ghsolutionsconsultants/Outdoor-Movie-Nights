@@ -875,10 +875,18 @@ footer {
 }
 
 /* ── Marquee wrapper ── */
-.marquee-wrapper {
-  overflow: hidden;
+.marquee-outer {
   position: relative;
 }
+
+.marquee-wrapper {
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  position: relative;
+}
+.marquee-wrapper::-webkit-scrollbar { display: none; }
 
 .marquee-wrapper::before,
 .marquee-wrapper::after {
@@ -886,7 +894,7 @@ footer {
   position: absolute;
   top: 0;
   bottom: 0;
-  width: 100px;
+  width: 80px;
   z-index: 2;
   pointer-events: none;
 }
@@ -899,6 +907,51 @@ footer {
 .marquee-wrapper::after {
   right: 0;
   background: linear-gradient(to left, var(--c-void), transparent);
+}
+
+.marquee-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(10,15,30,0.88);
+  border: 1px solid rgba(255,255,255,0.22);
+  color: #fff;
+  font-size: 1.6rem;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+  backdrop-filter: none;
+  flex-shrink: 0;
+}
+.marquee-btn:hover {
+  background: var(--c-red);
+  border-color: var(--c-red);
+  transform: translateY(-50%) scale(1.08);
+}
+.marquee-btn-prev { left: 10px; }
+.marquee-btn-next { right: 10px; }
+
+.marquee-img {
+  height: 260px;
+  width: auto;
+  border-radius: 16px;
+  object-fit: cover;
+  flex-shrink: 0;
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .marquee-btn { width: 40px; height: 40px; font-size: 1.3rem; }
+  .marquee-btn-prev { left: 6px; }
+  .marquee-btn-next { right: 6px; }
+  .marquee-img { height: 200px; }
 }
 
 /* ── Dashboard ── */
