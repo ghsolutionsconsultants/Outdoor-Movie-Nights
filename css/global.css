@@ -404,3 +404,25 @@ input, select, textarea { color: inherit; font-family: inherit; }
 @media (max-width: 768px) {
   .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
 }
+
+/* ── Mobile Performance: disable expensive GPU effects ── */
+@media (max-width: 768px) {
+  .glass, .glass-mid, .glass-hi, .glass-card,
+  .glass-irid, nav.nav.scrolled {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+  /* Compensate with slightly more opaque backgrounds */
+  .glass      { background: rgba(15,20,40,0.75) !important; }
+  .glass-mid  { background: rgba(15,20,40,0.82) !important; }
+  .glass-hi   { background: rgba(15,20,40,0.90) !important; }
+  .glass-card { background: rgba(15,20,40,0.78) !important; }
+  nav.nav.scrolled { background: rgba(2,4,8,0.92) !important; }
+
+  /* Kill expensive continuous animations on mobile */
+  .aurora-orb, .projector-beam, .projector-beam::after,
+  .float-a, .float-b, .float-c { animation: none !important; }
+
+  /* Disable grain (already done but reinforce) */
+  .grain::after { display: none !important; }
+}

@@ -2,6 +2,7 @@
 (function() {
   const canvas = document.getElementById('starfield-canvas');
   if (!canvas) return;
+  if (window.innerWidth < 768) { canvas.style.display = 'none'; return; }
   const ctx = canvas.getContext('2d');
 
   let W, H, stars = [], shootingStars = [];
