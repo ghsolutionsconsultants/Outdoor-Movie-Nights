@@ -24,6 +24,20 @@
     .what-split { display:grid; grid-template-columns:1fr 1fr; gap:32px; margin-bottom:48px; }
     @media(max-width:768px){ .what-split { grid-template-columns:1fr; } }
 
+    /* Revenue & Costs */
+    .rev-cost-grid { display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-bottom:48px; }
+    .money-list { display:flex; flex-direction:column; gap:0; list-style:none; }
+    .money-list li { display:flex; justify-content:space-between; align-items:baseline; padding:10px 0; border-bottom:1px solid rgba(255,255,255,0.06); font-size:0.875rem; gap:12px; }
+    .money-list li.no-border { border-bottom:none; }
+    .money-label { color:var(--c-muted); flex-shrink:0; }
+    .money-val { font-weight:500; text-align:right; }
+    @media(max-width:768px){
+      .rev-cost-grid { grid-template-columns:1fr; gap:16px; }
+      .rev-cost-grid .glass-card { padding:24px 20px !important; }
+      .money-list li { flex-direction:column; align-items:flex-start; gap:2px; padding:10px 0; }
+      .money-val { text-align:left; color:var(--c-white); font-weight:600; }
+    }
+
     .what-col { padding:36px; }
     .what-col h4 { font-family:var(--font-display); margin-bottom:20px; font-size:1rem; }
     .what-col ul { display:flex; flex-direction:column; gap:10px; }
@@ -135,29 +149,29 @@
         <div class="divider"></div>
       </div>
 
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:48px">
+      <div class="rev-cost-grid">
         <div class="glass-card reveal" style="padding:32px">
           <h4 style="font-family:var(--font-display);font-size:1rem;margin-bottom:20px;color:var(--c-green);display:flex;align-items:center;gap:8px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg> Revenue Streams</h4>
-          <ul style="display:flex;flex-direction:column;gap:10px">
-            <li style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.04);font-size:0.875rem"><span style="color:var(--c-muted)">Ticket Sales</span><span style="font-weight:500">Door + pre-sold</span></li>
-            <li style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.04);font-size:0.875rem"><span style="color:var(--c-muted)">Bar Revenue</span><span style="font-weight:500">All beverage sales</span></li>
-            <li style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.04);font-size:0.875rem"><span style="color:var(--c-muted)">Food Revenue</span><span style="font-weight:500">Kitchen & traders</span></li>
-            <li style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.04);font-size:0.875rem"><span style="color:var(--c-muted)">Sponsorship</span><span style="font-weight:500">Brand partnerships</span></li>
-            <li style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.04);font-size:0.875rem"><span style="color:var(--c-muted)">Brand Activations</span><span style="font-weight:500">On-site promos</span></li>
-            <li style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.04);font-size:0.875rem"><span style="color:var(--c-muted)">VIP / Lounge</span><span style="font-weight:500">Premium packages</span></li>
-            <li style="display:flex;justify-content:space-between;padding:8px 0;font-size:0.875rem"><span style="color:var(--c-muted)">Merchandise</span><span style="font-weight:500">Branded items</span></li>
+          <ul class="money-list">
+            <li><span class="money-label">Ticket Sales</span><span class="money-val">Door + pre-sold</span></li>
+            <li><span class="money-label">Bar Revenue</span><span class="money-val">All beverage sales</span></li>
+            <li><span class="money-label">Food Revenue</span><span class="money-val">Kitchen & traders</span></li>
+            <li><span class="money-label">Sponsorship</span><span class="money-val">Brand partnerships</span></li>
+            <li><span class="money-label">Brand Activations</span><span class="money-val">On-site promos</span></li>
+            <li><span class="money-label">VIP / Lounge</span><span class="money-val">Premium packages</span></li>
+            <li class="no-border"><span class="money-label">Merchandise</span><span class="money-val">Branded items</span></li>
           </ul>
         </div>
         <div class="glass-card reveal reveal-delay-1" style="padding:32px">
           <h4 style="font-family:var(--font-display);font-size:1rem;margin-bottom:20px;color:var(--c-red);display:flex;align-items:center;gap:8px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg> Operational Costs</h4>
-          <ul style="display:flex;flex-direction:column;gap:10px">
-            <li style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.04);font-size:0.875rem"><span style="color:var(--c-muted)">DJs & Entertainment</span><span style="font-weight:500">Pre/half/post</span></li>
-            <li style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.04);font-size:0.875rem"><span style="color:var(--c-muted)">Security</span><span style="font-weight:500">Crowd management</span></li>
-            <li style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.04);font-size:0.875rem"><span style="color:var(--c-muted)">Hospitality Staff</span><span style="font-weight:500">Waiters, bar, help</span></li>
-            <li style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.04);font-size:0.875rem"><span style="color:var(--c-muted)">Technical Crew</span><span style="font-weight:500">Screen + sound</span></li>
-            <li style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.04);font-size:0.875rem"><span style="color:var(--c-muted)">Marketing Spend</span><span style="font-weight:500">Digital + print</span></li>
-            <li style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.04);font-size:0.875rem"><span style="color:var(--c-muted)">Furniture & Setup</span><span style="font-weight:500">Chairs, décor</span></li>
-            <li style="display:flex;justify-content:space-between;padding:8px 0;font-size:0.875rem"><span style="color:var(--c-muted)">Backup Power</span><span style="font-weight:500">Generator hire</span></li>
+          <ul class="money-list">
+            <li><span class="money-label">DJs & Entertainment</span><span class="money-val">Pre/half/post</span></li>
+            <li><span class="money-label">Security</span><span class="money-val">Crowd management</span></li>
+            <li><span class="money-label">Hospitality Staff</span><span class="money-val">Waiters, bar, help</span></li>
+            <li><span class="money-label">Technical Crew</span><span class="money-val">Screen + sound</span></li>
+            <li><span class="money-label">Marketing Spend</span><span class="money-val">Digital + print</span></li>
+            <li><span class="money-label">Furniture & Setup</span><span class="money-val">Chairs, décor</span></li>
+            <li class="no-border"><span class="money-label">Backup Power</span><span class="money-val">Generator hire</span></li>
           </ul>
         </div>
       </div>
