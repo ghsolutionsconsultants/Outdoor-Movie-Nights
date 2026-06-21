@@ -30,8 +30,8 @@
 
     .screen-flip-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
     @media(max-width:900px){ .screen-flip-grid { grid-template-columns:1fr; gap:16px; } }
-    .screen-flip { height:580px; }
-    .flip-front, .flip-back { display:flex; flex-direction:column; padding:36px; }
+    .screen-flip { height:var(--flip-h, 520px); }
+    .flip-front, .flip-back { display:flex; flex-direction:column; padding:32px; }
     @media(max-width:768px){
       .flip-front, .flip-back { padding:24px 20px; }
       .screen-flip { height:auto; min-height:0; }
@@ -358,5 +358,28 @@
 <script src="js/starfield.js"></script>
 <script src="js/nav.js"></script>
 <script src="js/scroll.js"></script>
+<script>
+// Auto-size flip cards to fit their tallest face
+(function() {
+  function sizeFlipCards() {
+    if (window.innerWidth <= 768) return;
+    document.querySelectorAll('.screen-flip').forEach(function(card) {
+      card.style.removeProperty('height');
+      var front = card.querySelector('.flip-card-front');
+      var back  = card.querySelector('.flip-card-back');
+      // Temporarily make both visible to measure natural height
+      var prevVis = back.style.visibility;
+      back.style.visibility = 'hidden';
+      back.style.transform = 'none';
+      var h = Math.max(front.scrollHeight, back.scrollHeight) + 2;
+      back.style.transform = '';
+      back.style.visibility = prevVis;
+      card.style.height = h + 'px';
+    });
+  }
+  window.addEventListener('load', sizeFlipCards);
+  window.addEventListener('resize', sizeFlipCards);
+})();
+</script>
 </body>
 </html>
