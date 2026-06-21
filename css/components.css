@@ -885,6 +885,8 @@ footer {
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
   position: relative;
+  /* height matches .marquee-img desktop height + track padding */
+  height: 182px;
 }
 .marquee-wrapper::-webkit-scrollbar { display: none; }
 
@@ -894,7 +896,7 @@ footer {
   position: absolute;
   top: 0;
   bottom: 0;
-  width: 80px;
+  width: 60px;
   z-index: 2;
   pointer-events: none;
 }
@@ -907,6 +909,10 @@ footer {
 .marquee-wrapper::after {
   right: 0;
   background: linear-gradient(to left, var(--c-void), transparent);
+}
+
+@media (max-width: 768px) {
+  .marquee-wrapper { height: 128px; }
 }
 
 .marquee-btn {
@@ -939,19 +945,19 @@ footer {
 .marquee-btn-next { right: 10px; }
 
 .marquee-img {
-  height: 260px;
-  width: auto;
-  border-radius: 16px;
+  width: 260px;
+  height: 174px;
+  border-radius: 14px;
   object-fit: cover;
   flex-shrink: 0;
   display: block;
 }
 
 @media (max-width: 768px) {
-  .marquee-btn { width: 40px; height: 40px; font-size: 1.3rem; }
-  .marquee-btn-prev { left: 6px; }
-  .marquee-btn-next { right: 6px; }
-  .marquee-img { height: 200px; }
+  .marquee-btn { width: 36px; height: 36px; font-size: 1.2rem; }
+  .marquee-btn-prev { left: 4px; }
+  .marquee-btn-next { right: 4px; }
+  .marquee-img { width: 180px; height: 120px; border-radius: 10px; }
 }
 
 /* ── Dashboard ── */
