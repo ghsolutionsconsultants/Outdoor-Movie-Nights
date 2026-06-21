@@ -12,6 +12,14 @@
   <link rel="stylesheet" href="css/animations.css">
   <link rel="stylesheet" href="css/components.css">
   <style>
+    .about-mission-grid { display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center; }
+    .about-stats-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+    @media(max-width:768px){
+      .about-mission-grid { grid-template-columns:1fr; gap:40px; }
+      .about-stats-grid { grid-template-columns:1fr 1fr; gap:12px; }
+      .about-stats-grid .glass-card { padding:20px 16px !important; }
+      .about-stats-grid .glass-card > div:first-child { font-size:1.7rem !important; }
+    }
     .founder-layout { display:grid; grid-template-columns:340px 1fr; gap:60px; align-items:start; }
     @media(max-width:900px){ .founder-layout { grid-template-columns:1fr; } }
     .founder-photo-wrap { position:sticky; top:100px; }
@@ -68,7 +76,7 @@
 <!-- Mission -->
 <section class="section" style="position:relative;z-index:2">
   <div class="container">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center">
+    <div class="about-mission-grid">
       <div class="reveal">
         <div class="label" style="margin-bottom:16px">What We Stand For</div>
         <h2 class="display-md" style="margin-bottom:24px">Transforming Spaces Into Experiences</h2>
@@ -80,7 +88,7 @@
         </div>
       </div>
       <div class="reveal reveal-delay-2">
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+        <div class="about-stats-grid">
           <div class="glass-card" style="padding:28px;text-align:center">
             <div style="font-family:var(--font-display);font-size:2.2rem;font-weight:700;color:var(--c-white);margin-bottom:8px" data-target="50" data-suffix="+">50+</div>
             <div class="label" style="color:var(--c-muted)">Events</div>
