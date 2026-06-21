@@ -185,14 +185,26 @@
   setTimeout(startAuto, 800);
 })();
 
-// Hero lines: animate only after fonts are ready
+// Hero lines: animate in — immediately on mobile, after fonts on desktop
 (function() {
   function animateHero() {
-    document.querySelectorAll('.hero-line').forEach(el => el.classList.add('animate'));
+    document.querySelectorAll('.hero-line').forEach(function(el) {
+      el.classList.add('animate');
+    });
   }
+  // On mobile don't wait for Cinzel — show immediately so hero is never blank
+  if (window.innerWidth < 768) {
+    animateHero();
+    return;
+  }
+  // Desktop: wait for font but cap at 900ms so it never stalls
+  var done = false;
+  var timer = setTimeout(function() {
+    if (!done) { done = true; animateHero(); }
+  }, 900);
   if (document.fonts && document.fonts.ready) {
-    document.fonts.ready.then(animateHero);
-  } else {
-    window.addEventListener('load', animateHero);
+    document.fonts.ready.then(function() {
+      if (!done) { done = true; clearTimeout(timer); animateHero(); }
+    });
   }
 })();

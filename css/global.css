@@ -412,17 +412,38 @@ input, select, textarea { color: inherit; font-family: inherit; }
     backdrop-filter: none !important;
     -webkit-backdrop-filter: none !important;
   }
-  /* Compensate with slightly more opaque backgrounds */
   .glass      { background: rgba(15,20,40,0.75) !important; }
   .glass-mid  { background: rgba(15,20,40,0.82) !important; }
   .glass-hi   { background: rgba(15,20,40,0.90) !important; }
   .glass-card { background: rgba(15,20,40,0.78) !important; }
   nav.nav.scrolled { background: rgba(2,4,8,0.92) !important; }
 
-  /* Kill expensive continuous animations on mobile */
-  .aurora-orb, .projector-beam, .projector-beam::after,
+  /* Remove aurora orbs entirely — blur(80px) forces GPU layers even without animation */
+  .aurora-orb { display: none !important; }
+
+  /* Remove projector beam — blur(30px) same issue */
+  .projector-beam, .projector-beam::after { display: none !important; }
+
+  /* Kill remaining continuous animations */
   .float-a, .float-b, .float-c { animation: none !important; }
 
-  /* Disable grain (already done but reinforce) */
+  /* Disable page-enter slide — show immediately */
+  .page-wrapper { animation: none !important; opacity: 1 !important; transform: none !important; }
+
+  /* Disable scroll indicator bounce */
+  .scroll-indicator { animation: none !important; }
+
+  /* Override inline hero animations — show immediately on mobile */
+  .hero-content > p[style*="animation"],
+  .hero-content > div[style*="animation"] {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  /* Disable grain */
   .grain::after { display: none !important; }
+
+  /* Remove will-change pre-allocation on mobile */
+  .hero-line { will-change: auto !important; }
 }
