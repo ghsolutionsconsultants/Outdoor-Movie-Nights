@@ -506,8 +506,21 @@
 .gallery-item:hover .gallery-item-overlay { opacity: 1; }
 
 @media (max-width: 1024px) { .gallery-grid { columns: 3; } }
-@media (max-width: 768px)  { .gallery-grid { columns: 2; } }
-@media (max-width: 480px)  { .gallery-grid { columns: 1; } }
+
+@media (max-width: 768px) {
+  .gallery-grid {
+    columns: 2;
+    column-gap: 8px;
+  }
+  .gallery-item {
+    margin-bottom: 8px;
+    border-radius: var(--r-sm);
+  }
+  .gallery-item img {
+    max-height: 180px;
+    object-fit: cover;
+  }
+}
 
 /* ── Screen Spec Cards ── */
 .screen-card {
