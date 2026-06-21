@@ -20,12 +20,30 @@
     .case-img-wrap:hover img { transform:scale(1.05); }
     .attendance-badge { position:absolute; top:20px; right:20px; background:rgba(2,4,8,0.7); backdrop-filter:blur(20px); border:1px solid rgba(255,255,255,0.15); border-radius:var(--r-md); padding:12px 18px; text-align:center; }
     .case-info { display:flex; flex-direction:column; justify-content:center; padding:40px; }
-    @media(max-width:768px){ .portfolio-case, .portfolio-case:nth-child(even) { grid-template-columns:1fr; direction:ltr; } .case-info { padding:24px 0; } }
+    @media(max-width:768px){
+      .portfolio-case, .portfolio-case:nth-child(even) { grid-template-columns:1fr; direction:ltr; gap:0; }
+      .case-info { padding:24px 20px; }
+      .case-img-wrap { min-height:220px; border-radius:var(--r-lg) var(--r-lg) 0 0; }
+      .glass-card.case-info { border-radius:0 0 var(--r-lg) var(--r-lg); }
+      .attendance-badge { top:12px; right:12px; padding:8px 12px; }
+    }
 
     .screen-flip-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
-    @media(max-width:900px){ .screen-flip-grid { grid-template-columns:1fr; } }
+    @media(max-width:900px){ .screen-flip-grid { grid-template-columns:1fr; gap:16px; } }
     .screen-flip { height:580px; }
     .flip-front, .flip-back { display:flex; flex-direction:column; padding:36px; }
+    @media(max-width:768px){
+      .flip-front, .flip-back { padding:24px 20px; }
+      .screen-flip { height:auto; min-height:0; }
+      /* Stack front + back vertically on mobile — no 3D flip */
+      .flip-card { perspective: none; }
+      .flip-card-inner { transform: none !important; transition: none; display: flex; flex-direction: column; }
+      .flip-card-front, .flip-card-back { position: relative; width: 100%; height: auto; backface-visibility: visible; -webkit-backface-visibility: visible; transform: none !important; }
+      .flip-card-back { border-radius: 0 0 var(--r-lg) var(--r-lg) !important; border-top: 1px solid var(--glass-border); margin-top: 0; }
+      .flip-card-front { border-radius: var(--r-lg) var(--r-lg) 0 0 !important; }
+      /* Hide the desktop hover hint */
+      .flip-front > div:last-child[style*="Hover"] { display: none; }
+    }
     .flip-back { background:linear-gradient(135deg,rgba(232,0,28,0.1),rgba(245,166,35,0.06)); }
     .screen-icon { font-size:3.5rem; margin-bottom:20px; }
   </style>
