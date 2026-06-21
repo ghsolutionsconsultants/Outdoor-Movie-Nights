@@ -5,7 +5,7 @@
   const ctx = canvas.getContext('2d');
 
   let W, H, stars = [], shootingStars = [];
-  const STAR_COUNT = 220;
+  const STAR_COUNT = window.innerWidth < 768 ? 80 : 220;
 
   function resize() {
     W = canvas.width  = window.innerWidth;

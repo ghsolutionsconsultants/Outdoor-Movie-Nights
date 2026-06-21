@@ -124,3 +124,15 @@
     });
   }
 })();
+
+// Hero lines: animate only after fonts are ready
+(function() {
+  function animateHero() {
+    document.querySelectorAll('.hero-line').forEach(el => el.classList.add('animate'));
+  }
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(animateHero);
+  } else {
+    window.addEventListener('load', animateHero);
+  }
+})();
