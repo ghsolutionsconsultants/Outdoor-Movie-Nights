@@ -73,6 +73,14 @@
       Premium outdoor cinema events, epic fan park experiences, and community-driven activations under the open sky.
     </p>
 
+    <div style="animation:hero-line-in 1s var(--ease-smooth) 0.9s both;margin-bottom:28px">
+      <a href="screenings.html" style="display:inline-flex;align-items:center;gap:10px;padding:10px 20px;border-radius:var(--r-full);background:linear-gradient(135deg,rgba(34,197,94,0.15),rgba(34,197,94,0.08));border:1px solid rgba(34,197,94,0.4);color:#4ade80;font-size:0.8rem;font-weight:600;letter-spacing:0.05em;text-decoration:none;transition:all 0.2s ease" onmouseover="this.style.background='linear-gradient(135deg,rgba(34,197,94,0.25),rgba(34,197,94,0.12))'" onmouseout="this.style.background='linear-gradient(135deg,rgba(34,197,94,0.15),rgba(34,197,94,0.08))'">
+        <span style="display:inline-block;width:7px;height:7px;border-radius:50%;background:#4ade80;box-shadow:0 0 8px #4ade80;animation:pulse-dot 1.5s ease-in-out infinite"></span>
+        ⚽ FIFA World Cup Final Fan Park &nbsp;·&nbsp; 19 July 2026 · Pretoria &nbsp;·&nbsp; Confirmed
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+
     <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;animation:hero-line-in 1s var(--ease-smooth) 1s both">
       <a href="screenings.html" class="btn btn-primary" style="display:inline-flex;align-items:center;gap:10px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M8 4v16M16 4v16M2 9h4M2 15h4M18 9h4M18 15h4"/></svg> View Screenings</a>
       <a href="vendors.html"    class="btn btn-glass">Partner With Us →</a>
@@ -127,7 +135,7 @@
       <div class="label">Upcoming Screenings</div>
       <h2 class="display-md">Nights to Look Forward To</h2>
       <div class="divider"></div>
-      <p>We're planning some unforgettable evenings. Be the first to know when details drop.</p>
+      <p>One confirmed. Three in planning. 2026 is going to be a big year.</p>
     </div>
 
     <!-- Countdown to next event -->
@@ -152,6 +160,27 @@
         </div>
       </div>
     </div>
+
+    <!-- World Cup Featured Card -->
+    <a href="screenings.html" class="reveal" style="display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:24px 32px;padding:28px 36px;border-radius:var(--r-xl);background:linear-gradient(135deg,rgba(34,197,94,0.12) 0%,rgba(34,197,94,0.04) 100%);border:1px solid rgba(34,197,94,0.35);text-decoration:none;margin-bottom:24px;position:relative;overflow:hidden;transition:border-color 0.2s ease,transform 0.2s ease" onmouseover="this.style.borderColor='rgba(34,197,94,0.6)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='rgba(34,197,94,0.35)';this.style.transform='translateY(0)'">
+      <div style="text-align:center;min-width:72px">
+        <div style="font-size:3rem;line-height:1;margin-bottom:4px">⚽</div>
+        <div style="font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;color:#4ade80;font-weight:600">19 July</div>
+      </div>
+      <div>
+        <div style="display:inline-flex;align-items:center;gap:8px;padding:4px 12px;border-radius:var(--r-full);background:rgba(34,197,94,0.15);border:1px solid rgba(34,197,94,0.3);margin-bottom:10px">
+          <span style="display:inline-block;width:6px;height:6px;border-radius:50%;background:#4ade80;box-shadow:0 0 6px #4ade80;animation:pulse-dot 1.5s ease-in-out infinite"></span>
+          <span style="font-size:0.7rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#4ade80">Confirmed</span>
+        </div>
+        <h3 style="font-family:var(--font-display);font-size:1.25rem;font-weight:700;color:var(--c-white);margin-bottom:6px">FIFA World Cup Final Fan Park</h3>
+        <p style="font-size:0.85rem;color:var(--c-muted);display:flex;align-items:center;gap:6px"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg> Pretoria, Tshwane &nbsp;·&nbsp; Gates open 17:00</p>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px;white-space:nowrap;color:#4ade80;font-size:0.875rem;font-weight:600">
+        Get Tickets
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </div>
+      <div style="position:absolute;top:-40px;right:-40px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(34,197,94,0.1) 0%,transparent 70%);pointer-events:none"></div>
+    </a>
 
     <!-- Event poster cards -->
     <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px">
@@ -218,7 +247,7 @@
 
   <script>
   (function(){
-    const target = new Date('2026-10-17T19:00:00+02:00');
+    const target = new Date('2026-07-19T17:00:00+02:00');
     function tick(){
       const diff = target - Date.now();
       if(diff <= 0) return;
