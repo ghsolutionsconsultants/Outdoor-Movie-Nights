@@ -8,7 +8,7 @@
       status: 'confirmed',
       venue: 'Pretoria, Tshwane',
       details: 'Watch the FIFA World Cup Final LIVE on a massive outdoor screen. A historic fan park experience in the heart of Pretoria. Gates open at 17:00. Venue details and ticketing coming soon.',
-      icon: '⚽'
+      icon: '🏆'
     },
     {
       date: '2026-10-17',
