@@ -1434,8 +1434,14 @@ img, video, canvas { max-width: 100%; }
   #event-countdown .glass > div:first-child { font-size: 1.5rem; }
 }
 
+@media (max-width: 900px) {
+  [style*="grid-template-columns:repeat(4,1fr)"] {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
 @media (max-width: 700px) {
-  [style*="grid-template-columns:repeat(3,1fr)"] {
+  [style*="grid-template-columns:repeat(3,1fr)"],
+  [style*="grid-template-columns:repeat(4,1fr)"] {
     grid-template-columns: 1fr !important;
   }
   .poster-day { font-size: 5rem; }
