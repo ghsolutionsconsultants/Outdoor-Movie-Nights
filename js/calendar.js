@@ -2,6 +2,15 @@
 (function() {
   const EVENTS = [
     {
+      date: '2026-07-19',
+      name: 'FIFA World Cup Final Screening',
+      type: 'fanpark',
+      status: 'confirmed',
+      venue: 'Pretoria, Tshwane',
+      details: 'Watch the FIFA World Cup Final LIVE on a massive outdoor screen. A historic fan park experience in the heart of Pretoria. Gates open at 17:00. Venue details and ticketing coming soon.',
+      icon: '⚽'
+    },
+    {
       date: '2026-10-17',
       name: 'Outdoor Movie Night',
       type: 'cinema',
@@ -35,7 +44,7 @@
   EVENTS.forEach(ev => { eventMap[ev.date] = ev; });
 
   // Countdown to first event
-  const countdownTarget = new Date('2026-10-17T18:00:00');
+  const countdownTarget = new Date('2026-07-19T17:00:00');
 
   function updateCountdown() {
     const now  = new Date();
@@ -57,7 +66,7 @@
 
   // Calendar state
   let currentYear  = 2026;
-  let currentMonth = 9; // October (0-indexed)
+  let currentMonth = 6; // July (0-indexed)
 
   const monthNames = ['January','February','March','April','May','June','July','August','September','October','November','December'];
   const dayNames   = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];

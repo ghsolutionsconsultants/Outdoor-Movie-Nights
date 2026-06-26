@@ -68,149 +68,300 @@
     <div class="gallery-filter-bar reveal">
       <button class="filter-btn active" onclick="filterGallery('all', this)">All Photos</button>
       <button class="filter-btn" onclick="filterGallery('events', this)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M8 4v16M16 4v16M2 9h4M2 15h4M18 9h4M18 15h4"/></svg> Events</button>
-      <button class="filter-btn" onclick="filterGallery('fanpark', this)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 000 20M12 2a14.5 14.5 0 010 20M2 12h20"/></svg> Fan Parks</button>
+      <button class="filter-btn" onclick="filterGallery('corporate', this)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg> Corporate</button>
       <button class="filter-btn" onclick="filterGallery('atmosphere', this)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg> Atmosphere</button>
     </div>
 
     <div class="gallery-grid reveal" id="gallery-grid">
 
-      <!-- Events (real OMN event photos) -->
-      <div class="gallery-item" data-cat="events" data-lightbox="assets/events/WhatsApp Image 2026-05-21 at 19.35.00.jpeg">
-        <img src="assets/events/WhatsApp Image 2026-05-21 at 19.35.00.jpeg" alt="Outdoor cinema with bean bags and big screen at night" loading="lazy" loading="lazy">
-        <div class="gallery-item-overlay"><div>
-          <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-bottom:2px">Cinema Night</div>
-          <div style="font-size:0.85rem;font-weight:500">Bean Bag Outdoor Cinema</div>
-        </div></div>
-      </div>
-
-      <div class="gallery-item" data-cat="events" data-lightbox="assets/events/WhatsApp Image 2026-05-21 at 19.38.12.jpeg">
-        <img src="assets/events/WhatsApp Image 2026-05-21 at 19.38.12.jpeg" alt="Back to the City Festival" loading="lazy" loading="lazy">
+      <!-- EVENTS — community screenings & crowd shots -->
+      <div class="gallery-item" data-cat="events" data-lightbox="assets/events/new/back-to-city.jpg">
+        <img src="assets/events/new/back-to-city.jpg" alt="Back to the City Festival outdoor screening" loading="lazy">
         <div class="gallery-item-overlay"><div>
           <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-bottom:2px">Events</div>
           <div style="font-size:0.85rem;font-weight:500">Back to the City Festival</div>
         </div></div>
       </div>
 
-      <!-- Fan Parks (pexels) -->
-      <div class="gallery-item" data-cat="fanpark" data-lightbox="assets/gallery/pexels-myatezhny39-2927526.jpg">
-        <img src="assets/gallery/pexels-myatezhny39-2927526.jpg" alt="Sports fan park crowd" loading="lazy" loading="lazy">
-        <div class="gallery-item-overlay"><div>
-          <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-bottom:2px">Fan Park</div>
-          <div style="font-size:0.85rem;font-weight:500">Match Day Energy</div>
-        </div></div>
-      </div>
-
-      <!-- Atmosphere -->
-      <div class="gallery-item" data-cat="atmosphere" data-lightbox="assets/gallery/pexels-aosiya-14401486.jpg">
-        <img src="assets/gallery/pexels-aosiya-14401486.jpg" alt="Cinema projector" loading="lazy" loading="lazy">
-        <div class="gallery-item-overlay"><div>
-          <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-bottom:2px">Equipment</div>
-          <div style="font-size:0.85rem;font-weight:500">The Magic Machine</div>
-        </div></div>
-      </div>
-
-      <div class="gallery-item" data-cat="events" data-lightbox="assets/events/WhatsApp Image 2026-05-21 at 19.38.13.jpeg">
-        <img src="assets/events/WhatsApp Image 2026-05-21 at 19.38.13.jpeg" alt="Crowd at dusk" loading="lazy" loading="lazy">
+      <div class="gallery-item" data-cat="events" data-lightbox="assets/events/new/soweto-ed-01.jpg">
+        <img src="assets/events/new/soweto-ed-01.jpg" alt="Soweto Equestrian Centre outdoor cinema" loading="lazy">
         <div class="gallery-item-overlay"><div>
           <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-bottom:2px">Events</div>
-          <div style="font-size:0.85rem;font-weight:500">Dusk Gathering</div>
+          <div style="font-size:0.85rem;font-weight:500">Soweto Edition</div>
         </div></div>
       </div>
 
-      <div class="gallery-item" data-cat="atmosphere" data-lightbox="assets/gallery/pexels-tima-miroshnichenko-7991378.jpg">
-        <img src="assets/gallery/pexels-tima-miroshnichenko-7991378.jpg" alt="Popcorn and 3D glasses" loading="lazy" loading="lazy">
-        <div class="gallery-item-overlay"><div>
-          <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-bottom:2px">Vibes</div>
-          <div style="font-size:0.85rem;font-weight:500">Cinema Essentials</div>
-        </div></div>
-      </div>
-
-      <div class="gallery-item" data-cat="events" data-lightbox="assets/events/WhatsApp Image 2026-05-21 at 19.38.15.jpeg">
-        <img src="assets/events/WhatsApp Image 2026-05-21 at 19.38.15.jpeg" alt="Night event" loading="lazy" loading="lazy">
+      <div class="gallery-item" data-cat="events" data-lightbox="assets/events/new/soweto-ed-02.jpg">
+        <img src="assets/events/new/soweto-ed-02.jpg" alt="Soweto outdoor cinema at sunset" loading="lazy">
         <div class="gallery-item-overlay"><div>
           <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-bottom:2px">Events</div>
-          <div style="font-size:0.85rem;font-weight:500">Under the Stars</div>
+          <div style="font-size:0.85rem;font-weight:500">Golden Hour, Soweto</div>
         </div></div>
       </div>
 
-      <!-- Fan Park 2 -->
-      <div class="gallery-item" data-cat="fanpark" data-lightbox="assets/gallery/pexels-semsibelli-26832707.jpg">
-        <img src="assets/gallery/pexels-semsibelli-26832707.jpg" alt="Fan park atmosphere" loading="lazy" loading="lazy">
-        <div class="gallery-item-overlay"><div>
-          <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-bottom:2px">Fan Park</div>
-          <div style="font-size:0.85rem;font-weight:500">Stadium Atmosphere</div>
-        </div></div>
-      </div>
-
-      <div class="gallery-item" data-cat="atmosphere" data-lightbox="assets/gallery/pexels-wendywei-17493039.jpg">
-        <img src="assets/gallery/pexels-wendywei-17493039.jpg" alt="Outdoor cinema setup with string lights" loading="lazy" loading="lazy">
-        <div class="gallery-item-overlay"><div>
-          <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-bottom:2px">Setup</div>
-          <div style="font-size:0.85rem;font-weight:500">String Light Cinema</div>
-        </div></div>
-      </div>
-
-      <div class="gallery-item" data-cat="events" data-lightbox="assets/events/WhatsApp Image 2026-05-21 at 19.38.19.jpeg">
-        <img src="assets/events/WhatsApp Image 2026-05-21 at 19.38.19.jpeg" alt="Crowd watching screen" loading="lazy" loading="lazy">
+      <div class="gallery-item" data-cat="events" data-lightbox="assets/events/new/crowd-01.jpg">
+        <img src="assets/events/new/crowd-01.jpg" alt="Thousands at Outdoor Movie Night" loading="lazy">
         <div class="gallery-item-overlay"><div>
           <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-bottom:2px">Events</div>
           <div style="font-size:0.85rem;font-weight:500">The Crowd</div>
         </div></div>
       </div>
 
-      <div class="gallery-item" data-cat="atmosphere" data-lightbox="assets/gallery/pexels-zafiro-media-48865706-7603983.jpg">
-        <img src="assets/gallery/pexels-zafiro-media-48865706-7603983.jpg" alt="Popcorn at night event" loading="lazy" loading="lazy">
-        <div class="gallery-item-overlay"><div>
-          <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-bottom:2px">Vibes</div>
-          <div style="font-size:0.85rem;font-weight:500">Popcorn Time</div>
-        </div></div>
-      </div>
-
-      <div class="gallery-item" data-cat="events" data-lightbox="assets/events/WhatsApp Image 2026-05-21 at 19.38.22.jpeg">
-        <img src="assets/events/WhatsApp Image 2026-05-21 at 19.38.22.jpeg" alt="Large crowd at night" loading="lazy" loading="lazy">
+      <div class="gallery-item" data-cat="events" data-lightbox="assets/events/new/crowd-02.jpg">
+        <img src="assets/events/new/crowd-02.jpg" alt="Night crowd at OMN event" loading="lazy">
         <div class="gallery-item-overlay"><div>
           <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-bottom:2px">Events</div>
-          <div style="font-size:0.85rem;font-weight:500">Big Night Energy</div>
+          <div style="font-size:0.85rem;font-weight:500">Night Energy</div>
         </div></div>
       </div>
 
-      <div class="gallery-item" data-cat="events" data-lightbox="assets/gallery/pexels-son-tung-tran-17375059-6521573.jpg">
-        <img src="assets/gallery/pexels-son-tung-tran-17375059-6521573.jpg" alt="Outdoor cinema crowd at dusk" loading="lazy" loading="lazy">
-        <div class="gallery-item-overlay"><div>
-          <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-bottom:2px">Cinema</div>
-          <div style="font-size:0.85rem;font-weight:500">Dusk Cinema</div>
-        </div></div>
-      </div>
-
-      <div class="gallery-item" data-cat="events" data-lightbox="assets/events/WhatsApp Image 2026-05-21 at 19.38.23.jpeg">
-        <img src="assets/events/WhatsApp Image 2026-05-21 at 19.38.23.jpeg" alt="Night screening" loading="lazy" loading="lazy">
+      <div class="gallery-item" data-cat="events" data-lightbox="assets/events/new/crowd-03.jpg">
+        <img src="assets/events/new/crowd-03.jpg" alt="Crowd enjoying outdoor movie night" loading="lazy">
         <div class="gallery-item-overlay"><div>
           <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-bottom:2px">Events</div>
-          <div style="font-size:0.85rem;font-weight:500">Into the Night</div>
+          <div style="font-size:0.85rem;font-weight:500">Together Under the Sky</div>
         </div></div>
       </div>
 
-      <div class="gallery-item" data-cat="atmosphere" data-lightbox="assets/gallery/pexels-sonya-livshits-113472440-9828248.jpg">
-        <img src="assets/gallery/pexels-sonya-livshits-113472440-9828248.jpg" alt="Sunset setup" loading="lazy" loading="lazy">
-        <div class="gallery-item-overlay"><div>
-          <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-bottom:2px">Setup</div>
-          <div style="font-size:0.85rem;font-weight:500">Golden Hour Ready</div>
-        </div></div>
-      </div>
-
-      <div class="gallery-item" data-cat="events" data-lightbox="assets/events/WhatsApp Image 2026-05-21 at 19.38.19 (1).jpeg">
-        <img src="assets/events/WhatsApp Image 2026-05-21 at 19.38.19 (1).jpeg" alt="Community night event" loading="lazy" loading="lazy">
+      <div class="gallery-item" data-cat="events" data-lightbox="assets/events/new/crowd-04.jpg">
+        <img src="assets/events/new/crowd-04.jpg" alt="Community gathering at outdoor cinema" loading="lazy">
         <div class="gallery-item-overlay"><div>
           <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-bottom:2px">Events</div>
           <div style="font-size:0.85rem;font-weight:500">Community Night</div>
         </div></div>
       </div>
 
-      <div class="gallery-item" data-cat="atmosphere" data-lightbox="assets/gallery/pexels-rukiyeoagaoglu-50613294-17434304.jpg">
-        <img src="assets/gallery/pexels-rukiyeoagaoglu-50613294-17434304.jpg" alt="Outdoor cinema experience" loading="lazy" loading="lazy">
+      <div class="gallery-item" data-cat="events" data-lightbox="assets/events/new/crowd-05.jpg">
+        <img src="assets/events/new/crowd-05.jpg" alt="Packed outdoor screening" loading="lazy">
+        <div class="gallery-item-overlay"><div>
+          <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-bottom:2px">Events</div>
+          <div style="font-size:0.85rem;font-weight:500">Full House</div>
+        </div></div>
+      </div>
+
+      <div class="gallery-item" data-cat="events" data-lightbox="assets/events/new/crowd-06.jpg">
+        <img src="assets/events/new/crowd-06.jpg" alt="Crowd under string lights at OMN" loading="lazy">
+        <div class="gallery-item-overlay"><div>
+          <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-bottom:2px">Events</div>
+          <div style="font-size:0.85rem;font-weight:500">String Light Vibes</div>
+        </div></div>
+      </div>
+
+      <div class="gallery-item" data-cat="events" data-lightbox="assets/events/new/crowd-07.jpg">
+        <img src="assets/events/new/crowd-07.jpg" alt="Large audience at outdoor movie event" loading="lazy">
+        <div class="gallery-item-overlay"><div>
+          <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-bottom:2px">Events</div>
+          <div style="font-size:0.85rem;font-weight:500">One Night, One Screen</div>
+        </div></div>
+      </div>
+
+      <div class="gallery-item" data-cat="events" data-lightbox="assets/events/new/crowd-08.jpg">
+        <img src="assets/events/new/crowd-08.jpg" alt="Crowd at outdoor cinema dusk" loading="lazy">
+        <div class="gallery-item-overlay"><div>
+          <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-bottom:2px">Events</div>
+          <div style="font-size:0.85rem;font-weight:500">Dusk Gathering</div>
+        </div></div>
+      </div>
+
+      <div class="gallery-item" data-cat="events" data-lightbox="assets/events/new/crowd-09.jpg">
+        <img src="assets/events/new/crowd-09.jpg" alt="Big crowd enjoying outdoor movie" loading="lazy">
+        <div class="gallery-item-overlay"><div>
+          <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-bottom:2px">Events</div>
+          <div style="font-size:0.85rem;font-weight:500">The Night Is Alive</div>
+        </div></div>
+      </div>
+
+      <div class="gallery-item" data-cat="events" data-lightbox="assets/events/new/festival-panel.jpg">
+        <img src="assets/events/new/festival-panel.jpg" alt="Festival stage and panel at OMN event" loading="lazy">
+        <div class="gallery-item-overlay"><div>
+          <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-bottom:2px">Events</div>
+          <div style="font-size:0.85rem;font-weight:500">Festival Edition</div>
+        </div></div>
+      </div>
+
+      <div class="gallery-item" data-cat="events" data-lightbox="assets/events/new/school-screening.jpg">
+        <img src="assets/events/new/school-screening.jpg" alt="School community outdoor screening" loading="lazy">
+        <div class="gallery-item-overlay"><div>
+          <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-bottom:2px">Events</div>
+          <div style="font-size:0.85rem;font-weight:500">School Screening</div>
+        </div></div>
+      </div>
+
+      <!-- CORPORATE — brand activations & corporate events -->
+      <div class="gallery-item" data-cat="corporate" data-lightbox="assets/events/new/corporate-01.jpg">
+        <img src="assets/events/new/corporate-01.jpg" alt="Elegant outdoor cinema corporate setup" loading="lazy">
+        <div class="gallery-item-overlay"><div>
+          <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-bottom:2px">Corporate</div>
+          <div style="font-size:0.85rem;font-weight:500">Premium Corporate Experience</div>
+        </div></div>
+      </div>
+
+      <div class="gallery-item" data-cat="corporate" data-lightbox="assets/events/new/corporate-02.jpg">
+        <img src="assets/events/new/corporate-02.jpg" alt="Outdoor cinema corporate brand activation" loading="lazy">
+        <div class="gallery-item-overlay"><div>
+          <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-bottom:2px">Corporate</div>
+          <div style="font-size:0.85rem;font-weight:500">Brand Activation</div>
+        </div></div>
+      </div>
+
+      <div class="gallery-item" data-cat="corporate" data-lightbox="assets/events/new/corporate-03.jpg">
+        <img src="assets/events/new/corporate-03.jpg" alt="Corporate outdoor screening setup" loading="lazy">
+        <div class="gallery-item-overlay"><div>
+          <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-bottom:2px">Corporate</div>
+          <div style="font-size:0.85rem;font-weight:500">Corporate Cinema</div>
+        </div></div>
+      </div>
+
+      <!-- ATMOSPHERE — aerial, setup, people, vibe -->
+      <div class="gallery-item" data-cat="atmosphere" data-lightbox="assets/events/new/drone-01.jpg">
+        <img src="assets/events/new/drone-01.jpg" alt="Aerial drone view of OMN event" loading="lazy">
+        <div class="gallery-item-overlay"><div>
+          <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-bottom:2px">Aerial</div>
+          <div style="font-size:0.85rem;font-weight:500">Bird's Eye View</div>
+        </div></div>
+      </div>
+
+      <div class="gallery-item" data-cat="atmosphere" data-lightbox="assets/events/new/drone-02.jpg">
+        <img src="assets/events/new/drone-02.jpg" alt="Aerial view of outdoor movie night crowd" loading="lazy">
+        <div class="gallery-item-overlay"><div>
+          <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-bottom:2px">Aerial</div>
+          <div style="font-size:0.85rem;font-weight:500">From Above</div>
+        </div></div>
+      </div>
+
+      <div class="gallery-item" data-cat="atmosphere" data-lightbox="assets/events/new/drone-03.jpg">
+        <img src="assets/events/new/drone-03.jpg" alt="Drone aerial of OMN outdoor event" loading="lazy">
+        <div class="gallery-item-overlay"><div>
+          <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-bottom:2px">Aerial</div>
+          <div style="font-size:0.85rem;font-weight:500">Scale of the Night</div>
+        </div></div>
+      </div>
+
+      <div class="gallery-item" data-cat="atmosphere" data-lightbox="assets/events/new/drone-04.jpg">
+        <img src="assets/events/new/drone-04.jpg" alt="Drone shot of outdoor cinema event" loading="lazy">
+        <div class="gallery-item-overlay"><div>
+          <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-bottom:2px">Aerial</div>
+          <div style="font-size:0.85rem;font-weight:500">The Full Picture</div>
+        </div></div>
+      </div>
+
+      <div class="gallery-item" data-cat="atmosphere" data-lightbox="assets/events/new/drone-05.jpg">
+        <img src="assets/events/new/drone-05.jpg" alt="Aerial view of OMN event layout" loading="lazy">
+        <div class="gallery-item-overlay"><div>
+          <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-bottom:2px">Aerial</div>
+          <div style="font-size:0.85rem;font-weight:500">Event Layout</div>
+        </div></div>
+      </div>
+
+      <div class="gallery-item" data-cat="atmosphere" data-lightbox="assets/events/new/beanbag-setup.jpg">
+        <img src="assets/events/new/beanbag-setup.jpg" alt="Bean bag outdoor cinema setup" loading="lazy">
+        <div class="gallery-item-overlay"><div>
+          <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-bottom:2px">Setup</div>
+          <div style="font-size:0.85rem;font-weight:500">Bean Bag Cinema</div>
+        </div></div>
+      </div>
+
+      <div class="gallery-item" data-cat="atmosphere" data-lightbox="assets/events/new/beanbag-night.jpg">
+        <img src="assets/events/new/beanbag-night.jpg" alt="Bean bag cinema at night with glowing screen" loading="lazy">
+        <div class="gallery-item-overlay"><div>
+          <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-bottom:2px">Setup</div>
+          <div style="font-size:0.85rem;font-weight:500">Screen Glow</div>
+        </div></div>
+      </div>
+
+      <div class="gallery-item" data-cat="atmosphere" data-lightbox="assets/events/new/garden-setup-01.jpg">
+        <img src="assets/events/new/garden-setup-01.jpg" alt="Garden outdoor cinema setup" loading="lazy">
+        <div class="gallery-item-overlay"><div>
+          <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-bottom:2px">Setup</div>
+          <div style="font-size:0.85rem;font-weight:500">Garden Cinema</div>
+        </div></div>
+      </div>
+
+      <div class="gallery-item" data-cat="atmosphere" data-lightbox="assets/events/new/garden-setup-02.jpg">
+        <img src="assets/events/new/garden-setup-02.jpg" alt="Garden outdoor cinema with chairs and screen" loading="lazy">
+        <div class="gallery-item-overlay"><div>
+          <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-bottom:2px">Setup</div>
+          <div style="font-size:0.85rem;font-weight:500">Ready for the Film</div>
+        </div></div>
+      </div>
+
+      <div class="gallery-item" data-cat="atmosphere" data-lightbox="assets/events/new/dj-female.jpg">
+        <img src="assets/events/new/dj-female.jpg" alt="DJ performing at Back to the City outdoor event" loading="lazy">
+        <div class="gallery-item-overlay"><div>
+          <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-bottom:2px">Entertainment</div>
+          <div style="font-size:0.85rem;font-weight:500">DJ Set — Back to the City</div>
+        </div></div>
+      </div>
+
+      <div class="gallery-item" data-cat="atmosphere" data-lightbox="assets/events/new/dj-male.jpg">
+        <img src="assets/events/new/dj-male.jpg" alt="DJ at outdoor movie night event" loading="lazy">
+        <div class="gallery-item-overlay"><div>
+          <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-bottom:2px">Entertainment</div>
+          <div style="font-size:0.85rem;font-weight:500">Setting the Tone</div>
+        </div></div>
+      </div>
+
+      <div class="gallery-item" data-cat="atmosphere" data-lightbox="assets/events/new/food-vendor.jpg">
+        <img src="assets/events/new/food-vendor.jpg" alt="Food vendor at outdoor movie night" loading="lazy">
         <div class="gallery-item-overlay"><div>
           <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-bottom:2px">Experience</div>
-          <div style="font-size:0.85rem;font-weight:500">Shared Moments</div>
+          <div style="font-size:0.85rem;font-weight:500">Food & Drinks</div>
+        </div></div>
+      </div>
+
+      <div class="gallery-item" data-cat="atmosphere" data-lightbox="assets/events/new/red-dresses.jpg">
+        <img src="assets/events/new/red-dresses.jpg" alt="Attendees in red dresses at OMN event" loading="lazy">
+        <div class="gallery-item-overlay"><div>
+          <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-bottom:2px">People</div>
+          <div style="font-size:0.85rem;font-weight:500">Dressed for the Night</div>
+        </div></div>
+      </div>
+
+      <div class="gallery-item" data-cat="atmosphere" data-lightbox="assets/events/new/attendee-01.jpg">
+        <img src="assets/events/new/attendee-01.jpg" alt="Friends enjoying outdoor movie night" loading="lazy">
+        <div class="gallery-item-overlay"><div>
+          <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-bottom:2px">People</div>
+          <div style="font-size:0.85rem;font-weight:500">Good Company</div>
+        </div></div>
+      </div>
+
+      <div class="gallery-item" data-cat="atmosphere" data-lightbox="assets/events/new/attendee-02.jpg">
+        <img src="assets/events/new/attendee-02.jpg" alt="Attendees at outdoor cinema" loading="lazy">
+        <div class="gallery-item-overlay"><div>
+          <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-bottom:2px">People</div>
+          <div style="font-size:0.85rem;font-weight:500">Moments That Matter</div>
+        </div></div>
+      </div>
+
+      <div class="gallery-item" data-cat="atmosphere" data-lightbox="assets/events/new/attendee-03.jpg">
+        <img src="assets/events/new/attendee-03.jpg" alt="Group enjoying outdoor movie under stars" loading="lazy">
+        <div class="gallery-item-overlay"><div>
+          <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-bottom:2px">People</div>
+          <div style="font-size:0.85rem;font-weight:500">Under the Stars Together</div>
+        </div></div>
+      </div>
+
+      <div class="gallery-item" data-cat="atmosphere" data-lightbox="assets/events/new/attendee-04.jpg">
+        <img src="assets/events/new/attendee-04.jpg" alt="Smiling attendees at OMN event" loading="lazy">
+        <div class="gallery-item-overlay"><div>
+          <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-bottom:2px">People</div>
+          <div style="font-size:0.85rem;font-weight:500">Pure Joy</div>
+        </div></div>
+      </div>
+
+      <div class="gallery-item" data-cat="atmosphere" data-lightbox="assets/events/new/attendee-05.jpg">
+        <img src="assets/events/new/attendee-05.jpg" alt="Guests at outdoor movie night" loading="lazy">
+        <div class="gallery-item-overlay"><div>
+          <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-bottom:2px">People</div>
+          <div style="font-size:0.85rem;font-weight:500">The Real Stars</div>
+        </div></div>
+      </div>
+
+      <div class="gallery-item" data-cat="atmosphere" data-lightbox="assets/events/new/attendee-06.jpg">
+        <img src="assets/events/new/attendee-06.jpg" alt="Attendees enjoying the outdoor cinema experience" loading="lazy">
+        <div class="gallery-item-overlay"><div>
+          <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-bottom:2px">People</div>
+          <div style="font-size:0.85rem;font-weight:500">Living the Night</div>
         </div></div>
       </div>
 
