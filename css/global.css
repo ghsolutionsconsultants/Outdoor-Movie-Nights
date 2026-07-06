@@ -194,11 +194,16 @@ input, select, textarea { color: inherit; font-family: inherit; }
 }
 
 .label {
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.18em;
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--c-amber);
+  background: rgba(245,166,35,0.1);
+  border: 1px solid rgba(245,166,35,0.3);
+  border-radius: var(--r-full);
+  padding: 5px 16px;
 }
 
 .body-lg { font-size: clamp(1rem, 1.5vw, 1.2rem); line-height: 1.7; }
@@ -355,12 +360,25 @@ input, select, textarea { color: inherit; font-family: inherit; }
 
 /* ── Dividers ── */
 .divider {
-  width: 60px;
-  height: 2px;
-  background: linear-gradient(90deg, var(--c-red), var(--c-amber));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
   margin: 20px auto;
+}
+.divider::before,
+.divider::after {
+  content: '';
+  display: block;
+  width: 48px;
+  height: 1.5px;
+  background: linear-gradient(90deg, transparent, var(--c-red));
   border-radius: 2px;
 }
+.divider::after {
+  background: linear-gradient(90deg, var(--c-amber), transparent);
+}
+.divider::before { transform: rotate(180deg); }
 
 /* ── Scroll Reveal ── */
 .reveal {

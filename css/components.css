@@ -253,9 +253,12 @@
   font-family: var(--font-display);
   font-size: clamp(1.5rem, 3vw, 2.2rem);
   font-weight: 700;
-  color: var(--c-white);
   line-height: 1;
   margin-bottom: 6px;
+  background: linear-gradient(135deg, var(--c-white) 20%, var(--c-amber) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .stat-label {
@@ -279,6 +282,14 @@
   flex-direction: column;
   gap: 16px;
   min-height: 280px;
+  border-top: 2px solid transparent;
+  transition: border-color 0.3s ease, transform var(--t-mid) var(--ease-glass),
+              border-color var(--t-mid) var(--ease-smooth),
+              box-shadow var(--t-mid) var(--ease-smooth);
+}
+
+.service-card:hover {
+  border-top-color: var(--c-red);
 }
 
 .service-icon {
@@ -723,12 +734,65 @@ select.form-control {
 .radio-option .radio-label { font-size: 0.9rem; font-weight: 500; }
 .radio-option .radio-desc  { font-size: 0.8rem; color: var(--c-muted); margin-top: 2px; }
 
+/* ── Partner Cards ── */
+.partner-grid {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.partner-card {
+  width: 180px;
+  height: 110px;
+  border-radius: var(--r-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 18px;
+  overflow: hidden;
+  box-shadow: 0 6px 24px rgba(0,0,0,0.35);
+  transition: transform 0.25s var(--ease-glass), box-shadow 0.25s ease;
+  flex-shrink: 0;
+}
+
+.partner-card:hover {
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 16px 48px rgba(0,0,0,0.5);
+}
+
+.partner-logo {
+  max-width: 100%;
+  max-height: 70px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+@media (max-width: 600px) {
+  .partner-card { width: 140px; height: 88px; padding: 14px; }
+  .partner-logo { max-height: 54px; }
+}
+
 /* ── Footer ── */
 footer {
-  border-top: 1px solid var(--glass-border);
+  border-top: 1px solid transparent;
   padding: 56px 0 32px;
   background: var(--c-void);
   position: relative;
+}
+
+footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, var(--c-red) 25%, var(--c-amber) 50%, var(--c-red) 75%, transparent 100%);
+  opacity: 0.7;
 }
 
 .footer-grid {
