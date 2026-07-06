@@ -93,6 +93,7 @@
 
       let inner = `<span class="day-num">${d}</span>`;
       if (ev) inner += `<span class="event-dot ${ev.status}"></span>`;
+      if (ev && ev.poster) inner += `<img src="${ev.poster}" alt="" style="width:100%;border-radius:4px;object-fit:cover;object-position:top;height:52px;margin-top:4px;display:block">`;
 
       const onclick = ev ? `onclick="showEventDetail('${dateStr}')"` : '';
       html += `<div class="${cls}" ${onclick}>${inner}</div>`;
