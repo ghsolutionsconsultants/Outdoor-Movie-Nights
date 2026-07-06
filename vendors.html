@@ -15,9 +15,14 @@
   <link rel="stylesheet" href="css/animations.css">
   <link rel="stylesheet" href="css/components.css">
   <style>
-    .track-tabs { display:flex; gap:0; background:var(--glass-bg); border:1px solid var(--glass-border); border-radius:var(--r-full); padding:4px; width:fit-content; margin:0 auto 36px; }
-    .track-tab { padding:12px 32px; border-radius:var(--r-full); font-size:0.9rem; font-weight:600; cursor:pointer; transition:all 0.3s ease; border:none; background:none; color:var(--c-muted); }
+    .track-tabs { display:flex; gap:0; background:var(--glass-bg); border:1px solid var(--glass-border); border-radius:var(--r-full); padding:4px; width:fit-content; max-width:100%; margin:0 auto 36px; }
+    .track-tab { padding:12px 32px; border-radius:var(--r-full); font-size:0.9rem; font-weight:600; cursor:pointer; transition:all 0.3s ease; border:none; background:none; color:var(--c-muted); white-space:nowrap; }
     .track-tab.active { background:var(--c-red); color:#fff; box-shadow:0 4px 20px var(--c-red-glow); }
+    @media(max-width:600px){
+      .track-tabs { width:100%; border-radius:var(--r-lg); flex-direction:column; padding:4px; }
+      .track-tab { padding:12px 16px; font-size:0.85rem; text-align:left; border-radius:var(--r-md); }
+      .track-tab.active { border-radius:var(--r-md); }
+    }
     .track-panel { display:none; animation:page-enter 0.4s ease; }
     .track-panel.active { display:block; }
 

@@ -18,6 +18,17 @@
   <link rel="stylesheet" href="css/global.css">
   <link rel="stylesheet" href="css/animations.css">
   <link rel="stylesheet" href="css/components.css">
+  <style>
+    .event-poster-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+    .countdown-strip { display:inline-flex; gap:12px; align-items:flex-end; }
+    @media(max-width:768px){
+      .event-poster-grid { grid-template-columns:1fr; gap:20px; }
+      .countdown-strip { gap:8px; }
+    }
+    @media(max-width:480px){
+      .footer-social { flex-wrap:wrap !important; }
+    }
+  </style>
 </head>
 <body class="grain">
 
@@ -148,7 +159,7 @@
     <!-- Countdown to next event -->
     <div class="reveal" style="text-align:center;margin-bottom:28px">
       <div style="font-size:0.72rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--c-muted);margin-bottom:12px">Next event in</div>
-      <div style="display:inline-flex;gap:12px;align-items:flex-end" id="event-countdown">
+      <div class="countdown-strip" id="event-countdown">
         <div class="glass" style="padding:14px 18px;min-width:72px;text-align:center;border-radius:var(--r-md)">
           <div style="font-family:var(--font-display);font-size:2rem;font-weight:700;color:var(--c-white);line-height:1" id="cd-days">—</div>
           <div style="font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--c-muted);margin-top:4px">Days</div>
@@ -169,7 +180,7 @@
     </div>
 
     <!-- Event poster cards -->
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px">
+    <div class="event-poster-grid">
 
       <!-- Oct 2026 — full poster -->
       <div class="reveal" style="display:flex;flex-direction:column;gap:12px">

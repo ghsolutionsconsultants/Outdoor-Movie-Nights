@@ -420,6 +420,7 @@ input, select, textarea { color: inherit; font-family: inherit; }
 }
 
 @media (max-width: 768px) {
+  :root { --nav-h: 72px; }
   .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
   .section-header { margin-bottom: clamp(20px, 4vw, 36px); }
 }

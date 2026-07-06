@@ -42,6 +42,10 @@
   width: auto;
 }
 
+@media (max-width: 768px) {
+  .nav-logo img { height: 54px; }
+}
+
 /* ── SVG Icon utility ── */
 .icon {
   display: inline-flex;
@@ -282,14 +286,13 @@
   flex-direction: column;
   gap: 16px;
   min-height: 280px;
-  border-top: 2px solid transparent;
-  transition: border-color 0.3s ease, transform var(--t-mid) var(--ease-glass),
-              border-color var(--t-mid) var(--ease-smooth),
-              box-shadow var(--t-mid) var(--ease-smooth);
 }
 
-.service-card:hover {
-  border-top-color: var(--c-red);
+@media (hover: hover) {
+  .service-card:hover {
+    border-top-color: var(--c-red) !important;
+    border-top-width: 2px !important;
+  }
 }
 
 .service-icon {
