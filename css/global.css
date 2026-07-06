@@ -39,7 +39,7 @@
 
   /* Spacing */
   --nav-h: 100px;
-  --section-pad: clamp(80px, 10vw, 140px);
+  --section-pad: clamp(52px, 7vw, 96px);
 
   /* Radii */
   --r-sm:  12px;
@@ -294,7 +294,7 @@ input, select, textarea { color: inherit; font-family: inherit; }
 }
 
 .section { padding: var(--section-pad) 0; }
-.section-sm { padding: clamp(48px, 6vw, 80px) 0; }
+.section-sm { padding: clamp(32px, 4vw, 56px) 0; }
 
 .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
 .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
@@ -349,7 +349,7 @@ input, select, textarea { color: inherit; font-family: inherit; }
 }
 
 /* ── Section Headers ── */
-.section-header { text-align: center; margin-bottom: clamp(48px, 6vw, 80px); }
+.section-header { text-align: center; margin-bottom: clamp(28px, 4vw, 48px); }
 .section-header .label { margin-bottom: 16px; }
 .section-header p { max-width: 600px; margin: 16px auto 0; color: var(--c-muted); }
 
@@ -403,6 +403,7 @@ input, select, textarea { color: inherit; font-family: inherit; }
 
 @media (max-width: 768px) {
   .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+  .section-header { margin-bottom: clamp(20px, 4vw, 36px); }
 }
 
 /* ── Mobile Performance: disable expensive GPU effects ── */

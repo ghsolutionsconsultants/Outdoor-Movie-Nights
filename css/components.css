@@ -220,7 +220,7 @@
 /* ── Page Hero (inner pages) ── */
 .page-hero {
   position: relative;
-  padding: calc(var(--nav-h) + 80px) 0 80px;
+  padding: calc(var(--nav-h) + 56px) 0 56px;
   overflow: hidden;
   text-align: center;
 }
@@ -235,7 +235,7 @@
   background: var(--glass-border);
   border-radius: var(--r-lg);
   overflow: hidden;
-  margin: 60px 0;
+  margin: 0;
 }
 
 .stat-item {
@@ -726,7 +726,7 @@ select.form-control {
 /* ── Footer ── */
 footer {
   border-top: 1px solid var(--glass-border);
-  padding: 80px 0 40px;
+  padding: 56px 0 32px;
   background: var(--c-void);
   position: relative;
 }
@@ -1201,10 +1201,10 @@ img, video, canvas { max-width: 100%; }
 /* Mobile — 768px and below */
 @media (max-width: 768px) {
   /* Base spacing */
-  :root { --section-pad: clamp(40px, 8vw, 80px); }
+  :root { --section-pad: clamp(40px, 8vw, 64px); }
   .container, .container-wide { padding: 0 16px; }
-  .section { padding: clamp(40px, 8vw, 80px) 0; }
-  .section-sm { padding: clamp(32px, 6vw, 56px) 0; }
+  .section { padding: clamp(40px, 8vw, 64px) 0; }
+  .section-sm { padding: clamp(28px, 5vw, 44px) 0; }
 
   /* Hero */
   .hero { padding: calc(var(--nav-h) + 24px) 16px 48px; }
@@ -1218,7 +1218,7 @@ img, video, canvas { max-width: 100%; }
   .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
 
   /* Stats strip — 2 columns */
-  .stats-strip { grid-template-columns: repeat(2, 1fr); margin: 32px 0; }
+  .stats-strip { grid-template-columns: repeat(2, 1fr); margin: 0; }
   .stat-item { padding: 20px 12px; }
   .stat-value { font-size: clamp(1.2rem, 5vw, 1.8rem); }
 
@@ -1238,7 +1238,7 @@ img, video, canvas { max-width: 100%; }
   .portfolio-case { grid-template-columns: 1fr !important; }
 
   /* Section headers */
-  .section-header { margin-bottom: clamp(32px, 5vw, 56px); }
+  .section-header { margin-bottom: clamp(20px, 4vw, 36px); }
 
   /* Back to top — tighter on mobile */
   #back-to-top { width: 42px; height: 42px; bottom: 20px; right: 16px; }
@@ -1504,8 +1504,8 @@ img, video, canvas { max-width: 100%; }
   [style*="gap:32px 48px"] { gap: 20px 24px !important; }
 
   /* Section padding */
-  .section { padding: clamp(48px, 10vw, 80px) 0; }
-  .section-sm { padding: clamp(32px, 7vw, 56px) 0; }
+  .section { padding: clamp(36px, 8vw, 56px) 0; }
+  .section-sm { padding: clamp(24px, 6vw, 40px) 0; }
 
   /* Disable starfield on mobile for perf */
   #starfield-canvas { display: none; }

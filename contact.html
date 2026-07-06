@@ -17,6 +17,8 @@
     .contact-info-item { display:flex; align-items:flex-start; gap:16px; padding:20px 0; border-bottom:1px solid var(--glass-border); }
     .contact-info-item:last-child { border-bottom:none; }
     .contact-icon { width:44px; height:44px; border-radius:var(--r-md); background:rgba(232,0,28,0.1); border:1px solid rgba(232,0,28,0.2); display:flex; align-items:center; justify-content:center; font-size:1.2rem; flex-shrink:0; }
+    .name-row { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+    @media(max-width:600px){ .name-row { grid-template-columns:1fr; gap:0; } }
   </style>
 </head>
 <body class="grain">
@@ -50,7 +52,7 @@
 </div>
 
 <!-- Hero -->
-<section class="page-hero" style="padding-bottom:80px">
+<section class="page-hero">
   <div class="aurora"><div class="aurora-orb"></div><div class="aurora-orb"></div><div class="aurora-orb"></div></div>
   <div class="container page-wrapper" style="text-align:center">
     <div class="label" style="margin-bottom:16px">Get in Touch</div>
@@ -137,7 +139,7 @@
         <p style="font-size:0.875rem;color:var(--c-muted);margin-bottom:36px">Tell us what you're looking for and we'll come back with ideas and a proposal.</p>
 
         <form action="https://formspree.io/f/xpqgajvn" method="POST">
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+          <div class="name-row">
             <div class="form-group">
               <label>First Name *</label>
               <input type="text" class="form-control" name="first_name" placeholder="Your first name" required>
