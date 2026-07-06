@@ -1451,3 +1451,62 @@ img, video, canvas { max-width: 100%; }
   }
   .poster-day { font-size: 5rem; }
 }
+
+/* ── Mobile optimisations ── */
+@media (max-width: 480px) {
+  /* Hero text */
+  .display-xl { font-size: clamp(2.4rem, 13vw, 4rem); }
+  .display-lg { font-size: clamp(2rem, 10vw, 3rem); }
+  .display-md { font-size: clamp(1.6rem, 8vw, 2.4rem); }
+
+  /* Reduce hero padding */
+  .hero-content { padding: 0 16px; }
+
+  /* Stat strip: 2 columns on phone */
+  .stats-strip { grid-template-columns: repeat(2, 1fr) !important; gap: 12px !important; }
+
+  /* Service cards: 1 column */
+  .grid-4 { grid-template-columns: 1fr !important; gap: 16px !important; }
+  .grid-3 { grid-template-columns: 1fr !important; gap: 16px !important; }
+
+  /* Screening posters: full width */
+  .screening-poster { min-height: 280px; }
+
+  /* Portfolio case alternating layout: always LTR on mobile */
+  .portfolio-case { direction: ltr !important; }
+  .portfolio-case .case-img-wrap { width: 100% !important; }
+  .portfolio-case .glass-card.case-info { width: 100% !important; }
+
+  /* Calendar: smaller cells */
+  .calendar-day { padding: 8px 4px; min-height: 52px; }
+  .day-num { font-size: 0.75rem; width: 22px; height: 22px; }
+
+  /* Event list cards: stack vertically */
+  .event-list-card { grid-template-columns: 1fr !important; }
+
+  /* Buttons: full width on small screens */
+  .btn { padding: 13px 18px; font-size: 0.82rem; }
+
+  /* Testimonials */
+  .testimonial-card { padding: 24px 20px; }
+
+  /* CTA section */
+  .footer-grid { grid-template-columns: 1fr !important; gap: 32px; }
+
+  /* Countdown units */
+  #event-countdown { gap: 6px; }
+  #event-countdown .glass { min-width: 56px; padding: 10px 12px; }
+
+  /* Marquee images taller on mobile */
+  .marquee-img { height: 180px; }
+
+  /* Partner strip: wrap tighter */
+  [style*="gap:32px 48px"] { gap: 20px 24px !important; }
+
+  /* Section padding */
+  .section { padding: clamp(48px, 10vw, 80px) 0; }
+  .section-sm { padding: clamp(32px, 7vw, 56px) 0; }
+
+  /* Disable starfield on mobile for perf */
+  #starfield-canvas { display: none; }
+}
