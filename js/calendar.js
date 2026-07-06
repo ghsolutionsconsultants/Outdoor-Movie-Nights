@@ -5,10 +5,12 @@
       date: '2026-10-17',
       name: 'Outdoor Movie Night',
       type: 'cinema',
-      status: 'planning',
+      status: 'confirmed',
       venue: 'Johannesburg',
-      details: 'Details to be confirmed. Stay tuned for movie title, exact venue, and ticketing information.',
-      icon: '🎬'
+      details: 'An unmissable outdoor cinema experience under the Johannesburg night sky. Grab your tickets now via Webtickets.',
+      icon: '🎬',
+      poster: 'assets/posters/poster-2026-oct.jpg',
+      ticketUrl: 'https://www.webtickets.co.za/v2/event.aspx?itemid=1598558591'
     },
     {
       date: '2026-12-19',
@@ -119,12 +121,19 @@
       ? `<span class="badge badge-confirmed">Confirmed</span>`
       : `<span class="badge badge-planning">In Planning</span>`;
 
+    const ticketHref = ev.ticketUrl || `contact.html?event=${encodeURIComponent(ev.name)}`;
+    const ticketTarget = ev.ticketUrl ? 'target="_blank" rel="noopener"' : '';
     const ctaBtn = ev.status === 'confirmed'
-      ? `<a href="contact.html" class="btn btn-primary" style="width:100%;justify-content:center">🎟️ Book Tickets</a>`
-      : `<a href="contact.html?event=${encodeURIComponent(ev.name)}" class="btn btn-amber" style="width:100%;justify-content:center">🔔 Notify Me</a>`;
+      ? `<a href="${ticketHref}" class="btn btn-primary" ${ticketTarget} style="width:100%;justify-content:center">🎟️ Get Tickets</a>`
+      : `<a href="${ticketHref}" class="btn btn-amber" style="width:100%;justify-content:center">🔔 Notify Me</a>`;
+
+    const posterImg = ev.poster
+      ? `<img src="${ev.poster}" alt="${ev.name}" style="width:100%;border-radius:var(--r-md);object-fit:cover;object-position:top;max-height:200px;margin-bottom:20px">`
+      : '';
 
     panel.innerHTML = `
-      <div style="display:flex;align-items:center;gap:10px;margin-bottom:24px">
+      ${posterImg}
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px">
         <span style="font-size:2rem">${ev.icon}</span>
         <div>
           <div style="font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--c-muted);margin-bottom:4px">${ev.type}</div>
