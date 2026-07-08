@@ -923,6 +923,19 @@ footer::before {
   color: var(--c-muted);
 }
 
+.nuuhaven-credit {
+  color: #dfff00;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-shadow: 0 0 12px rgba(223,255,0,0.4);
+  transition: text-shadow 0.2s ease, opacity 0.2s ease;
+}
+
+.nuuhaven-credit:hover {
+  text-shadow: 0 0 24px rgba(223,255,0,0.7);
+  opacity: 0.9;
+}
+
 @media (max-width: 900px) {
   .footer-grid { grid-template-columns: 1fr 1fr; }
   .footer-brand { grid-column: 1 / -1; }
